@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="World Bank WDI 실데이터를 Python과 STATA로 분석하는 데이터 고급 통계 분석 실무 활용 과정" />
+    <title>데이터 고급 통계 분석 실무 활용 · AI 학습 아카이브</title>
+    <link rel="stylesheet" href="../../course.css" />
+  </head>
+  <body>
+    <header class="course-header">
+      <a class="back-link" href="../../" target="_top"><span aria-hidden="true">←</span> Learning archive</a>
+      <a class="header-repo" href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer">Source repository ↗</a>
+    </header>
+
+    <main>
+      <section class="course-hero" data-number="03">
+        <div>
+          <p class="course-kicker">2026 · ODA DATA · ADVANCED STATISTICS</p>
+          <h1>데이터 고급 통계<br />분석 실무 활용</h1>
+        </div>
+        <div class="course-intro">
+          <p>AI로 통계 분석의 난이도를 낮추되, 결과의 타당성은 사람이 검증합니다. World Bank WDI 실데이터를 Python과 STATA 양쪽에서 분석하고 폐쇄망 업무까지 연결합니다.</p>
+          <div class="hero-actions">
+            <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" target="_blank" rel="noreferrer">슬라이드 모드 <span aria-hidden="true">↗</span></a>
+            <a href="https://amnotyoung.github.io/oda-ai-stats/slides/lecture-deck.pdf">PDF 받기 <span aria-hidden="true">↓</span></a>
+            <a href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer">저장소 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stat-band" aria-label="과정 정보">
+        <div><span>구성</span><strong>5개 실습 모듈</strong></div>
+        <div><span>발표자료</span><strong>43 slides</strong></div>
+        <div><span>분석 도구</span><strong>Python + STATA</strong></div>
+        <div><span>데이터</span><strong>World Bank WDI</strong></div>
+      </section>
+
+      <div class="course-layout">
+        <nav class="course-nav" aria-label="과정 목차">
+          <p>COURSE INDEX</p>
+          <ol>
+            <li><a href="#module-1"><span>01</span>두 도구와 두 환경</a></li>
+            <li><a href="#module-2"><span>02</span>WDI 불러오기·정제</a></li>
+            <li><a href="#module-3"><span>03</span>핵심 통계 분석</a></li>
+            <li><a href="#module-4"><span>04</span>인과추론과 머신러닝</a></li>
+            <li><a href="#module-5"><span>05</span>인간의 검증력</a></li>
+          </ol>
+        </nav>
+
+        <article class="reading">
+          <div class="reading-intro">
+            <p>회귀·교차표·패널 분석을 직접 실행합니다. 문법을 외우기보다 AI와 분석을 설계하고, 같은 결과를 두 도구에서 대조하며, 사람이 반드시 확인해야 할 지점을 배웁니다.</p>
+          </div>
+
+          <section class="chapter" id="module-1">
+            <div class="chapter-heading"><span class="chapter-number">01</span><div><p class="chapter-label">TOOLS & ENVIRONMENTS</p><h2>Python과 STATA,<br />두 환경을 연결한다</h2></div></div>
+            <div class="chapter-body">
+              <p>외부망에서는 AI와 Python(Colab)을 이용해 빠르게 배우고 실험합니다. 실제 폐쇄망 업무에서는 인터넷과 AI 없이 실행 가능한 STATA 코드를 사용합니다. 도구의 우열보다 환경과 작업에 맞는 선택이 출발점입니다.</p>
+              <ul class="takeaways">
+                <li><strong>외부망 · 학습</strong><span>AI와 Colab으로 분석 아이디어를 시험하고 코드를 설명받습니다.</span></li>
+                <li><strong>폐쇄망 · 적용</strong><span>검토한 STATA .do 파일과 데이터를 반입해 오프라인으로 재현합니다.</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="chapter" id="module-2">
+            <div class="chapter-heading"><span class="chapter-number">02</span><div><p class="chapter-label">LOAD & CLEAN</p><h2>WDI 실데이터를 불러오고 정제한다</h2></div></div>
+            <div class="chapter-body">
+              <p>World Bank 공식 API에서 수집한 2000~2022년 국가×연도 패널을 사용합니다. 결측값, 이상값, 지역·소득그룹과 같은 범주형 정보를 확인하고 분석 가능한 구조로 바꿉니다.</p>
+              <ul class="takeaways">
+                <li><strong>진짜 데이터</strong><span>GDP, 기대수명, 아동사망률, 인구, 취학률에서 현실의 불완전성을 만납니다.</span></li>
+                <li><strong>양쪽으로 재현</strong><span>같은 정제 과정을 Python 노트북과 STATA 코드에서 비교합니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>핵심 질문</strong> — 분석 결과가 이상할 때 모델보다 먼저 데이터의 단위·결측·범위를 확인했는가?</div>
+            </div>
+          </section>
+
+          <section class="chapter" id="module-3">
+            <div class="chapter-heading"><span class="chapter-number">03</span><div><p class="chapter-label">CORE ANALYSIS</p><h2>교차표·검정·회귀를<br />같은 데이터로 비교한다</h2></div></div>
+            <div class="chapter-body">
+              <p>지역×소득그룹 교차표로 분포를 읽고, t검정과 ANOVA로 집단 차이를 살펴봅니다. GDP와 기대수명의 Preston 곡선을 통해 로그변환과 회귀 설계를 배우고 유의성과 실질적 의미를 구분합니다.</p>
+              <ul class="takeaways">
+                <li><strong>질문에 맞는 분석</strong><span>분포, 집단 차이, 변수 관계에 따라 서로 다른 통계 도구를 선택합니다.</span></li>
+                <li><strong>숫자는 같다</strong><span>Python과 STATA의 출력 모양은 달라도 같은 모형의 핵심 결과는 일치해야 합니다.</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="chapter" id="module-4">
+            <div class="chapter-heading"><span class="chapter-number">04</span><div><p class="chapter-label">CAUSAL & MACHINE LEARNING</p><h2>고정효과로 통제하고<br />머신러닝으로 확장한다</h2></div></div>
+            <div class="chapter-body">
+              <p>단순 관계를 인과효과로 해석할 때 생기는 식별 문제를 확인합니다. 국가와 연도 고정효과를 단계적으로 더하면서 계수가 어떻게 변하는지 살펴보고, Python에서는 API 실시간 수집과 머신러닝 영역까지 확장합니다.</p>
+              <ul class="takeaways">
+                <li><strong>이원 고정효과</strong><span>관찰되지 않는 국가 특성과 공통 연도 충격을 통제해 답이 바뀌는 과정을 봅니다.</span></li>
+                <li><strong>도구의 강점</strong><span>STATA는 검증된 통계 흐름에, Python은 수집·자동화·머신러닝 확장에 강점을 가집니다.</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="chapter" id="module-5">
+            <div class="chapter-heading"><span class="chapter-number">05</span><div><p class="chapter-label">HUMAN VERIFICATION</p><h2>AI가 낮춘 난이도를<br />사람의 검증력으로 보완한다</h2></div></div>
+            <div class="chapter-body">
+              <p>AI가 코드를 빠르게 만들수록 잘못된 분석도 빠르게 완성될 수 있습니다. 시각화로 이상을 찾고, 도메인 지식으로 맥락을 점검하며, 동료 회람을 통해 혼자 놓친 가정을 드러냅니다.</p>
+              <ul class="takeaways">
+                <li><strong>시각화</strong><span>분포·이상치·비선형 관계를 그려 숫자표가 숨기는 패턴을 확인합니다.</span></li>
+                <li><strong>도메인과 회람</strong><span>현장 맥락과 동료 검토를 통해 통계적으로 그럴듯한 오류를 걸러냅니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>과정의 원칙</strong> — AI로 분석의 진입장벽은 낮추되, 해석과 의사결정의 책임은 사람에게 남깁니다.</div>
+            </div>
+          </section>
+        </article>
+      </div>
+
+      <section class="resource-section" aria-labelledby="stats-resources-title">
+        <div><p class="course-kicker">DATA, CODE & PRACTICE</p><h2 id="stats-resources-title">같은 분석을<br />직접 재현합니다</h2></div>
+        <div class="resource-list">
+          <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" target="_blank" rel="noreferrer"><span>43장 인터랙티브 슬라이드</span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/amnotyoung/oda-ai-stats/raw/main/stata-practice.zip"><span>STATA 오프라인 실습 패키지</span><span aria-hidden="true">↓</span></a>
+          <a href="https://colab.research.google.com/github/amnotyoung/oda-ai-stats/blob/main/notebooks/01_load_clean.ipynb" target="_blank" rel="noreferrer"><span>Colab 실습 시작하기</span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/amnotyoung/oda-ai-stats/blob/main/handouts/verification_checklist.md" target="_blank" rel="noreferrer"><span>인간의 검증력 체크리스트</span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer"><span>전체 데이터·코드·노트북</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="course-footer"><span>데이터 고급 통계 분석 실무 활용</span><a href="../../" target="_top">전체 강의로 돌아가기 ↑</a></footer>
+  </body>
+</html>

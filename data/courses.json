@@ -40,5 +40,26 @@
     ],
     "url": "courses/lunch-camp/",
     "repository": "https://github.com/amnotyoung/lunch-time-claude-camp"
+  },
+  {
+    "id": "oda-ai-stats",
+    "number": "03",
+    "accent": "orange",
+    "type": "통계 실무",
+    "year": "2026 · ODA DATA",
+    "title": "데이터 고급 통계 분석 실무 활용",
+    "description": "World Bank WDI 실데이터를 Python과 STATA로 분석하며 회귀, 패널 고정효과, 머신러닝과 인간의 검증력을 함께 익히는 실습 과정입니다.",
+    "audience": "ODA 데이터를 분석하고 결과를 검증해야 하는 실무자",
+    "tags": ["ODA 데이터", "Python", "STATA", "인과추론"],
+    "filters": ["work", "data", "stats"],
+    "modules": 5,
+    "slides": 43,
+    "stats": [
+      { "value": "5", "label": "modules" },
+      { "value": "43", "label": "slides" },
+      { "value": "WDI", "label": "real data" }
+    ],
+    "url": "courses/oda-ai-stats/",
+    "repository": "https://github.com/amnotyoung/oda-ai-stats"
   }
 ]
