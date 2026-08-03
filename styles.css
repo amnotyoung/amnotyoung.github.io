@@ -419,6 +419,13 @@ main { overflow: hidden; }
   font-weight: 720;
   letter-spacing: .04em;
 }
+.site-footer .footer-contact {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color .2s ease;
+}
+.site-footer .footer-contact:hover { color: #fff; }
 
 .viewer {
   width: 100vw;
