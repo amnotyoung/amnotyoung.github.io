@@ -1,10 +1,15 @@
-# 일하는 사람을 위한 AI 학습 아카이브
+# amnotyoung Public Index
 
-AI를 실제 업무에 연결하는 강의, 실습자료, 발표자료를 한곳에서 살펴보는 공개 아카이브입니다.
+공개 강의와 개발협력·해외조달 프로젝트를 목적별로 연결하는 사이트 대문입니다.
 
-사이트: <https://amnotyoung.github.io/courses/>
+사이트: <https://amnotyoung.github.io/>
 
-## 강의 추가하기
+## 카테고리
+
+- AI·데이터 교육: <https://amnotyoung.github.io/courses/>
+- 개발협력·해외조달: <https://amnotyoung.github.io/development-cooperation/>
+
+## AI·데이터 교육 과정 추가하기
 
 새 강의는 `data/courses.json`에 항목을 추가하면 강의 아카이브 첫 화면에 자동으로 나타납니다.
 
