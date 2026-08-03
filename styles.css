@@ -291,6 +291,7 @@ main { overflow: hidden; }
 }
 .course-card[data-accent="acid"] { --accent: #8ba900; background: #f1f5dd; }
 .course-card[data-accent="orange"] { --accent: var(--orange); background: #f7e9e1; }
+.course-card[data-accent="teal"] { --accent: #0e7c7b; background: #e4f1ed; }
 .course-top { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 20px; }
 .course-type {
   display: inline-flex;
