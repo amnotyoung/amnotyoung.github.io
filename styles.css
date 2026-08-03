@@ -263,6 +263,28 @@ main { overflow: hidden; }
   cursor: pointer;
 }
 .filter:hover, .filter.active { border-color: var(--ink); background: var(--ink); color: #fff; }
+.catalog-feedback {
+  min-height: 28px;
+  margin: -12px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.catalog-feedback p { margin: 0; }
+.search-reset {
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.search-reset:hover { color: var(--blue); }
 .course-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .course-card {
   --accent: var(--blue);
@@ -488,6 +510,7 @@ main { overflow: hidden; }
   .section-heading { grid-template-columns: 1fr; }
   .catalog-tools { align-items: stretch; flex-direction: column; }
   .search-box { min-width: 0; width: 100%; }
+  .catalog-feedback { align-items: flex-start; flex-direction: column; gap: 8px; }
   .filters { justify-content: flex-start; }
   .about { grid-template-columns: 1fr; gap: 50px; }
 }

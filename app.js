@@ -1,6 +1,8 @@
 const grid = document.querySelector("#course-grid");
 const searchInput = document.querySelector("#course-search");
 const filterGroup = document.querySelector("#course-filters");
+const searchStatus = document.querySelector("#search-status");
+const searchReset = document.querySelector("#search-reset");
 const emptyState = document.querySelector("#empty-state");
 const viewer = document.querySelector("#course-viewer");
 const viewerFrame = document.querySelector("#viewer-frame");
@@ -10,6 +12,72 @@ const viewerExternal = document.querySelector("#viewer-external");
 
 let courses = [];
 let activeFilter = "all";
+let courseSearchIndexes = new Map();
+let isComposing = false;
+
+const filterLabels = {
+  all: "전체",
+  work: "업무 활용",
+  claude: "Claude Code",
+  data: "데이터",
+  stats: "통계 분석",
+};
+
+const searchAliases = [
+  ["생성형 인공지능", "생성형 ai"],
+  ["인공지능", "ai"],
+  ["에이아이", "ai"],
+  ["클로드 코드", "claude code"],
+  ["클로드", "claude"],
+  ["claudecode", "claude code"],
+  ["코이카", "koica"],
+  ["깃 허브", "github"],
+  ["깃허브", "github"],
+  ["git hub", "github"],
+  ["엠씨피", "mcp"],
+  ["파이썬", "python"],
+  ["스타타", "stata"],
+  ["세계 은행", "world bank"],
+  ["세계은행", "world bank"],
+  ["머신 러닝", "machine learning"],
+  ["머신러닝", "machine learning"],
+];
+
+function normalizeSearchText(value) {
+  let normalized = String(value ?? "").normalize("NFKC").toLocaleLowerCase("ko-KR");
+  searchAliases.forEach(([alias, canonical]) => {
+    normalized = normalized.replaceAll(alias, canonical);
+  });
+  return normalized
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildCourseSearchIndex(course) {
+  const searchableFields = [
+    course.title,
+    course.description,
+    course.audience,
+    course.tags,
+    course.keywords || [],
+  ];
+  const spaced = normalizeSearchText(searchableFields.flat(Infinity).join(" "));
+  return { spaced, compact: spaced.replaceAll(" ", "") };
+}
+
+function matchesCourseSearch(course, rawQuery) {
+  const query = normalizeSearchText(rawQuery);
+  if (!query) return true;
+
+  const index = courseSearchIndexes.get(course.id) || buildCourseSearchIndex(course);
+  const compactQuery = query.replaceAll(" ", "");
+  if (index.spaced.includes(query) || index.compact.includes(compactQuery)) return true;
+
+  return query
+    .split(" ")
+    .every((term) => index.spaced.includes(term) || index.compact.includes(term));
+}
 
 const escapeHtml = (value) =>
   String(value)
@@ -48,18 +116,41 @@ function courseCard(course) {
 }
 
 function renderCourses() {
-  const query = searchInput.value.trim().toLocaleLowerCase("ko-KR");
+  const rawQuery = searchInput.value.trim();
   const visible = courses.filter((course) => {
     const matchesFilter = activeFilter === "all" || course.filters.includes(activeFilter);
-    const haystack = [course.title, course.description, course.audience, ...course.tags]
-      .join(" ")
-      .toLocaleLowerCase("ko-KR");
-    return matchesFilter && (!query || haystack.includes(query));
+    return matchesFilter && matchesCourseSearch(course, rawQuery);
   });
 
   grid.innerHTML = visible.map(courseCard).join("");
   emptyState.hidden = visible.length !== 0;
   grid.hidden = visible.length === 0;
+
+  const hasConditions = Boolean(rawQuery) || activeFilter !== "all";
+  const filterContext = activeFilter === "all" ? "" : ` · ${filterLabels[activeFilter]} 필터`;
+  searchStatus.textContent = hasConditions
+    ? `${visible.length}개 결과 · 전체 ${courses.length}개${filterContext}`
+    : `전체 ${courses.length}개 강의`;
+  searchReset.hidden = !hasConditions;
+
+  if (visible.length === 0) {
+    const emptyContext = rawQuery
+      ? `‘${rawQuery.slice(0, 40)}’${filterContext}`
+      : `${filterLabels[activeFilter]} 필터`;
+    emptyState.textContent = `${emptyContext}에서 찾지 못했습니다. 검색어나 필터를 초기화해 보세요.`;
+  }
+}
+
+function resetSearchControls({ focus = false } = {}) {
+  searchInput.value = "";
+  activeFilter = "all";
+  filterGroup.querySelectorAll("[data-filter]").forEach((item) => {
+    const active = item.dataset.filter === "all";
+    item.classList.toggle("active", active);
+    item.setAttribute("aria-pressed", String(active));
+  });
+  renderCourses();
+  if (focus) searchInput.focus();
 }
 
 function openCourse(course) {
@@ -84,7 +175,23 @@ grid.addEventListener("click", (event) => {
   if (course) openCourse(course);
 });
 
-searchInput.addEventListener("input", renderCourses);
+searchInput.addEventListener("compositionstart", () => {
+  isComposing = true;
+});
+searchInput.addEventListener("compositionend", () => {
+  isComposing = false;
+  renderCourses();
+});
+searchInput.addEventListener("input", () => {
+  if (!isComposing) renderCourses();
+});
+searchInput.addEventListener("keydown", (event) => {
+  if (isComposing || event.isComposing) return;
+  if (event.key !== "Escape" || (!searchInput.value && activeFilter === "all")) return;
+  event.preventDefault();
+  resetSearchControls();
+});
+searchReset.addEventListener("click", () => resetSearchControls({ focus: true }));
 
 filterGroup.addEventListener("click", (event) => {
   const button = event.target.closest("[data-filter]");
@@ -112,6 +219,9 @@ async function loadCourses() {
     const response = await fetch("../data/courses.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     courses = await response.json();
+    courseSearchIndexes = new Map(
+      courses.map((course) => [course.id, buildCourseSearchIndex(course)]),
+    );
     renderCourses();
 
     const totals = courses.reduce(
@@ -126,6 +236,12 @@ async function loadCourses() {
     document.querySelector("#slide-count").textContent = String(totals.slides);
   } catch (error) {
     grid.innerHTML = `<div class="loading-card">강의 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</div>`;
+    searchStatus.textContent = "강의 목록을 불러오지 못했습니다.";
+    searchInput.disabled = true;
+    filterGroup.querySelectorAll("button").forEach((button) => {
+      button.disabled = true;
+    });
+    searchReset.hidden = true;
     console.error("Course catalog load failed", error);
   }
 }
