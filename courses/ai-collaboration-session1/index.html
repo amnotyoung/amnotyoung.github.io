@@ -1,833 +1,352 @@
 <!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="AI 에이전트, 텍스트 우선, MCP, GitHub를 조직의 협업 흐름으로 연결하는 공개 강의 슬라이드">
-<meta name="theme-color" content="#0E7C7B">
-<meta property="og:type" content="article">
-<meta property="og:title" content="AI, 개인의 도구에서 조직을 잇는 시스템으로">
-<meta property="og:description" content="AI 에이전트와 GitHub를 활용해 반복 가능하고 검증 가능한 협업 시스템을 만드는 60장 공개 강의">
-<meta property="og:url" content="https://amnotyoung.github.io/courses/ai-collaboration-session1/">
-<link rel="canonical" href="https://amnotyoung.github.io/courses/ai-collaboration-session1/">
-<title>AI 협업 교육 · 세션 1</title>
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --ink:#171A1F;--bg:#FBFAF7;--muted:#6C7076;--accent:#0E7C7B;--accent-ink:#0A5250;
-    --live:#C0413F;--rule:#E7E3DB;--soft:#F0EEE7;
-  }
-  html,body{height:100%}
-  body{font-family:"Apple SD Gothic Neo","Pretendard",system-ui,"Malgun Gothic",sans-serif;
-    background:#0C0D0F;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden;
-    word-break:keep-all;line-break:strict}
-  .deck{position:fixed;top:0;left:0;right:0;bottom:0}
-  .slide{position:absolute;top:0;left:0;right:0;bottom:0;display:none;flex-direction:column;
-    padding:7vh 7.5vw 6vh;background:var(--bg)}
-  .slide.on{display:flex}
-  .eyebrow{font-size:clamp(.85rem,1.15vw,1.1rem);letter-spacing:.13em;color:var(--accent-ink);
-    font-weight:700;margin-bottom:2.4vh}
-  h1{font-size:clamp(2.4rem,5.4vw,5rem);line-height:1.14;font-weight:800;letter-spacing:-.022em;text-wrap:balance}
-  h2{font-size:clamp(1.9rem,3.9vw,3.5rem);line-height:1.2;font-weight:800;letter-spacing:-.012em;text-wrap:balance}
-  .lead{font-size:clamp(1.15rem,2vw,1.85rem);line-height:1.55;color:var(--muted);max-width:52ch;margin-top:2.6vh;text-wrap:balance}
-  .punch{font-size:clamp(1rem,2vw,1.85rem);color:var(--ink);font-weight:500;margin-top:2.8vh;white-space:nowrap}
-  .punch.accent{color:var(--accent-ink)}
-  .grow{flex:1}
-  ul{list-style:none;margin-top:3vh;display:flex;flex-direction:column;gap:1.6vh}
-  li{font-size:clamp(1.05rem,1.95vw,1.68rem);line-height:1.45;padding-left:1.5em;position:relative;text-wrap:pretty}
-  li::before{content:"";position:absolute;left:0;top:.6em;width:.6em;height:.6em;background:var(--accent);border-radius:2px}
-  li .s{color:var(--muted);font-size:.9em}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:2.2vw;margin-top:3vh}
-  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6vw;margin-top:3vh}
-  .card{background:#fff;border:1px solid var(--rule);border-radius:16px;padding:2.8vh 1.8vw}
-  .card h3{font-size:clamp(1rem,1.45vw,1.25rem);color:var(--accent-ink);font-weight:700;margin-bottom:1.2vh}
-  .card p{font-size:clamp(.98rem,1.55vw,1.35rem);line-height:1.5;color:var(--ink)}
-  table{width:100%;border-collapse:collapse;margin-top:3vh;font-size:clamp(1rem,1.65vw,1.45rem)}
-  th,td{text-align:left;padding:1.7vh 1vw;border-bottom:1px solid var(--rule);vertical-align:top}
-  th{color:var(--muted);font-weight:600;font-size:.8em;width:20%}
-  .flow{margin-top:3vh;font-size:clamp(1.02rem,1.75vw,1.5rem);line-height:1.9;color:var(--ink)}
-  .flow b{color:var(--accent-ink);font-weight:600}
-  .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);
-    padding-top:2vh;color:var(--muted);font-size:clamp(.8rem,1.1vw,1rem)}
-  .foot b{color:var(--ink);font-weight:600}
-  .cover .tag{margin-top:auto;display:flex;gap:1.2vw;flex-wrap:wrap}
-  .cover .tag span{background:var(--soft);border-radius:999px;padding:.7vh 1.3vw;
-    font-size:clamp(.85rem,1.2vw,1.1rem);color:var(--accent-ink);font-weight:600}
-  .divider{background:var(--accent)}
-  .divider .m{font-size:clamp(3rem,9vw,9rem);font-weight:800;letter-spacing:-.03em;line-height:.9;color:#fff;opacity:.5}
-  .divider h2{color:#fff;margin-top:1vh}
-  .divider p{color:rgba(255,255,255,.82);font-size:clamp(1.1rem,2vw,1.7rem);margin-top:2.4vh;max-width:52ch;text-wrap:balance}
-  .divider .grow{flex:0 0 auto;height:1vh}
-  .divider .foot{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.75)}
-  .divider .foot b{color:#fff}
-  .cue{background:var(--live)}
-  .cue .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:.55em;background:rgba(255,255,255,.16);
-    border-radius:999px;padding:1vh 1.5vw;font-weight:700;font-size:clamp(.95rem,1.5vw,1.35rem);margin-bottom:3vh;color:#fff}
-  .cue h2{color:#fff}
-  .cue p,.cue .lead{color:rgba(255,255,255,.9);font-size:clamp(1.1rem,1.9vw,1.65rem);margin-top:2.4vh;max-width:60ch;text-wrap:balance}
-  .cue .foot{border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.8)}
-  .cue .foot b{color:#fff}
-  .cue ul li{color:#fff}
-  .cue li::before{background:rgba(255,255,255,.9)}
-  .cue table{margin-top:.6vh;font-size:clamp(.78rem,1.12vw,1.02rem)}
-  .cue table th{color:rgba(255,255,255,.68);width:auto;font-size:.82em;font-weight:600}
-  .cue table th,.cue table td{border-bottom-color:rgba(255,255,255,.2);padding:.72vh .7vw;vertical-align:middle}
-  .cue table td{color:#fff}
-  .cue .tcap{color:rgba(255,255,255,.92);font-weight:700;font-size:clamp(.9rem,1.3vw,1.12rem)}
-  .cue .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .formula .big{font-size:clamp(2.4rem,6vw,5.6rem);font-weight:800;color:var(--accent-ink);letter-spacing:-.02em;margin-top:1vh;white-space:nowrap}
-  .quote blockquote{font-size:clamp(1.9rem,4.1vw,3.6rem);font-weight:800;line-height:1.22;letter-spacing:-.015em;max-width:20ch;text-wrap:balance}
-  .quote .by{margin-top:3.2vh;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.5rem)}
-  .quote .by b{color:var(--accent-ink)}
-  .note{background:var(--soft);border-radius:14px;padding:2.2vh 1.8vw;margin-top:3vh;
-    font-size:clamp(1rem,1.55vw,1.35rem);color:var(--accent-ink);line-height:1.5;text-wrap:balance}
-  .toc{display:flex;flex-direction:column;gap:1.2vh;margin-top:2.4vh}
-  .toc div{font-size:clamp(.85rem,1.35vw,1.2rem);display:flex;gap:.9vw;align-items:baseline;line-height:1.35;white-space:nowrap}
-  .toc b{color:var(--accent-ink);min-width:2.6em;font-weight:800}
-  .toc .s{color:var(--muted);font-size:.88em}
-  .toc .lab{background:var(--live);color:#fff;border-radius:999px;font-size:.68em;padding:.12em .7em;white-space:nowrap;font-weight:700}
-  .code{font-family:"SF Mono",Menlo,Consolas,monospace;white-space:pre;word-break:normal;
-    background:var(--soft);border-radius:12px;padding:2.4vh 1.8vw;margin-top:2.6vh;
-    font-size:clamp(.85rem,1.35vw,1.25rem);line-height:1.75;color:var(--ink);overflow-x:auto}
-  .card pre{font-family:"SF Mono",Menlo,Consolas,monospace;white-space:pre;word-break:normal;
-    background:var(--soft);border-radius:8px;padding:1.1vh .9vw;margin-top:1.1vh;
-    font-size:clamp(.7rem,1.02vw,.98rem);line-height:1.5;color:var(--ink);overflow-x:auto}
-  .svgwrap{margin-top:2.4vh}
-  .svgwrap svg{width:100%;height:auto;display:block}
-  #bar{position:fixed;left:0;bottom:0;height:5px;background:var(--accent);transition:width .25s;z-index:10}
-  #hint{position:fixed;right:14px;top:12px;font-size:12px;color:var(--muted);opacity:.55;z-index:10}
-  #archive-link{position:fixed;left:14px;top:12px;z-index:11;color:var(--muted);font-size:12px;
-    font-weight:700;text-decoration:none;opacity:.72}
-  #archive-link:hover,#archive-link:focus-visible{color:var(--accent-ink);opacity:1;text-decoration:underline;text-underline-offset:4px}
-</style>
-</head>
-<body>
-<a id="archive-link" href="../../" target="_top" aria-label="AI 학습 아카이브로 돌아가기">← learning archive</a>
-<div class="deck" id="deck">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI 에이전트, 텍스트 우선, MCP, GitHub를 조직의 협업 흐름으로 연결하는 9개 모듈 읽기형 과정"
+    />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AI, 개인의 도구에서 조직을 잇는 시스템으로" />
+    <meta
+      property="og:description"
+      content="AI를 개인 생산성 도구에서 반복 가능하고 검증 가능한 조직 협업 시스템으로 확장하는 공개 과정"
+    />
+    <meta property="og:url" content="https://amnotyoung.github.io/courses/ai-collaboration-session1/" />
+    <link rel="canonical" href="https://amnotyoung.github.io/courses/ai-collaboration-session1/" />
+    <title>AI, 개인의 도구에서 조직을 잇는 시스템으로 · AI 학습 아카이브</title>
+    <link rel="stylesheet" href="../../course.css" />
+    <script src="course.js" defer></script>
+  </head>
+  <body class="collaboration-course">
+    <header class="course-header">
+      <a class="back-link" href="../../" target="_top"><span aria-hidden="true">←</span> Learning archive</a>
+      <a
+        class="header-repo"
+        href="https://github.com/amnotyoung/amnotyoung.github.io/tree/main/courses/ai-collaboration-session1"
+        target="_blank"
+        rel="noreferrer"
+      >Source repository ↗</a>
+    </header>
 
-  <section class="slide cover on">
-    <div class="eyebrow">AI 업무 협업 교육 · 공개본</div>
-    <h1>세션 1<br>AI, 개인의 도구에서<br>부문을 잇는 시스템으로</h1>
-    <div class="lead">고객 대응 · 업무 수행 · 운영 지원이 하나의 살아있는 원천 위에서 협업하기까지.</div>
-    <div class="tag"><span>5시간</span><span>시연 + 실습 + Q&amp;A</span><span>AI 입문 환영</span></div>
-  </section>
+    <main>
+      <section class="course-hero" data-number="04">
+        <div>
+          <p class="course-kicker">2026 · AI WORKFLOW · 9 MODULES</p>
+          <h1>AI, 개인의 도구에서<br />조직을 잇는 시스템으로</h1>
+        </div>
+        <div class="course-intro">
+          <p>
+            AI를 잘 쓰는 개인을 넘어, 고객 대응·업무 수행·운영 지원이 같은 원천과 변경 이력 위에서
+            협업하는 방법을 배웁니다. 필요한 모듈만 골라 읽거나 처음부터 흐름대로 따라갈 수 있습니다.
+          </p>
+          <div class="hero-actions">
+            <a href="#module-index">모듈 골라보기 <span aria-hidden="true">↓</span></a>
+            <a href="#module-0">처음부터 읽기 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
 
-  <section class="slide">
-    <div class="eyebrow">오늘의 한 문장</div>
-    <h2>AI가 '한 버전 더'의 비용을<br>0으로 만들었다.</h2>
-    <div class="lead">그래서 일하는 방식도, 부문이 협업하는 방식도 바뀝니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>세션 1</span><span class="pg"></span></div>
-  </section>
+      <section class="stat-band" aria-label="과정 정보">
+        <div><span>구성</span><strong>9개 모듈</strong></div>
+        <div><span>학습 시간</span><strong>약 5시간</strong></div>
+        <div><span>핵심 도구</span><strong>Agent · MCP · GitHub</strong></div>
+        <div><span>대상</span><strong>실무자와 조직 리더</strong></div>
+      </section>
 
-  <section class="slide">
-    <div class="eyebrow">오늘의 목차 — 키노트 셋, 실습 셋</div>
-    <h2>오늘 이 순서로 갑니다.</h2>
-    <div class="toc">
-      <div><b>M0</b> 정적 출판의 종말 <span class="s">— 왜 지금인가 (키노트 ①)</span></div>
-      <div><b>M1</b> 챗봇에서 에이전트로 <span class="s">— 오늘의 주인공</span></div>
-      <div><b>M2</b> 텍스트 우선 <span class="s">— AI에게는 md · csv · html로</span></div>
-      <div><b>M3</b> 자의성 제거 <span class="s">— 개인 AI ≠ 업무 AI (키노트 ②)</span><span class="lab">실습 ①</span></div>
-      <div><b>M4</b> 기능별 맛보기 <span class="s">— 고객 대응 · 업무 수행 · 운영 지원 시연</span></div>
-      <div><b>M5</b> git — 시간을 다루는 능력 <span class="s">— diff · revert · cherry-pick</span></div>
-      <div><b>M6</b> 세 기능, 하나의 저장소 <span class="s">— GitHub 협업 실연 · 이슈=땡큐</span><span class="lab">실습 ②</span></div>
-      <div><b>M7</b> 루프 엔지니어 <span class="s">— 리더의 새 일 (키노트 ③)</span></div>
-      <div><b>M8</b> 마무리 <span class="s">— 논증 복기 · 동향 따라가기</span><span class="lab">실습 ③</span></div>
-    </div>
-    <div class="grow"></div>
-    <div class="foot"><span>세션 1</span><span class="pg"></span></div>
-  </section>
+      <div class="course-layout">
+        <nav class="course-nav" id="module-index" aria-label="과정 목차와 검색">
+          <p>COURSE INDEX</p>
+          <form class="course-search" id="course-search" role="search">
+            <label for="module-search">내용 검색</label>
+            <div class="search-control">
+              <input id="module-search" type="search" placeholder="예: MCP, 계약, GitHub" autocomplete="off" />
+              <button id="search-clear" type="button" hidden>지우기</button>
+            </div>
+            <span class="search-status" id="search-status" aria-live="polite">9개 모듈</span>
+          </form>
+          <ol>
+            <li data-module="module-0"><a href="#module-0"><span>M0</span>정적 출판의 종말</a></li>
+            <li data-module="module-1"><a href="#module-1"><span>M1</span>챗봇에서 에이전트로</a></li>
+            <li data-module="module-2"><a href="#module-2"><span>M2</span>텍스트 우선</a></li>
+            <li data-module="module-3"><a href="#module-3"><span>M3</span>자의성 제거</a></li>
+            <li data-module="module-4"><a href="#module-4"><span>M4</span>기능별 업무 장면</a></li>
+            <li data-module="module-5"><a href="#module-5"><span>M5</span>Git으로 시간 다루기</a></li>
+            <li data-module="module-6"><a href="#module-6"><span>M6</span>하나의 협업 저장소</a></li>
+            <li data-module="module-7"><a href="#module-7"><span>M7</span>루프 엔지니어</a></li>
+            <li data-module="module-8"><a href="#module-8"><span>M8</span>첫 적용과 다음 단계</a></li>
+          </ol>
+        </nav>
 
-  <section class="slide divider">
-    <div class="m">M0</div><h2>정적 출판의 종말</h2>
-    <p>왜 지금, 모든 부문이 '상시 반복'의 시대로 들어왔는가.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>키노트 ①</span><span class="pg"></span></div>
-  </section>
+        <article class="reading">
+          <div class="reading-intro">
+            <p>
+              이 과정의 핵심은 도구 목록이 아닙니다. AI가 만든 결과를 파일로 남기고, 기준으로 통제하고,
+              변경 이력으로 검토하며, 여러 기능이 하나의 반복 루프에 참여하게 만드는 일의 구조입니다.
+            </p>
+          </div>
 
-  <section class="slide">
-    <div class="eyebrow">먼저, 흔한 장면</div>
-    <h2>고객 업무는 AI로 바뀌는데, 내부 문서는 그대로입니다.</h2>
-    <ul>
-      <li>데이터 기반 예측 · 최적화</li>
-      <li>안전 · 품질 업무 지원</li>
-      <li>반복 업무 자동화와 의사결정 지원</li>
-    </ul>
-    <div class="punch">고객의 일은 AI로 바꾸면서 — 우리 제안서 · 견적 · 보고서는?</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M0 · 정적 출판의 종말</span><span class="pg"></span></div>
-  </section>
+          <div class="search-empty" id="search-empty" hidden>
+            <strong>일치하는 모듈이 없습니다.</strong>
+            <span>검색어를 줄이거나 다른 업무 용어로 찾아보세요.</span>
+          </div>
 
-  <section class="slide">
-    <div class="eyebrow">제 관찰입니다</div>
-    <h2>책도, PPT도 저뭅니다.</h2>
-    <div class="lead">한 번 만들어 '완성=끝'으로 덮는 일이 사라집니다. 예전엔 IT만 빨랐지만—</div>
-    <div class="punch accent">이제는 전 부문이 상시 반복.</div>
-    <div class="note">업계 신호 — AI 시대엔 산출물마저 <b>HTML이 각광</b>받습니다: Anthropic Claude Code 리드가 '마크다운 대신 HTML을 기본 출력으로' 주장해 화제. 고정된 문서 → 살아있는 웹, '완성=끝'이 저무는 방향입니다.</div>
-    <div style="margin-top:1.2vh;font-size:clamp(.78rem,1.05vw,.98rem);color:var(--muted)">박재홍의 실리콘밸리 「LLM 시대, 마크다운 대신 HTML을 쓰라고?」 — <a href="https://wikidocs.net/blog/@jaehong/13111/" style="color:var(--accent-ink)">wikidocs.net/blog/@jaehong/13111</a></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M0 · 정적 출판의 종말</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-0" data-keywords="반복 배포 CI CD 최신본 문서">
+            <div class="chapter-heading">
+              <span class="chapter-number">M0</span>
+              <div><p class="chapter-label">WHY NOW</p><h2>완성본보다 계속 갱신되는 원천이 중요해졌다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                생성형 AI는 초안 하나를 더 만드는 비용을 크게 낮췄습니다. 이제 산출물은 한 번 출판하고 닫는
+                최종본보다, 피드백을 받아 계속 바뀌는 원천에 가까워집니다. 고객의 업무는 빠르게 바뀌는데
+                제안서·견적·보고서만 정적인 파일로 남아 있다면 조직의 속도는 가장 느린 문서에 맞춰집니다.
+              </p>
+              <p>
+                소프트웨어에서 발전한 CI/CD를 일반 업무로 옮기면 뜻은 단순합니다. 여러 기능의 변경을 하나의
+                원천에 자주 통합하고, 고객과 의사결정자에게는 언제나 최신 상태를 전달하는 것입니다.
+              </p>
+              <ul class="takeaways">
+                <li><strong>상시 통합</strong><span>고객 대응·수행·운영 지원의 수정이 하나의 원천에 모입니다.</span></li>
+                <li><strong>상시 전달</strong><span>별도 취합을 기다리지 않고 검토된 최신본을 바로 꺼냅니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>핵심 질문</strong> — 우리 팀의 최종본은 파일 이름으로 구분되는가, 변경 이력과 승인 상태로 구분되는가?</div>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">뇌피셜이 아니라, 측정된 흐름입니다</div>
-    <h2>IT에서는 이미 수치로 증명됐습니다.</h2>
-    <div class="lead">성과가 좋은 조직일수록, 하루에도 여러 번 배포합니다.</div>
-    <div class="punch accent">'큰 한 방 출시'가 아니라, 상시 흐름.</div>
-    <div class="note">DORA — 구글 클라우드가 10여 년간 수만 명의 개발 실무자를 조사해 온 대표 연구.</div>
-    <div style="margin-top:1.2vh;font-size:clamp(.78rem,1.05vw,.98rem);color:var(--muted)">보고서 — <a href="https://dora.dev/research/" style="color:var(--accent-ink)">dora.dev/research</a></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M0 · 정적 출판의 종말</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-1" data-keywords="챗 에이전트 파일 도구 작업공간 자동화 보안">
+            <div class="chapter-heading">
+              <span class="chapter-number">M1</span>
+              <div><p class="chapter-label">CHAT TO AGENT</p><h2>챗은 답하고, 에이전트는 작업공간에서 일한다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                챗은 질문과 답변에 강합니다. 빠른 아이디어, 요약, 초안을 얻기 좋지만 결과가 대화창에 남고
+                형식도 매번 흔들릴 수 있습니다. 에이전트는 폴더의 파일을 읽고 쓰며, 필요한 도구를 호출하고,
+                검증 결과를 바탕으로 고칠 때까지 반복합니다.
+              </p>
+              <div class="table-scroll">
+                <table class="content-table">
+                  <thead><tr><th>구분</th><th>챗</th><th>에이전트</th></tr></thead>
+                  <tbody>
+                    <tr><th>작업 표면</th><td>대화창</td><td>프로젝트 폴더와 실제 파일</td></tr>
+                    <tr><th>강점</th><td>질문, 아이디어, 일회성 초안</td><td>반복 작업, 형식 준수, 파일 누적</td></tr>
+                    <tr><th>통제 방법</th><td>매번 설명하고 복사</td><td>지침·템플릿·예시·검증 절차를 함께 둠</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <ul class="takeaways">
+                <li><strong>성능보다 구조</strong><span>표준 산출물은 좋은 모델 하나보다 명확한 지침과 예시에서 나옵니다.</span></li>
+                <li><strong>사실은 따로 검증</strong><span>초안·요약·변환은 맡기되 사실성과 최신성은 원문과 도구로 확인합니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>보안 원칙</strong> — 고객기밀과 내부 자료는 조직이 승인한 계정·도구·저장 위치에서만 다룹니다.</div>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">CI / CD, 우리 말로 옮기면</div>
-    <h2>상시 통합, 상시 최신.</h2>
-    <ul>
-      <li><b>CI · Continuous Integration</b> — 여러 기능의 일을 항상 하나로 통합</li>
-      <li><b>CD · Continuous Delivery</b> — 고객 · 경영진에게 항상 최신본을</li>
-      <li class="s">지금의 병 — 칸막이 넘기기: 고객 대응이 자기 몫만 끝내 넘기고 → 수행도 끝내 넘기고 → 운영 지원은 뒤에서 정산</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M0 · 정적 출판의 종말</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-2" data-keywords="텍스트 markdown md csv json html excel xlsx diff 토큰">
+            <div class="chapter-heading">
+              <span class="chapter-number">M2</span>
+              <div><p class="chapter-label">TEXT FIRST</p><h2>AI에게는 내용과 구조가 보이는 텍스트를 준다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                Office 파일도 AI가 읽을 수 있지만, 숨은 시트·병합·수식·서식에 따라 무엇을 읽었는지 달라질 수
+                있습니다. Markdown, CSV, JSON, HTML 같은 텍스트 형식은 사람과 AI가 같은 내용을 보고,
+                변경점을 줄 단위로 비교하며, 처리 과정을 재현하기 쉽습니다.
+              </p>
+              <div class="table-scroll">
+                <table class="content-table">
+                  <thead><tr><th>업무</th><th>권장 작업 형식</th><th>이유</th></tr></thead>
+                  <tbody>
+                    <tr><th>글·보고서</th><td>Markdown · HTML</td><td>구조가 단순하고 검색·변경 비교가 쉬움</td></tr>
+                    <tr><th>표·목록</th><td>CSV · TSV</td><td>행과 열이 명확하고 계산 근거를 확인하기 쉬움</td></tr>
+                    <tr><th>시스템 데이터</th><td>JSON · XML · YAML</td><td>필드와 계층을 기계가 일관되게 해석</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                그렇다고 Excel과 PowerPoint를 버릴 필요는 없습니다. 원본은 보존하고, AI가 읽고 고치는 작업
+                단계에서만 텍스트로 변환한 뒤 필요한 최종 형식으로 내보내면 됩니다. 핵심은 정확도를 막연히
+                기대하는 대신, AI가 무엇을 읽었는지 예측하고 결과를 검증할 수 있게 만드는 것입니다.
+              </p>
+              <ul class="takeaways">
+                <li><strong>원본 보존</strong><span>업무 원본과 AI 작업용 텍스트를 분리해 언제든 대조합니다.</span></li>
+                <li><strong>변경 비교</strong><span>텍스트의 diff로 사람이 승인해야 할 수정만 빠르게 찾습니다.</span></li>
+              </ul>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">CI / CD 개념도</div>
-    <h2>완성이 아니라, 계속 도는 고리.</h2>
-    <div class="svgwrap"><svg viewBox="0 0 1000 330" font-family="'Apple SD Gothic Neo',sans-serif" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0L7,3L0,6Z" fill="#8a8d92"/></marker></defs>
-      <text x="85" y="24" fill="#0A5250" font-size="16" font-weight="700">CI · Continuous Integration — 상시 통합</text>
-      <text x="85" y="318" fill="#8a5a12" font-size="16" font-weight="700">CD · Continuous Delivery — 상시 전달</text>
-      <text x="500" y="169" text-anchor="middle" fill="#6C7076" font-size="15">고객 대응 · 수행 · 운영 지원을 잇는, 같은 모양의 루프</text>
-      <rect x="85" y="44" width="150" height="56" rx="10" fill="#0E7C7B"/><text x="160" y="73" text-anchor="middle" fill="#fff" font-size="21" font-weight="600">계획</text><text x="160" y="91" text-anchor="middle" fill="#bfe4df" font-size="12">Plan</text>
-      <rect x="305" y="44" width="150" height="56" rx="10" fill="#0E7C7B"/><text x="380" y="73" text-anchor="middle" fill="#fff" font-size="21" font-weight="600">코드</text><text x="380" y="91" text-anchor="middle" fill="#bfe4df" font-size="12">Code</text>
-      <rect x="525" y="44" width="150" height="56" rx="10" fill="#0E7C7B"/><text x="600" y="73" text-anchor="middle" fill="#fff" font-size="21" font-weight="600">빌드</text><text x="600" y="91" text-anchor="middle" fill="#bfe4df" font-size="12">Build</text>
-      <rect x="745" y="44" width="150" height="56" rx="10" fill="#0E7C7B"/><text x="820" y="73" text-anchor="middle" fill="#fff" font-size="21" font-weight="600">테스트</text><text x="820" y="91" text-anchor="middle" fill="#bfe4df" font-size="12">Test</text>
-      <rect x="745" y="224" width="150" height="56" rx="10" fill="#E8A33D"/><text x="820" y="253" text-anchor="middle" fill="#5A3A08" font-size="21" font-weight="600">릴리스</text><text x="820" y="271" text-anchor="middle" fill="#7a4e10" font-size="12">Release</text>
-      <rect x="525" y="224" width="150" height="56" rx="10" fill="#E8A33D"/><text x="600" y="253" text-anchor="middle" fill="#5A3A08" font-size="21" font-weight="600">배포</text><text x="600" y="271" text-anchor="middle" fill="#7a4e10" font-size="12">Deploy</text>
-      <rect x="305" y="224" width="150" height="56" rx="10" fill="#E8A33D"/><text x="380" y="253" text-anchor="middle" fill="#5A3A08" font-size="21" font-weight="600">운영</text><text x="380" y="271" text-anchor="middle" fill="#7a4e10" font-size="12">Operate</text>
-      <rect x="85" y="224" width="150" height="56" rx="10" fill="#E8A33D"/><text x="160" y="253" text-anchor="middle" fill="#5A3A08" font-size="21" font-weight="600">모니터</text><text x="160" y="271" text-anchor="middle" fill="#7a4e10" font-size="12">Monitor</text>
-      <line x1="235" y1="72" x2="305" y2="72" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <line x1="455" y1="72" x2="525" y2="72" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <line x1="675" y1="72" x2="745" y2="72" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <line x1="745" y1="252" x2="675" y2="252" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <line x1="525" y1="252" x2="455" y2="252" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <line x1="305" y1="252" x2="235" y2="252" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <path d="M895,72 C952,98 952,226 899,250" fill="none" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-      <path d="M85,252 C28,226 28,98 81,74" fill="none" stroke="#8a8d92" stroke-width="3" marker-end="url(#ar)"/>
-    </svg></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M0 · 정적 출판의 종말</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-3" data-keywords="자의성 산포 코드화 하네스 MCP 스킬 SOP 법령 실데이터">
+            <div class="chapter-heading">
+              <span class="chapter-number">M3</span>
+              <div><p class="chapter-label">CONTROL VARIATION</p><h2>업무 AI는 결과의 산포를 줄여야 한다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                개인이 한 번 쓰고 버리는 답은 조금씩 달라도 괜찮습니다. 하지만 다른 사람이 이어받고 감사와
+                재현이 필요한 업무에서는 같은 요청이 매번 다른 구조로 나오면 사고가 됩니다. 업무 AI의 목표는
+                창의성을 없애는 것이 아니라, 자유롭게 판단할 구간과 반드시 지킬 기준을 분리하는 것입니다.
+              </p>
+              <ol class="step-list compact">
+                <li><strong>코드화</strong><span>작업 기준과 출력 형식을 텍스트 지침으로 명문화합니다.</span></li>
+                <li><strong>하네스</strong><span>도구·컨텍스트·실행환경·되돌리기를 묶어 반복 가능한 실행 구조를 만듭니다.</span></li>
+                <li><strong>MCP</strong><span>법령·설비·프로젝트 이력 같은 실제 데이터와 도구를 표준 연결합니다.</span></li>
+                <li><strong>스킬</strong><span>검증된 절차·템플릿·예시를 재사용 가능한 업무 단위로 묶습니다.</span></li>
+              </ol>
+              <p>
+                MCP는 AI가 기억으로 답하지 않고 필요한 순간에 실데이터를 조회하도록 만듭니다. 스킬은 누가,
+                언제 실행해도 같은 절차와 품질 기준을 따르게 합니다. 둘을 함께 쓰면 “잘 물어보는 법”이 개인
+                노하우에 머물지 않고 조직의 작업 표준이 됩니다.
+              </p>
+              <div class="week-outcome"><strong>실습</strong> — 같은 요청을 세 번 실행해 산포를 확인한 뒤, 지침·양식·검증 항목을 추가해 결과 구조가 고정되는지 비교합니다.</div>
+            </div>
+          </section>
 
-  <section class="slide divider">
-    <div class="m">M1</div><h2>챗봇에서 에이전트로</h2>
-    <p>여러분이 아는 AI(채팅창)와 오늘의 주인공(에이전트)은 다른 물건입니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M1 · 챗봇에서 에이전트로</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-4" data-keywords="RFP 제안서 회의록 액션아이템 계약서 위험 법령 고객 대응 수행 운영 지원">
+            <div class="chapter-heading">
+              <span class="chapter-number">M4</span>
+              <div><p class="chapter-label">WORK SCENES</p><h2>기능마다 다른 일을 같은 구조로 에이전트화한다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                좋은 에이전트 업무는 거대한 자동화가 아니라, 입력 파일과 판단 기준과 저장할 결과가 선명한 작은
+                장면에서 시작합니다. 아래 세 장면은 조직이 달라도 반복해서 나타나는 대표 사례입니다.
+              </p>
+              <ul class="takeaways three-up">
+                <li><strong>고객 대응 · RFP</strong><span>RFP와 제안서 예시를 읽어 요구사항 표와 제안 목차를 정해진 양식의 파일로 저장합니다.</span></li>
+                <li><strong>업무 수행 · 회의록</strong><span>여러 회의록에서 담당·기한이 있는 액션아이템을 뽑아 기존 실행표에 누적합니다.</span></li>
+                <li><strong>운영 지원 · 계약</strong><span>계약 체크리스트와 법령 원문을 기준으로 위험 조항과 협상 대안을 1차 정리합니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>경계</strong> — 계약·법률 검토에서 AI는 1차 필터입니다. 최종 판단과 책임은 법무 담당자 또는 외부 전문가에게 남습니다.</div>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">전제</div>
-    <h2>채팅창이 AI의 전부는 아닙니다.</h2>
-    <div class="punch accent">챗은 대화한다. 에이전트는 내 작업공간에서 일한다.</div>
-    <div class="lead">파일을 읽고, 파일을 쓰고, 도구를 부르고, 고칠 때까지 반복한다 — 복붙이 사라집니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M1 · 챗봇에서 에이전트로</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-5" data-keywords="git 버전 diff revert cherry-pick 커밋 감사 추적 되돌리기">
+            <div class="chapter-heading">
+              <span class="chapter-number">M5</span>
+              <div><p class="chapter-label">WORK WITH HISTORY</p><h2>Git은 명령어가 아니라 시간을 다루는 장치다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                <code>최종_진짜최종_v3_수정본</code> 같은 파일 이름은 상태를 설명하지 못합니다. 텍스트와 Git을
+                사용하면 무엇을 누가 왜 바꿨는지 줄 단위로 보고, 승인 전후를 구분하며, 잘못된 변경만 되돌릴 수
+                있습니다. 명령어는 에이전트가 실행하고 사람은 기록할 시점과 승인 여부를 판단합니다.
+              </p>
+              <ul class="takeaways">
+                <li><strong>diff</strong><span>AI가 고친 내용을 줄 단위로 검토하는 가장 기본적인 감독 장치입니다.</span></li>
+                <li><strong>revert</strong><span>시도를 두려워하지 않게 해주는 안전한 되돌리기입니다.</span></li>
+                <li><strong>cherry-pick</strong><span>검증된 과거 변경을 다음 업무에 선택적으로 재사용합니다.</span></li>
+                <li><strong>commit</strong><span>변경 이유와 승인 가능한 상태를 하나의 이력으로 남깁니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>감사 추적</strong> — 결과만 보관하는 것이 아니라 결정과 수정의 흐름을 함께 남깁니다.</div>
+            </div>
+          </section>
 
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>챗 vs 에이전트</h2>
-    <p>회의록 3건 → 주간보고. 그냥 챗 vs 폴더의 템플릿 · 예시 · CLAUDE.md 지침대로 파일로 써내는 에이전트.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M1 · 챗봇에서 에이전트로</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-6" data-keywords="GitHub issue PR pull request merge release tag repository 협업 보안 private gitignore">
+            <div class="chapter-heading">
+              <span class="chapter-number">M6</span>
+              <div><p class="chapter-label">ONE SHARED SOURCE</p><h2>고객 요구가 제품의 정본으로 돌아오는 루프를 만든다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                GitHub는 저장소의 파일뿐 아니라 요구와 논의는 Issue에, 변경 검토와 승인은 Pull Request에,
+                확정된 상태는 Release와 태그에 남깁니다. 이 구조를 쓰면 시장에서 발견한 요구가 메신저나 개인
+                문서에 머물지 않고 제품과 업무 표준의 다음 변경으로 연결됩니다.
+              </p>
+              <div class="table-scroll">
+                <table class="content-table">
+                  <thead><tr><th>낱말</th><th>업무에서의 의미</th></tr></thead>
+                  <tbody>
+                    <tr><th>Issue</th><td>요구·문제·논의를 담당자와 상태가 있는 티켓으로 기록</td></tr>
+                    <tr><th>Pull Request</th><td>정본을 바꾸기 전 변경 내용과 근거를 검토받는 승인 게이트</td></tr>
+                    <tr><th>Merge</th><td>승인된 변경을 정본에 반영</td></tr>
+                    <tr><th>Release tag</th><td>판매·전달·운영 가능한 확정 상태에 버전 표시</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <ol class="step-list">
+                <li><strong>업무 수행</strong><span>기능 명세를 변경하고 Pull Request를 엽니다.</span></li>
+                <li><strong>고객 대응</strong><span>RFP를 최신 명세와 대조해 충족하지 못한 요구를 찾습니다.</span></li>
+                <li><strong>시장 요구</strong><span>확인된 차이를 Issue로 등록해 백로그에 넣습니다.</span></li>
+                <li><strong>기술 검토</strong><span>수행 담당자가 가능성·공수·제약을 코멘트합니다.</span></li>
+                <li><strong>사업성 검토</strong><span>운영 지원이 우선순위·비용·중복 이력을 확인합니다.</span></li>
+                <li><strong>결정 반영</strong><span>승인된 요구를 명세에 반영하고 Merge합니다.</span></li>
+                <li><strong>확정</strong><span>Release tag를 찍어 다시 고객 대응과 운영으로 전달합니다.</span></li>
+              </ol>
+              <p>
+                공개 예시는 가상 데이터만 사용합니다. 실제 업무에서는 비공개 저장소와 조직 접근권한을 쓰고,
+                가격·마진·개인정보처럼 저장소에 들어가면 안 되는 파일은 <code>.gitignore</code>와 별도 보관
+                정책으로 차단합니다.
+              </p>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">방금 그 차이의 정체</div>
-    <h2>차이는 성능이 아니라 '구조'입니다.</h2>
-    <div class="lead">표준화된 산출물은 템플릿 · 예시 · 지침이라는 '구조'에서 나옵니다 — 곧 배울 '코드화'의 첫 모습.</div>
-    <div class="punch">잘함: 초안 · 요약 · 변환 · 구조화 &nbsp; / &nbsp; 못함: 사실 보장 · 최신 정보</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M1 · 챗봇에서 에이전트로</span><span class="pg"></span></div>
-  </section>
+          <section class="chapter" id="module-7" data-keywords="loop engineering 루프 엔지니어 감독 책임 모델 독립 OpenRouter OpenCode 온디바이스 Gemma DORA ROI">
+            <div class="chapter-heading">
+              <span class="chapter-number">M7</span>
+              <div><p class="chapter-label">LOOP ENGINEERING</p><h2>사람은 실행자에서 루프의 설계자와 감독자로 이동한다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <p>
+                에이전트가 기계적 실행을 맡을수록 사람의 역할은 한 층 올라갑니다. 사람은 목표, 예외, 승인 기준,
+                중단 조건과 책임을 정합니다. AI가 빠르게 많은 결과를 내더라도 검토 비용이 사라지는 것은
+                아니므로, 작은 변경과 자동 검증을 루프 안에 넣어야 합니다.
+              </p>
+              <ul class="takeaways">
+                <li><strong>내려놓는 것</strong><span>복사·정리·형식 변환처럼 규칙이 선명한 기계적 실행</span></li>
+                <li><strong>지키는 것</strong><span>목표·판단·예외·승인·책임과 사람에게 돌아오는 검토 지점</span></li>
+                <li><strong>교체 가능한 모델</strong><span>업무 기준과 데이터와 하네스를 조직 자산으로 두고 모델은 필요에 따라 바꿉니다.</span></li>
+                <li><strong>배치 위치의 판단</strong><span>민감도·비용·성능에 따라 클라우드와 온디바이스 모델을 선택합니다.</span></li>
+              </ul>
+              <div class="week-outcome"><strong>리더의 질문</strong> — 이 업무 루프의 완료 조건은 무엇이며, 실패를 가장 먼저 알려주는 검증 신호는 무엇인가?</div>
+            </div>
+          </section>
 
-  <section class="slide">
-    <div class="eyebrow">도구 지형 · 한 장</div>
-    <h2>두 축만 기억하세요.</h2>
-    <div class="two">
-      <div class="card"><h3>챗</h3><p>ChatGPT · Claude · Gemini — 묻고 답하는 대화. 빠른 초안 · 아이디어.</p></div>
-      <div class="card"><h3>에이전트</h3><p>Claude Code · ChatGPT Codex — 내 파일 · 도구를 다루며 일한다. 오늘의 주인공.</p></div>
-    </div>
-    <div class="note">보안 — 개인 무료 계정에는 고객기밀을 넣지 않습니다. (업무는 회사 정책 도구로)</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M1 · 챗봇에서 에이전트로</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M2</div><h2>텍스트 우선</h2>
-    <p>AI에게는 md · csv · json · html로 — 그리고 세상도 텍스트로 가고 있습니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">왜 텍스트인가</div>
-    <h2>관건은 정확도가 아니라 '예측 · 검증'입니다.</h2>
-    <ul>
-      <li>요즘 AI는 <b>깨끗한 엑셀은 곧잘 읽습니다</b> — 문제는 '깨끗한지'를 보장 못 하는 것</li>
-      <li>숨은 시트 · 병합 · 수식 처리에 따라 <b>될 때도, 안 될 때도</b> — 받은 쪽은 뭘 읽었는지 모릅니다</li>
-      <li>게다가 토큰 ↑(비용 · 속도), csv · md와 달리 <b>diff도 안 됩니다</b></li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">텍스트라고 다 같은 텍스트가 아닙니다</div>
-    <h2>AI가 그대로 읽는 '텍스트 가족'.</h2>
-    <div class="two">
-      <div class="card"><h3>글 · 문서</h3><p><b>txt</b> 메모 · <b>md</b> 서식 있는 글 · <b>html</b> 웹(이 슬라이드도)</p></div>
-      <div class="card"><h3>표 · 데이터</h3><p><b>csv · tsv</b> 표(엑셀 붙여넣기) · <b>json · xml</b> 데이터 · 설정</p></div>
-    </div>
-    <div class="note">공통점 — 사람도 AI도 그대로 읽고, git으로 <b>diff</b>됩니다. (설정 <b>yaml</b> · 소스코드 <b>.py · .sql</b>도 다 텍스트)<br><b>반전</b>: docx · xlsx · pptx도 실은 압축된 <b>xml</b> 묶음 — 다만 우리가 직접 못 열 뿐입니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">같은 한 줄, 옷만 다릅니다</div>
-    <h2>텍스트 파일, 이렇게 생겼습니다.</h2>
-    <div class="three">
-      <div class="card"><h3>csv</h3><pre>품목,수량,단가
-라이선스,10,170</pre></div>
-      <div class="card"><h3>json</h3><pre>{ "품목":"라이선스",
-  "수량":10, "단가":170 }</pre></div>
-      <div class="card"><h3>xml</h3><pre>&lt;항목 품목="라이선스"
-      수량="10"/&gt;</pre></div>
-      <div class="card"><h3>md</h3><pre>## 견적
-- 라이선스 ×10 = 170</pre></div>
-      <div class="card"><h3>yaml</h3><pre>품목: 라이선스
-수량: 10</pre></div>
-      <div class="card"><h3>html</h3><pre>&lt;tr&gt;&lt;td&gt;라이선스&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;&lt;/tr&gt;</pre></div>
-    </div>
-    <div class="note">모두 <b>같은 정보</b>(라이선스 10개 · 단가 170) — 사람도 열어 읽고, AI도 그대로 먹고, git으로 diff됩니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>같은 데이터 — 무엇을 믿습니까?</h2>
-    <p>완전히 같은 <b>12줄 견적서</b>를 xlsx로 줄 때 vs csv로 줄 때 — AI에게 합계를 묻고 실측했습니다.</p>
-    <div class="two">
-      <div>
-        <div class="tcap">① 토큰 — 모델에 들어가는 양</div>
-        <table>
-          <tr><th>모델에 전달되는 형태</th><th class="n">토큰</th><th class="n">csv 대비</th></tr>
-          <tr><td><b>csv</b> — 텍스트 그대로</td><td class="n"><b>245</b></td><td class="n"><b>1배</b></td></tr>
-          <tr><td>xlsx — 표만 추출(보이는 시트)</td><td class="n">917</td><td class="n">3.7배</td></tr>
-          <tr><td>xlsx — 숨은 시트·수식까지</td><td class="n">1,004</td><td class="n">4.1배</td></tr>
-          <tr><td>xlsx — 워크시트 XML 원본</td><td class="n">4,707</td><td class="n">19배</td></tr>
-          <tr><td>xlsx — 파일 원본(XML 전체)</td><td class="n"><b>10,418</b></td><td class="n"><b>42배</b></td></tr>
-        </table>
+          <section class="chapter" id="module-8" data-keywords="정리 실습 적용 체크리스트 시작 이슈 백로그 채용 평가 throughput">
+            <div class="chapter-heading">
+              <span class="chapter-number">M8</span>
+              <div><p class="chapter-label">START SMALL</p><h2>첫 자동화는 작은 업무와 명확한 검토 기준에서 시작한다</h2></div>
+            </div>
+            <div class="chapter-body">
+              <ol class="step-list compact">
+                <li><strong>반복 업무 선택</strong><span>자주 발생하고 입력과 결과가 눈에 보이는 일 하나를 고릅니다.</span></li>
+                <li><strong>입력 고정</strong><span>AI가 읽을 파일과 사용할 수 없는 자료의 경계를 정합니다.</span></li>
+                <li><strong>기준 명문화</strong><span>템플릿·체크리스트·완성 예시로 산포를 줄입니다.</span></li>
+                <li><strong>산출물 저장</strong><span>대화창이 아니라 팀이 다시 찾을 수 있는 파일과 저장소에 남깁니다.</span></li>
+                <li><strong>검증과 기록</strong><span>사람의 승인, 자동 검사, diff와 커밋으로 책임 지점을 분명히 합니다.</span></li>
+              </ol>
+              <p>
+                한 문장으로 정리하면 이렇습니다. AI는 한 번 더 시도하는 비용을 낮추고, 텍스트와 지침은 결과를
+                검증 가능하게 만들며, GitHub는 여러 기능의 피드백을 하나의 변경 루프로 묶습니다. 사람은 그
+                루프가 올바른 목표를 향하는지 설계하고 감독합니다.
+              </p>
+              <div class="week-outcome"><strong>오늘 남길 것</strong> — 자동화하고 싶은 업무의 입력·기준·산출물·검토 방법을 Issue 한 장으로 적어 첫 백로그를 만듭니다.</div>
+            </div>
+          </section>
+        </article>
       </div>
-      <div>
-        <div class="tcap">② 준비 시간 — 읽어 텍스트로</div>
-        <table>
-          <tr><th>파일을 읽어 텍스트화</th><th class="n">중앙값</th><th class="n">csv 대비</th></tr>
-          <tr><td><b>csv</b> read_csv</td><td class="n"><b>0.15</b> ms</td><td class="n"><b>1배</b></td></tr>
-          <tr><td>xlsx openpyxl 로드</td><td class="n">5.16 ms</td><td class="n">35배</td></tr>
-          <tr><td>xlsx 로드+전 시트 텍스트화</td><td class="n">11.65 ms</td><td class="n">80배</td></tr>
-        </table>
-        <div style="margin-top:1.8vh;font-size:clamp(.76rem,1.02vw,.96rem);color:rgba(255,255,255,.82);line-height:1.5">그런데 <b>금액·합계는 xlsx에 숫자로 없습니다</b>(수식만·11칸 빈 값) — 무엇을 근거로 답하는지 안 보임. 숨김 '메모'엔 <b>협상 하한 기밀</b>까지.</div>
-      </div>
-    </div>
-    <div style="margin-top:1.2vh;font-size:clamp(.74rem,1vw,.92rem);color:rgba(255,255,255,.6)">실측: 토크나이저 o200k_base(cl100k도 배수 동일) · 시간 15회 중앙값 · 같은 조건의 스크립트로 재현</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
 
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>열어둔 채로 AI가 고친다</h2>
-    <p>md 파일을 띄워둔 채 AI가 수정하면 — 열린 화면이 그 자리에서 갱신됩니다.</p>
-    <ul>
-      <li>열어둔 <b>엑셀</b>은 잠금 · 충돌로 안 됩니다</li>
-      <li>텍스트는 <b>나와 AI가 같은 문서를 동시에</b> 잡습니다</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
+      <section class="resource-section" aria-labelledby="resources-title">
+        <div>
+          <p class="course-kicker">REFERENCES & NEXT STEP</p>
+          <h2 id="resources-title">근거를 확인하고<br />작은 루프부터 만듭니다</h2>
+        </div>
+        <div class="resource-list">
+          <a href="https://dora.dev/research/" target="_blank" rel="noreferrer"><span>DORA 소프트웨어 전달·AI 연구</span><span aria-hidden="true">↗</span></a>
+          <a href="https://dora.dev/ai/roi/report/" target="_blank" rel="noreferrer"><span>2026 ROI of AI-assisted Software Development</span><span aria-hidden="true">↗</span></a>
+          <a href="https://code.claude.com/docs/ko/skills" target="_blank" rel="noreferrer"><span>Claude Code Skills 공식 문서</span><span aria-hidden="true">↗</span></a>
+          <a href="https://gitlab.com/gitlab-com/content-sites/handbook" target="_blank" rel="noreferrer"><span>GitLab 공개 핸드북 저장소</span><span aria-hidden="true">↗</span></a>
+          <a href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer"><span>Google Gemma 4 모델 카드</span><span aria-hidden="true">↗</span></a>
+          <a href="https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=125533" target="_blank" rel="noreferrer"><span>행정안전부 마크다운 보도자료 정책</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
 
-  <section class="slide">
-    <div class="eyebrow">방향</div>
-    <h2>이젠 최종 산출물도 md · html로.</h2>
-    <div class="lead">원천은 텍스트, 필요할 때만 Office로 — 그런데 <b>최종물마저</b> 옮겨가는 중입니다.</div>
-    <ul>
-      <li>국가AI전략위 — 정책 문서를 md로 작성 · 공개 (2026.3)</li>
-      <li>행안부 — 보도자료 md 도입 추진</li>
-      <li>지금 보시는 이 슬라이드도 html 파일 하나</li>
-    </ul>
-    <div class="note">여러분의 견적 · 보고 Excel은 그대로 쓰세요 — AI에게 물어볼 때만 csv로.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M2 · 텍스트 우선</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M3</div><h2>자의성 제거</h2>
-    <p>키노트 ② — 개인 AI ≠ 업무 AI. 업무에서는 AI의 자의성을 없애야 합니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">키노트 ②</div>
-    <h2>개인은 변량 OK, 업무는 다릅니다.</h2>
-    <table>
-      <tr><th>목적</th><td>개인: 한 번 쓰고 버림 / 업무: 프로세스에 물린다</td></tr>
-      <tr><th>변량</th><td>개인은 매번 달라도 OK / 업무는 일관 · 감사 · 재현이 필수</td></tr>
-      <tr><th>책임</th><td>사람이 진다 — AI는 못 진다</td></tr>
-    </table>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">'자의성'을 우리 말로</div>
-    <h2>같은 걸 시켜도, 매번 다르게 나옵니다.</h2>
-    <div class="lead">그 들쭉날쭉함이 '<b>산포</b>' — AI의 자의성입니다. 혼자면 OK, 남이 이어받는 업무에선 산포가 곧 사고.</div>
-    <div class="punch accent">산포 관리 — 품질과 운영을 다루는 조직이 익숙한 일.</div>
-    <div class="note">잠시 뒤 눈으로 확인합니다: 같은 요청 3번, 결과가 얼마나 다른지.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">산포를 줄이는 4대 장치</div>
-    <h2>이 배경에서 Claude Code가 떴습니다.</h2>
-    <ul>
-      <li><b>코드화</b> — 지침을 텍스트로 명문화 (CLAUDE.md = AI에게 주는 작업표준서)</li>
-      <li><b>하네스</b> — AI를 위한 지그 · 치구, 같은 결과를 보장</li>
-      <li><b>MCP</b>(Model Context Protocol) — AI를 외부 데이터 · 도구에 표준으로 연결, 추측 대신 실데이터를 조회</li>
-      <li><b>스킬</b> — 검증된 절차를 재사용 · 공유</li>
-    </ul>
-    <div class="note">지그 · 치구 = 부품을 늘 같은 위치로 고정 · 안내해, 누가 만들어도 똑같이 나오게 하는 생산현장 장치.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">4대 장치 · 하네스</div>
-    <h2>하네스 = 모델을 '에이전트'로 만드는 껍데기</h2>
-    <div class="lead">언어 모델(추론)에 <b>도구 · 컨텍스트 · 실행환경 · 되돌리기</b>를 입혀 신뢰할 수 있는 작업자로 — Claude Code가 바로 그 하네스입니다.</div>
-    <div class="punch accent">수집 → 수행 → 검증 → 반복 (사람이 언제든 조종)</div>
-    <div class="note">개념 출처: Claude Code 공식 문서 「Claude Code의 작동 방식」 · code.claude.com</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">4대 장치 · 스킬</div>
-    <h2>스킬 = 검증된 절차를 폴더로 묶은 것</h2>
-    <div class="lead">표준작업지침서(SOP)를 폴더 하나로 — 지침 · 양식 · 예시를 묶어 <b>사람 · 시점이 달라도 같은 품질</b>로 재사용합니다.</div>
-    <pre class="code">my-skill/
-├── SKILL.md        업무 지침 (진입점 · 필수)
-├── template.md     AI가 채울 양식
-└── examples/
-    └── sample.md   완성 예시</pre>
-    <div class="note">스킬 공식 문서 — <a href="https://code.claude.com/docs/ko/skills" style="color:var(--accent-ink)">code.claude.com/docs/ko/skills</a></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">4대 장치 · MCP는 이렇게 작동합니다</div>
-    <h2>MCP = AI용 'USB-C' 표준 커넥터.</h2>
-    <div class="svgwrap"><svg viewBox="0 0 1000 230" font-family="'Apple SD Gothic Neo',sans-serif" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="mar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0L7,3L0,6Z" fill="#8a8d92"/></marker></defs>
-      <rect x="30" y="55" width="235" height="82" rx="12" fill="#0E7C7B"/><text x="147" y="92" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">AI 에이전트</text><text x="147" y="117" text-anchor="middle" fill="#bfe4df" font-size="14">Claude Code 등</text>
-      <rect x="383" y="55" width="235" height="82" rx="12" fill="#0E7C7B"/><text x="500" y="92" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">MCP 서버</text><text x="500" y="117" text-anchor="middle" fill="#bfe4df" font-size="14">표준 커넥터</text>
-      <rect x="736" y="55" width="235" height="82" rx="12" fill="#E8A33D"/><text x="853" y="90" text-anchor="middle" fill="#5A3A08" font-size="20" font-weight="700">실데이터 · 도구</text><text x="853" y="116" text-anchor="middle" fill="#7a4e10" font-size="14">법령 · 설비 · 사내 이력</text>
-      <line x1="265" y1="96" x2="383" y2="96" stroke="#8a8d92" stroke-width="3" marker-end="url(#mar)"/><text x="324" y="82" text-anchor="middle" fill="#6C7076" font-size="14">① 도구 요청 · 호출</text>
-      <line x1="618" y1="96" x2="736" y2="96" stroke="#8a8d92" stroke-width="3" marker-end="url(#mar)"/><text x="677" y="82" text-anchor="middle" fill="#6C7076" font-size="14">② 조회 · 실행</text>
-      <path d="M853,137 C853,192 147,192 147,139" fill="none" stroke="#8a8d92" stroke-width="3" marker-end="url(#mar)"/><text x="500" y="214" text-anchor="middle" fill="#6C7076" font-size="15">③ 결과 반환 → AI가 그 실데이터로 답한다</text>
-    </svg></div>
-    <div class="note">한 번 만든 MCP는 여러 AI에 그대로 연결됩니다 — 조직이 <b>설비 · 프로젝트 데이터 MCP</b>를 만들면 내부 AI에 붙이고, 필요하면 외부 서비스로 제공할 수도 있습니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>산포, 그리고 실데이터(MCP)</h2>
-    <p>두 가지를 눈으로 봅니다 — 둘 다 '<b>그냥 챗</b>'(에이전트·지침 없이)과 대조.</p>
-    <ul>
-      <li><b>① 산포</b> — 같은 요청 3번: 그냥 챗은 매번 들쭉날쭉, 지침 고정하면 3번 다 같은 구조</li>
-      <li><b>② 실데이터</b> — "경영책임자 의무" 질문: 그냥 챗은 조문 부정확, 법령 MCP는 실제 <b>제4조</b> 인용</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 함께 실습 ①</div>
-    <h2>법령 AI, 같이 써봅니다</h2>
-    <p style="max-width:none">각자 claude.ai에서 법령 질문 1개 — <b>조문 번호가 검증이 안 되죠?</b> 강사가 MCP 켠 화면으로 실제 조문을 대조합니다.</p>
-    <ul>
-      <li>korean-law는 수천 개 MCP 중 <b>한 사례</b>일 뿐</li>
-      <li>조직 고유의 MCP(설비 데이터 · 프로젝트 이력)도 만들 수 있습니다</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M3 · 자의성 제거</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M4</div><h2>기능별 맛보기</h2>
-    <p>고객 대응 · 업무 수행 · 운영 지원 — 채팅창이 아니라, 에이전트가 <b>내 폴더에서 파일로</b> 일하는 장면 하나씩.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M4 · 기능별 맛보기</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브 · 고객 대응</div>
-    <h2>RFP를 구조로 바꾼다</h2>
-    <p>에이전트가 딜 폴더를 연다<br>— A제조사 RFP와 <b>제안서 예시</b>를 읽어, 요구사항 표·제안 목차를 양식대로 <b>파일로 써낸다</b>.</p>
-    <ul>
-      <li><b>챗</b> — 답은 창에 남고, 형식도 매번 흔들림</li>
-      <li><b>에이전트</b> — 예시 형식 그대로 <b>파일로</b> 저장 (자의성 제거)</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M4 · 기능별 맛보기</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브 · 업무 수행</div>
-    <h2>회의록을 실행으로 바꾼다</h2>
-    <p>에이전트가 회의록 폴더를 통째로 연다<br>— 3건을 읽어 담당·기한 붙은 액션아이템으로 정리하고, <b>기존 실행표 파일에 반영</b>(기한 임박 순).</p>
-    <ul>
-      <li><b>챗</b> — 매번 창 안의 새 표, 합치는 건 수작업</li>
-      <li><b>에이전트</b> — <b>실행표 파일에 누적</b>, 다음 주도 같은 한 줄로</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M4 · 기능별 맛보기</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브 · 운영 지원</div>
-    <h2>계약서의 위험을 먼저 본다</h2>
-    <p>에이전트가 계약서 파일을 <b>조직의 계약 기준(체크리스트)</b>에 대조<br>— 불리한 조항을 <b>위험도 순</b>으로, 협상 대안 문구까지. 근거는 <b>법령&nbsp;MCP</b>로 실제 조문.</p>
-    <ul>
-      <li><b>챗</b> — 일반론, 조문도 부정확</li>
-      <li><b>에이전트</b> — 조직 기준 + 법령&nbsp;MCP로 <b>근거 있는 1차 리뷰</b></li>
-    </ul>
-    <p style="font-size:.82em;opacity:.88;margin-top:1.6vh">※ AI는 1차 필터일 뿐 · 법률 검토 대체 아님 · 최종은 법무 / 외부자문(놓친 조항 책임도 사람이)</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M4 · 기능별 맛보기</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M5</div><h2>git — 시간을 다루는 능력</h2>
-    <p>명령어는 안 배웁니다. 개념 세 개면 충분합니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M5 · git — 시간을 다루는 능력</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">누구나 겪은 그것</div>
-    <h2>버전 지옥</h2>
-    <div class="punch">제안서_최종_진짜최종_v3_수정본.pptx</div>
-    <div class="lead">텍스트로 관리하면 무엇이 · 누가 바뀌었는지 줄 단위로 보입니다. 그게 git입니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M5 · git — 시간을 다루는 능력</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>git은 에이전트가 운전합니다</h2>
-    <p>"방금 수정 커밋해줘" — 자연어 한 줄로. 명령어를 외운 사람은 없습니다.</p>
-    <p>사람이 하는 건 <b>무엇을 · 언제 · 승인할지</b>의 판단.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M5 · git — 시간을 다루는 능력</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">시간을 다루는 세 가지</div>
-    <h2>diff · revert · cherry-pick</h2>
-    <ul>
-      <li><b>diff</b> — 무엇이 바뀌었나. AI가 고친 것을 줄 단위로 검토하고 수락 (= AI 감독 장치)</li>
-      <li><b>revert</b> — 잘못되면 되돌린다. 과감히 시켜보고 아니면 되돌리면 됩니다</li>
-      <li><b>cherry-pick</b> — 과거 작업이 미래의 리소스. 검증된 문단을 다음 딜로 집어온다</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M5 · git — 시간을 다루는 능력</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">실물로</div>
-    <h2>이 강의도 이렇게 만들어졌습니다.</h2>
-    <div class="lead">강의 자료 저장소의 커밋 이력 · diff를 그대로 보여드립니다.</div>
-    <div class="punch accent">이력 = 감사 추적 — 운영 지원이 반길 지점.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M5 · git — 시간을 다루는 능력</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M6</div><h2>세 기능, 하나의 저장소</h2>
-    <p>제품 저장소를 무대로 한 협업 실연 + 실습 — 오늘의 클라이맥스.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">먼저, 무대가 되는 곳</div>
-    <h2>GitHub — 개발자들의 오래된 광장</h2>
-    <ul>
-      <li>2008년부터 전 세계 개발자 1억 명 이상이 써온 <b>코드 협업 플랫폼</b></li>
-      <li>방금 배운 git 저장소를 '여럿이 쓰는 곳' — 하나의 원천 + issue(요구 · 논의) + PR(검토 · 승인)</li>
-      <li>CLI(gh)로 <b>Claude Code · ChatGPT Codex와 연동</b> — 에이전트가 push · PR · issue를 대신 다룸</li>
-    </ul>
-    <div class="punch accent">개발자의 전유물이었던 곳이, AI 덕에 전 부문의 도구가 됩니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">오늘 나올 GitHub 낱말 지도</div>
-    <h2>넉 자만 알면 됩니다.</h2>
-    <table>
-      <tr><th>issue</th><td>요구 · 논의 티켓 — "이거 해달라 / 이게 문제다"를 적는 곳</td></tr>
-      <tr><th>PR</th><td>Pull Request — 바뀐 것을 <b>검토 · 승인</b> 받는 요청(승인 게이트)</td></tr>
-      <tr><th>merge</th><td>승인된 변경을 정본에 <b>반영</b></td></tr>
-      <tr><th>태그</th><td>"이제 팔 수 있는 것"을 도장 찍듯 <b>확정</b>(release)</td></tr>
-    </table>
-    <div class="note">누르는 건 사람, 명령어는 에이전트가 운전 — 낱말 뜻만 알면 화면에서 길을 잃지 않습니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">무대 · 가상 제품 협업 저장소</div>
-    <h2>수행이 관리하고, 고객 대응이 제안하고, 시장이 되돌린다.</h2>
-    <div class="flow">
-      제품 <b>기능명세</b>(수행 관리) → 고객 대응이 <b>정본</b>에 근거해 제안한다<br>
-      → 못 채우는 요구는 <b>issue</b>로 → 수행 · 운영 지원이 <b>검토</b><br>
-      → 결정 반영 → <b>release 태그</b>로 확정 → 다시 고객 대응으로
-    </div>
-    <div class="note">'다들 이미 이렇게 한다'가 아니라 '<b>이렇게 갈 수 있다</b>' — 개발팀은 이미 이 방식이고(GitLab은 회사 핸드북 전체를 공개 git으로 운영), AI가 리뷰 부담을 낮춘 지금 다른 기능도 합류할 수 있습니다.</div>
-    <div style="margin-top:1.2vh;font-size:clamp(.78rem,1.05vw,.98rem);color:var(--muted)">실증 — GitLab 핸드북은 공개 <b>git 저장소</b>로 운영: <a href="https://gitlab.com/gitlab-com/content-sites/handbook" style="color:var(--accent-ink)">gitlab.com/gitlab-com/content-sites/handbook</a> (읽는 사이트는 handbook.gitlab.com)</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">시작 전에 · 딱 한 번 짚고 갑니다</div>
-    <h2>오늘은 가상이라 공개, 실무는 격리합니다.</h2>
-    <ul>
-      <li>공개 실습에는 <b>가상 데이터</b>만 사용 — 그래서 안전하게 실습합니다</li>
-      <li>실무라면 <b>private 저장소</b> + 조직 접근권한(초대된 사람만)</li>
-      <li><b>.gitignore</b> — 가격 · 마진 · 개인정보처럼 공유하지 않을 자료는 저장소에 아예 안 올립니다</li>
-    </ul>
-    <div class="note">공개 예시와 실습에 올리는 것은 <b>가상 요구 · 가상 코멘트</b>뿐 — 실제 매출 · 단가는 넣지 않습니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브 · 7비트</div>
-    <h2>하나의 루프, 처음부터 끝까지</h2>
-    <p><b>명세 갱신 → PR → 갭 분석 → issue → 코멘트 → merge → v2.4 태그</b> · 아래 7비트를 순서대로 봅니다.</p>
-    <table>
-      <tr><th class="n">#</th><th>비트 — 누가 · 무엇</th><th>화면에서 보는 것</th></tr>
-      <tr><td class="n">1</td><td><b>업무 수행</b> — 명세에 기능 추가 → PR</td><td>PR = 승인 게이트 → merge</td></tr>
-      <tr><td class="n">2</td><td><b>고객 대응</b> — RFP를 명세와 대조</td><td>미충족 R-08·09·10·11 도출</td></tr>
-      <tr><td class="n">3</td><td><b>갭 → issue</b> 등록</td><td>시장 요구가 백로그로 직행</td></tr>
-      <tr><td class="n">4</td><td><b>업무 수행</b> — issue에 기술 검토 코멘트</td><td>이슈에 기능별 답이 쌓임</td></tr>
-      <tr><td class="n">5</td><td><b>운영 지원</b> — 사업성 코멘트 + AI 분류</td><td>20여 건이 계열로 접힘 = 이슈=땡큐</td></tr>
-      <tr><td class="n">6</td><td>결정 → 명세 반영 PR → merge</td><td>제품 정본이 갱신되는 순간</td></tr>
-      <tr><td class="n">7</td><td><b>release</b> — v2.4-beta 태그</td><td>확정 · +.gitignore(보안)</td></tr>
-    </table>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide formula">
-    <div class="eyebrow">그런데 이걸 다 누가 검토하나</div>
-    <div class="big">이슈 = 땡큐</div>
-    <div class="lead">AI가 1차 리뷰(중복·공수·고객 이력) → 받는 비용 ~0. 예전 이슈·PR은 <b>부담</b>(→사일로), 이제 타 부문 기여는 <b>거의 공짜 개선</b> — 상시 통합이 '이제야' 가능.</div>
-    <div class="note">DORA도 <b>검토 비용</b>(코드 리뷰에서의 verification&nbsp;tax)을 실재 비용으로 짚습니다. 여기서는 이 개념을 기능 간 협업까지 확장합니다. <span style="opacity:.7">(DORA, 2026)</span></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 함께 실습 ②</div>
-    <h2>세 기능이 한 이슈에서 만난다</h2>
-    <p>세 기능이 한 이슈에 모입니다 — 화면에 스레드가 채워지는 걸 함께 봅니다.</p>
-    <ul>
-      <li><b>고객 대응</b> — 고객요구 카드 1장을 issue로 등록</li>
-      <li><b>업무 수행</b> — 기술 관점 코멘트</li>
-      <li><b>운영 지원</b> — 사업성 관점 코멘트</li>
-    </ul>
-    <div class="note">실습 — 연습 저장소의 <b>New issue</b>에서 가상 고객요구를 등록하고, 역할별 관점으로 코멘트를 이어갑니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">한 화면에 담기는 것</div>
-    <h2>부문 간 루프가 상시로 돕니다.</h2>
-    <div class="lead">텍스트 · diff · PR · AI 운전 · 리뷰 부담 완화 · 확정본 태그 · 기능 간 협업 — 오늘 배운 전부가 이 저장소 하나 위에서 움직입니다.</div>
-    <div class="note">보안 — 실무는 private 저장소 · 접근권한 관리, .gitignore로 사내 공유 제외 자료는 아예 올리지 않습니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M6 · 협업 실연</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M7</div><h2>루프 엔지니어</h2>
-    <p>키노트 ③ — 사람은 수행자에서 루프의 설계자 · 감독자로.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">방금 본 것의 의미</div>
-    <h2>사람은 한 층 위로 올라갑니다.</h2>
-    <ul>
-      <li>내려놓는 것 — 기계적 실행</li>
-      <li>지키는 것 — 목표 · 판단 · 예외 · <b>책임</b></li>
-      <li class="s">diff 검토가 그 새 역할의 축소판. 책임은 AI가 못 집니다.</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide quote">
-    <div class="eyebrow">Loop Engineering</div>
-    <blockquote>"제 일은 루프를 작성하는 것이다."</blockquote>
-    <div class="by"><b>Boris Cherny</b>, Anthropic<br>신뢰할 수 있는 루프 하나가 완벽한 프롬프트 천 개보다 가치 있다.<br><span class="s" style="font-size:.82em">— '루프 엔지니어링' 논의 정리(discuss.pytorch.kr) 재인용</span></div>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">한 회사에 갇히지 않으려면</div>
-    <h2>AI를 끊는 게 아니라, 갈아끼울 수 있게.</h2>
-    <ul>
-      <li><b>챗 창에 붙여넣기</b>는 그 회사에 종속 — <b>API 호출</b>(프로그램이 모델을 부름) + 우리 하네스면 모델은 부품처럼 교체</li>
-      <li><b>OpenRouter</b> — 한 창구로 Claude · GPT · Gemini · 오픈모델을 스위치(코드는 그대로)</li>
-      <li><b>OpenCode</b> — 오픈소스 · 모델 비종속 코딩 에이전트(특정 벤더에 안 매임)</li>
-    </ul>
-    <div class="punch accent">베팅 대상은 모델이 아니라 — 우리의 시스템 · 데이터 · 루프.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 지금, 라이브</div>
-    <h2>이제 AI가 기기 안으로.</h2>
-    <p>클라우드 · API 없이 노트북 · 폰에서 직접 도는 <b>오픈 모델</b>이 빠르게 좋아집니다 — 예: Google <b>Gemma 4</b>(오픈 웨이트 · Apache 2.0). 잠시 성능을 눈으로.</p>
-    <ul>
-      <li><b>기기에서 실행</b> — 폰 · 노트북급 소형(E2B · E4B, 수 B)이 텍스트 · 이미지 · 음성까지, Ollama · LM Studio로 클릭 실행</li>
-      <li><b>보안</b> — 오픈 웨이트라 사내 기기 · 서버에 직접 올림 → 데이터가 밖으로 안 나감(운영 정보 · 고객기밀)</li>
-      <li>큰 변형(31B)은 256K 컨텍스트 · MMLU Pro 85.2%로 상당 — 대신 워크스테이션급 필요. <b>온디바이스냐 클라우드냐는 리더의 판단</b></li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">권위 있는 근거 · DORA (Google Cloud)</div>
-    <h2>재작업을 줄이면 '공짜 인력'이 생깁니다.</h2>
-    <div class="lead">불필요한 재작업을 줄여 되찾은 여력 = DORA가 표현한 "<b>free headcount</b>".</div>
-    <div class="punch accent">비용 절감이 아니라, 새 기능 · 혁신에 재투자.</div>
-    <div class="note">개념 출처: DORA 「The ROI of DevOps Transformation」(2020). AI 도입의 ROI 프레임은 「ROI of AI-assisted Software Development」(2026)에서 갱신됐습니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">열린 질문 · 제 전망입니다</div>
-    <h2>그럼, 채용 기준은 무엇이 될까요?</h2>
-    <div class="lead">개발자에게도 이미 <b>throughput</b>이 요구됩니다 — "고정된 자원 · 제한된 시간에, 몇 개의 과업을 완수하는가".</div>
-    <div class="punch accent">여러분 부문의 채용 · 평가 기준은?</div>
-    <div class="grow"></div>
-    <div class="foot"><span>M7 · 루프 엔지니어</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide divider">
-    <div class="m">M8</div><h2>마무리</h2>
-    <p>오늘의 논증을 한 번 되짚고 — 여러분의 첫 이슈로 닫습니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M8 · 마무리</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">오늘의 논증, 네 문장</div>
-    <h2>하나로 이어집니다.</h2>
-    <ul>
-      <li>① AI가 '한 버전 더'를 공짜로 → 상시 반복의 시대</li>
-      <li>② 업무 AI는 자의성(산포)을 없앤다 — 코드화 · 하네스 · MCP · 스킬</li>
-      <li>③ AI가 리뷰 부담을 낮추니 이슈 = 땡큐 → 기능 간 통합이 가능</li>
-      <li>④ 사람은 루프를 설계하고 감독한다</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M8 · 마무리</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide cue">
-    <div class="badge">● 함께 실습 ③</div>
-    <h2>오늘 배운 걸, 작은 업무 하나에 적용합니다</h2>
-    <p>반복되는 업무 하나를 고르고 → 입력 · 기준 · 산출물 · 검토 방법을 한 줄씩 적습니다.</p>
-    <p>그 목록을 저장소의 New issue로 남기면 — <b>여러분의 첫 업무 자동화 백로그</b>가 됩니다.</p>
-    <div class="grow"></div>
-    <div class="foot"><span>M8 · 마무리</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">가볍게, 마지막</div>
-    <h2>하루 5분이면 따라갑니다.</h2>
-    <div class="lead">뉴스보다 <b>실무자의 사용기</b> — Threads에서 팔로우:</div>
-    <ul>
-      <li>'Claude Code' · 'MCP' · 'AI 에이전트'</li>
-      <li>적용할 게 보이면 → 저장소에 이슈로 (오늘 배운 그것)</li>
-    </ul>
-    <div class="grow"></div>
-    <div class="foot"><span>M8 · 마무리</span><span class="pg"></span></div>
-  </section>
-
-  <section class="slide">
-    <div class="eyebrow">세션 1 끝</div>
-    <h1>고맙습니다.<br>질문, 환영합니다.</h1>
-    <div class="lead">다음 실습은 오늘 발견한 개선 이슈에서 시작합니다.</div>
-    <div class="grow"></div>
-    <div class="foot"><span>AI 업무 협업 교육 · 공개본</span><span class="pg"></span></div>
-  </section>
-
-</div>
-<div id="bar"></div>
-<div id="hint">← → 로 이동</div>
-<script>
-  var slides=[].slice.call(document.querySelectorAll('.slide'));
-  var N=slides.length, i=0, bar=document.getElementById('bar');
-  slides.forEach(function(s,k){var p=s.querySelector('.pg');if(p)p.innerHTML='<b>'+(k+1)+'</b> / '+N;});
-  function show(n){
-    i=Math.max(0,Math.min(N-1,n));
-    slides.forEach(function(s,k){s.classList.toggle('on',k===i);});
-    bar.style.width=((i+1)/N*100)+'%';
-  }
-  document.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
-    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
-    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(N-1);}
-  });
-  document.getElementById('deck').addEventListener('click',function(e){
-    var x=e.clientX/window.innerWidth; if(x<0.28)show(i-1); else show(i+1);
-  });
-  show(0);
-</script>
-</body>
+    <footer class="course-footer">
+      <span>AI, 개인의 도구에서 조직을 잇는 시스템으로</span>
+      <a href="../../" target="_top">전체 강의로 돌아가기 ↑</a>
+    </footer>
+  </body>
 </html>
