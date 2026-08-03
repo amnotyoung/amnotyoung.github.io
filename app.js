@@ -216,7 +216,7 @@ viewer.addEventListener("cancel", (event) => {
 
 async function loadCourses() {
   try {
-    const response = await fetch("../data/courses.json");
+    const response = await fetch("../data/courses.json?v=search-v2");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     courses = await response.json();
     courseSearchIndexes = new Map(
