@@ -17,7 +17,7 @@
       { "value": "9", "label": "chapters" },
       { "value": "KIT", "label": "practice" }
     ],
-    "url": "courses/koica/",
+    "url": "courses/koica/chapters/ch01/",
     "repository": "https://github.com/amnotyoung/koica-oos-ai-training"
   },
   {
