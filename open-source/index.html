@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI 업무, 개발협력 조사·평가, 자동화와 학습을 위해 직접 만들고 공개한 프로젝트 모음입니다."
+    />
+    <meta name="theme-color" content="#f0ede2" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="공개 도구와 실험 · amnotyoung" />
+    <meta property="og:description" content="업무와 개발협력 현장에서 시작한 여섯 개의 공개 저장소" />
+    <meta property="og:url" content="https://amnotyoung.github.io/open-source/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://amnotyoung.github.io/open-source/" />
+    <title>공개 도구와 실험 · amnotyoung</title>
+    <link rel="stylesheet" href="../hub.css?v=open-source-v1" />
+  </head>
+  <body class="collection-page open-source-page">
+    <a class="skip-link" href="#repositories">공개 저장소로 바로가기</a>
+
+    <header class="hub-header light">
+      <a class="wordmark" href="/" aria-label="공개 사이트 대문">
+        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>amnotyoung / public index</span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a class="mobile-primary" href="/">전체 대문</a>
+        <a href="/courses/">AI·데이터 교육</a>
+        <a href="/development-cooperation/">개발협력·해외조달</a>
+        <a href="https://github.com/amnotyoung" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="collection-hero repository-hero" aria-labelledby="collection-title">
+        <div class="collection-index">
+          <span>OSS</span>
+          <p>SELECTED PUBLIC REPOSITORIES<br />TOOLS &amp; EXPERIMENTS</p>
+        </div>
+        <div>
+          <p class="eyebrow dark">BUILD · VERIFY · SHARE</p>
+          <h1 id="collection-title">공개 도구와<br /><em>실험</em></h1>
+          <p class="collection-lead">
+            실제 업무와 개발협력 현장에서 출발해 다시 쓰고 검토할 수 있도록 공개한 프로젝트입니다.
+            완성된 제품뿐 아니라 방법과 한계, 검증 과정도 함께 남깁니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="repository-library" id="repositories" aria-labelledby="repositories-title">
+        <div class="section-intro row repository-library-intro">
+          <div><p>01 / REPOSITORIES</p><h2 id="repositories-title">선별한 공개 저장소</h2></div>
+          <span>모든 저장소를 나열하지 않고, 설명과 사용 경로가 갖춰진 프로젝트만 골랐습니다.</span>
+        </div>
+
+        <section class="repository-group" aria-labelledby="group-ai-title">
+          <div class="repository-group-heading">
+            <span>01</span>
+            <div><p>AI &amp; WORK TOOLS</p><h3 id="group-ai-title">AI·업무 도구</h3></div>
+          </div>
+          <div class="repository-group-grid">
+            <article class="repository-card" data-accent="lime">
+              <div class="repository-card-top"><span>OPEN SOURCE</span><span>MIT</span></div>
+              <div class="repository-card-copy">
+                <h4>Slide Meme Inserter</h4>
+                <p>발표의 맥락과 청중을 읽고 HTML 슬라이드에 익숙한 밈을 적절한 타이밍에 제안·삽입하는 Claude Code·Codex 스킬입니다.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>Claude Code</li><li>Codex</li><li>Python</li></ul>
+              <div class="repository-card-links">
+                <a href="https://github.com/amnotyoung/slide-meme-inserter" target="_blank" rel="noreferrer">저장소 보기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="repository-card" data-accent="orange">
+              <div class="repository-card-top"><span>ODA RESEARCH</span><span>APACHE-2.0</span></div>
+              <div class="repository-card-copy">
+                <h4>ODA Intelligence</h4>
+                <p>한국 ODA 사업, 국제원조 데이터, 개발협력 문서와 KOICA 규정을 Claude·Codex와 ChatGPT 개발자 모드에서 근거와 함께 조사하는 공개 패키지입니다.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>3 Skills</li><li>Read-only</li><li>MCP</li></ul>
+              <div class="repository-card-links">
+                <a href="https://github.com/amnotyoung/oda-intelligence-plugin" target="_blank" rel="noreferrer">설치 방법 보기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="repository-group" aria-labelledby="group-dev-title">
+          <div class="repository-group-heading">
+            <span>02</span>
+            <div><p>DEVELOPMENT COOPERATION</p><h3 id="group-dev-title">지식·규정·평가</h3></div>
+          </div>
+          <div class="repository-group-grid">
+            <article class="repository-card" data-accent="blue">
+              <div class="repository-card-top"><span>REGULATION SEARCH</span><span>CODE · MIT</span></div>
+              <div class="repository-card-copy">
+                <h4>KOICA Reg MCP</h4>
+                <p>KOICA 현행 규정 149개와 약 6,400개 조문을 자연어로 검색하고 본문·별표·인용·상호참조를 확인하는 비공식 공개 도구입니다.</p>
+                <p class="repository-note">비공식 참고용이며 정확성을 보증하지 않습니다. 법적 효력이 있는 공식 최신본은 ALIO 또는 KOICA 공식 채널에서 확인하세요.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>Remote MCP</li><li>Telegram</li><li>Python</li></ul>
+              <div class="repository-card-links">
+                <a href="https://github.com/amnotyoung/koica-reg-mcp" target="_blank" rel="noreferrer">저장소 보기 <span aria-hidden="true">↗</span></a>
+                <a href="https://t.me/koica_reg_bot" target="_blank" rel="noreferrer">봇 체험 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="repository-card" data-accent="teal">
+              <div class="repository-card-top"><span>EVALUATION AGENTS</span><span>v0.10.0</span></div>
+              <div class="repository-card-copy">
+                <h4>DevEval Agents</h4>
+                <p>OECD-DAC·KOICA 기준의 사업평가, 영향평가 방법론 검토, 보고서 품질심사와 작성 초안을 돕는 모델 독립적 멀티에이전트 프레임워크입니다.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>Evidence Gates</li><li>Human Gate</li><li>Python</li></ul>
+              <div class="repository-card-links">
+                <a href="https://github.com/amnotyoung/dev-eval-agents" target="_blank" rel="noreferrer">저장소 보기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="repository-group" aria-labelledby="group-build-title">
+          <div class="repository-group-heading">
+            <span>03</span>
+            <div><p>AUTOMATION &amp; LEARNING</p><h3 id="group-build-title">자동화·체험</h3></div>
+          </div>
+          <div class="repository-group-grid">
+            <article class="repository-card" data-accent="orange">
+              <div class="repository-card-top"><span>DOCUMENT AUTOMATION</span><span>MIT</span></div>
+              <div class="repository-card-copy">
+                <h4>KOICA Project Map</h4>
+                <p>사업 목록을 넣으면 지명 해석부터 카드 배치와 지시선 라우팅까지 처리해 편집 가능한 PPTX·PDF 지도를 만드는 자동화 도구입니다.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>PPTX</li><li>PDF</li><li>Python</li></ul>
+              <div class="repository-card-links">
+                <a href="https://github.com/amnotyoung/koica-project-map" target="_blank" rel="noreferrer">구현 보기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="repository-card" data-accent="teal">
+              <div class="repository-card-top"><span>NARRATIVE GAME</span><span>RELEASED</span></div>
+              <div class="repository-card-copy">
+                <h4>Aid World</h4>
+                <p>피지 수자원 사업의 이해관계자 사이를 오가며 경청, 협력과 주민 주체성을 선택으로 배우는 1–2시간 내러티브 게임입니다.</p>
+              </div>
+              <ul aria-label="프로젝트 기술"><li>Godot 4</li><li>Web Play</li><li>IDC</li></ul>
+              <div class="repository-card-links">
+                <a href="https://amnotyoung.itch.io/aid-world" target="_blank" rel="noreferrer">웹에서 플레이 <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/amnotyoung/idc-game" target="_blank" rel="noreferrer">소스 보기 <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <a class="github-profile-link" href="https://github.com/amnotyoung?tab=repositories" target="_blank" rel="noreferrer">
+          <span>GITHUB / ALL PUBLIC REPOSITORIES</span>
+          <strong>전체 저장소 살펴보기 <i aria-hidden="true">↗</i></strong>
+        </a>
+      </section>
+
+      <nav class="category-switch repository-switch" aria-label="다른 카테고리">
+        <span>다른 입구</span>
+        <div>
+          <a href="/courses/">AI·데이터 교육 <i aria-hidden="true">→</i></a>
+          <a href="/development-cooperation/">개발협력·해외조달 <i aria-hidden="true">→</i></a>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="hub-footer light-footer">
+      <a href="/">← 전체 대문</a>
+      <span>공개 도구와 실험</span>
+      <a
+        class="footer-contact"
+        href="https://www.threads.com/@amnotyoung.k"
+        target="_blank"
+        rel="me noopener noreferrer"
+        aria-label="Threads에서 amnotyoung.k에게 연락하기"
+      >Threads · @amnotyoung.k <span aria-hidden="true">↗</span></a>
+    </footer>
+  </body>
+</html>
