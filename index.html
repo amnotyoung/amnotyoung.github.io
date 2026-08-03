@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="AI·데이터 교육과 개발협력·해외조달 프로젝트를 목적별로 찾아가는 공개 사이트 대문입니다."
+      content="AI·데이터 교육, 개발협력·해외조달 프로젝트와 직접 만든 공개 도구를 목적별로 찾아가는 사이트 대문입니다."
     />
     <meta name="theme-color" content="#162019" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="amnotyoung · Public Index" />
-    <meta property="og:description" content="배우고 탐색하는 공개 사이트를 두 개의 카테고리로 정리했습니다." />
+    <meta property="og:description" content="배우고 탐색하는 공개 사이트와 직접 만든 공개 도구를 정리했습니다." />
     <meta property="og:url" content="https://amnotyoung.github.io/" />
     <meta property="og:image" content="https://amnotyoung.github.io/assets/index-og.png" />
     <meta property="og:image:width" content="1200" />
@@ -20,7 +20,7 @@
     <meta name="twitter:image" content="https://amnotyoung.github.io/assets/index-og.png" />
     <link rel="canonical" href="https://amnotyoung.github.io/" />
     <title>amnotyoung · Public Index</title>
-    <link rel="stylesheet" href="hub.css" />
+    <link rel="stylesheet" href="hub.css?v=open-source-v1" />
   </head>
   <body class="home-page">
     <a class="skip-link" href="#categories">카테고리로 바로가기</a>
@@ -33,7 +33,7 @@
       <nav aria-label="주요 메뉴">
         <a href="/courses/">AI·데이터 교육</a>
         <a href="/development-cooperation/">개발협력·해외조달</a>
-        <a href="https://github.com/amnotyoung" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="mobile-primary" href="/open-source/">공개 저장소</a>
       </nav>
     </header>
 
@@ -52,6 +52,7 @@
             <div><dt>카테고리</dt><dd>02</dd></div>
             <div><dt>강의</dt><dd>04</dd></div>
             <div><dt>탐색 프로젝트</dt><dd>03</dd></div>
+            <div><dt>공개 저장소</dt><dd>06</dd></div>
           </dl>
         </div>
       </section>
@@ -69,7 +70,7 @@
               <span>LEARN</span>
             </div>
             <div class="door-copy">
-              <p>COURSES & PRACTICE</p>
+              <p>COURSES &amp; PRACTICE</p>
               <h3>AI·데이터<br />교육</h3>
               <span>AI 에이전트, Claude Code, 데이터 분석과 조직 협업을 배우는 과정</span>
             </div>
@@ -85,7 +86,7 @@
               <span>EXPLORE</span>
             </div>
             <div class="door-copy">
-              <p>KNOWLEDGE, DATA & MARKET</p>
+              <p>KNOWLEDGE, DATA &amp; MARKET</p>
               <h3>개발협력·<br />해외조달</h3>
               <span>개발협력 동향, ODA 사업 포트폴리오와 국가별 조달시장을 탐색하는 도구</span>
             </div>
@@ -95,6 +96,72 @@
             </div>
           </a>
         </div>
+      </section>
+
+      <section class="featured-repositories" id="open-source" aria-labelledby="featured-repositories-title">
+        <div class="section-intro row">
+          <div>
+            <p>02 / FEATURED REPOSITORIES</p>
+            <h2 id="featured-repositories-title">공개 도구와 실험</h2>
+          </div>
+          <span>업무와 개발협력 현장에서 시작해 누구나 다시 쓰고 검토할 수 있도록 공개한 프로젝트입니다.</span>
+        </div>
+
+        <div class="featured-repository-grid">
+          <article class="repository-card" data-accent="lime">
+            <div class="repository-card-top"><span>01</span><span>AI SLIDE TOOL</span></div>
+            <div class="repository-card-copy">
+              <h3>Slide Meme<br />Inserter</h3>
+              <p>발표의 맥락과 청중을 읽고 HTML 슬라이드에 익숙한 밈을 적절한 타이밍에 제안·삽입합니다.</p>
+            </div>
+            <ul aria-label="프로젝트 기술"><li>Claude Code</li><li>Codex</li><li>Python</li></ul>
+            <div class="repository-card-links">
+              <a href="https://github.com/amnotyoung/slide-meme-inserter" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="repository-card" data-accent="blue">
+            <div class="repository-card-top"><span>02</span><span>REGULATION SEARCH</span></div>
+            <div class="repository-card-copy">
+              <h3>KOICA Reg<br />MCP</h3>
+              <p>KOICA 현행 규정 149개와 약 6,400개 조문을 자연어로 검색하고 본문·인용·상호참조를 검증합니다.</p>
+            </div>
+            <ul aria-label="프로젝트 기술"><li>MCP</li><li>KOICA</li><li>Python</li></ul>
+            <div class="repository-card-links">
+              <a href="https://github.com/amnotyoung/koica-reg-mcp" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="repository-card" data-accent="orange">
+            <div class="repository-card-top"><span>03</span><span>ODA RESEARCH PLUGIN</span></div>
+            <div class="repository-card-copy">
+              <h3>ODA<br />Intelligence</h3>
+              <p>한국 ODA 사업, 국제원조 데이터, 개발협력 문서와 KOICA 규정을 AI 작업환경에서 근거와 함께 조사합니다.</p>
+            </div>
+            <ul aria-label="프로젝트 기술"><li>Claude</li><li>Codex</li><li>ChatGPT Dev</li></ul>
+            <div class="repository-card-links">
+              <a href="https://github.com/amnotyoung/oda-intelligence-plugin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="repository-card" data-accent="teal">
+            <div class="repository-card-top"><span>04</span><span>WEB GAME · RELEASED</span></div>
+            <div class="repository-card-copy">
+              <h3>Aid<br />World</h3>
+              <p>피지 수자원 사업의 이해관계자 사이를 오가며 경청, 협력과 주민 주체성을 선택으로 배우는 내러티브 게임입니다.</p>
+            </div>
+            <ul aria-label="프로젝트 기술"><li>Godot 4</li><li>Web Play</li><li>IDC</li></ul>
+            <div class="repository-card-links">
+              <a href="https://amnotyoung.itch.io/aid-world" target="_blank" rel="noreferrer">웹 플레이 <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/amnotyoung/idc-game" target="_blank" rel="noreferrer">소스 <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <a class="repository-index-link" href="/open-source/">
+          <span>SELECTED REPOSITORIES · 06</span>
+          <strong>모든 공개 저장소 보기 <i aria-hidden="true">→</i></strong>
+        </a>
       </section>
     </main>
 
