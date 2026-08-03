@@ -61,5 +61,26 @@
     ],
     "url": "courses/oda-ai-stats/modules/m01/",
     "repository": "https://github.com/amnotyoung/oda-ai-stats"
+  },
+  {
+    "id": "ai-collaboration-session1",
+    "number": "04",
+    "accent": "teal",
+    "type": "5시간 세션",
+    "year": "2026 · AI WORKFLOW",
+    "title": "AI, 개인의 도구에서 조직을 잇는 시스템으로",
+    "description": "AI 에이전트, 텍스트 우선, MCP, GitHub를 반복 가능하고 검증 가능한 조직 협업 흐름으로 연결하는 입문 세션입니다.",
+    "audience": "AI를 업무와 조직 협업에 연결하려는 실무자와 리더",
+    "tags": ["AI 에이전트", "MCP", "GitHub", "협업 시스템"],
+    "filters": ["work", "claude"],
+    "modules": 9,
+    "slides": 60,
+    "stats": [
+      { "value": "60", "label": "slides" },
+      { "value": "9", "label": "modules" },
+      { "value": "HTML", "label": "deck" }
+    ],
+    "url": "courses/ai-collaboration-session1/",
+    "repository": "https://github.com/amnotyoung/amnotyoung.github.io/tree/main/courses/ai-collaboration-session1"
   }
 ]
