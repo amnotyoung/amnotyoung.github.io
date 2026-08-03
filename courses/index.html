@@ -84,7 +84,15 @@
           <label class="search-box">
             <span class="visually-hidden">강의 검색</span>
             <span aria-hidden="true">⌕</span>
-            <input id="course-search" type="search" placeholder="제목, 주제, 대상 검색" autocomplete="off" />
+            <input
+              id="course-search"
+              type="search"
+              placeholder="제목, 주제, 대상 검색"
+              autocomplete="off"
+              enterkeyhint="search"
+              spellcheck="false"
+              aria-describedby="search-status"
+            />
           </label>
           <div class="filters" id="course-filters" role="group" aria-label="주제 필터">
             <button class="filter active" type="button" data-filter="all" aria-pressed="true">전체</button>
@@ -95,7 +103,12 @@
           </div>
         </div>
 
-        <div class="course-grid" id="course-grid" aria-live="polite">
+        <div class="catalog-feedback">
+          <p id="search-status" role="status" aria-live="polite">강의 목록을 준비하고 있습니다.</p>
+          <button id="search-reset" class="search-reset" type="button" hidden>검색·필터 초기화</button>
+        </div>
+
+        <div class="course-grid" id="course-grid">
           <div class="loading-card">강의 목록을 불러오는 중입니다.</div>
         </div>
         <p class="empty-state" id="empty-state" hidden>조건에 맞는 강의가 없습니다.</p>
