@@ -1,4 +1,4 @@
-# amnotyoung Public Index
+# amnotyoung Open Archive
 
 공개 강의와 개발협력·해외조달 프로젝트를 목적별로 연결하는 사이트 대문입니다.
 
