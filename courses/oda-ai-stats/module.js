@@ -164,7 +164,7 @@
         ${
           next
             ? `<a class="pager-next" href="${chapterHref(next)}"><span>다음 모듈 →</span><strong>${next.number}. ${escapeHtml(next.title)}</strong></a>`
-            : `<a class="pager-next" href="../../../../"><span>과정 완료 →</span><strong>전체 강의로 돌아가기</strong></a>`
+            : `<a class="pager-next" href="/courses/"><span>과정 완료 →</span><strong>전체 강의로 돌아가기</strong></a>`
         }
       </nav>`;
   }
@@ -201,7 +201,7 @@
   root.innerHTML = `
     <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
     <header class="lesson-header">
-      <a class="archive-link" href="../../../../" target="_top">amnotyoung / learning archive</a>
+      <a class="archive-link" href="/courses/" target="_top">amnotyoung / learning archive</a>
       <div class="lesson-header-actions">
         <a href="../../">과정 소개</a>
         <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html#${chapter.slideStart}" target="_blank" rel="noreferrer">슬라이드 ↗</a>

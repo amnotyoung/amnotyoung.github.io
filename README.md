@@ -2,13 +2,13 @@
 
 AI를 실제 업무에 연결하는 강의, 실습자료, 발표자료를 한곳에서 살펴보는 공개 아카이브입니다.
 
-사이트: <https://amnotyoung.github.io/>
+사이트: <https://amnotyoung.github.io/courses/>
 
 ## 강의 추가하기
 
-새 강의는 `data/courses.json`에 항목을 추가하면 첫 화면에 자동으로 나타납니다.
+새 강의는 `data/courses.json`에 항목을 추가하면 강의 아카이브 첫 화면에 자동으로 나타납니다.
 
-필수 정보는 제목, 소개, 대상, 태그, 강의 URL, 저장소 URL, 강의 단위 수와 슬라이드 수입니다. `filters`에는 `work`, `claude`, `data` 가운데 해당하는 값을 넣습니다.
+필수 정보는 제목, 소개, 대상, 태그, 강의 URL, 저장소 URL, 강의 단위 수와 슬라이드 수입니다. `filters`에는 `work`, `claude`, `data`, `stats` 가운데 해당하는 값을 넣습니다.
 
 ## 현재 수록된 자료
 

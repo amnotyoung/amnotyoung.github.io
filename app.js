@@ -109,7 +109,7 @@ viewer.addEventListener("cancel", (event) => {
 
 async function loadCourses() {
   try {
-    const response = await fetch("data/courses.json");
+    const response = await fetch("../data/courses.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     courses = await response.json();
     renderCourses();
