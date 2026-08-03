@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI를 실제 업무에 연결하는 강의, 실습자료, 발표자료를 한곳에서 살펴보는 학습 아카이브입니다."
+    />
+    <meta name="theme-color" content="#f3f0e8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="일하는 사람을 위한 AI 학습 아카이브" />
+    <meta
+      property="og:description"
+      content="Claude Code, MCP, 데이터, GitHub를 실제 업무 흐름으로 배우는 강의자료 모음"
+    />
+    <meta property="og:url" content="https://amnotyoung.github.io/" />
+    <meta property="og:image" content="https://amnotyoung.github.io/assets/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="일하는 사람을 위한 AI 학습 아카이브" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://amnotyoung.github.io/assets/og.png" />
+    <title>일하는 사람을 위한 AI 학습 아카이브</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#courses">강의 목록으로 바로가기</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="학습 아카이브 처음으로">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>amnotyoung<span class="brand-slash">/</span>learning archive</span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a href="#courses">강의</a>
+        <a href="#paths">학습 주제</a>
+        <a href="#about">소개</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>AI × WORK × LEARNING</p>
+          <h1 id="hero-title">도구를 배우는 데서 멈추지 않고,<br /><em>일하는 방식</em>을 다시 만듭니다.</h1>
+          <p class="hero-lead">
+            Claude Code, MCP, 데이터, GitHub를 실제 업무 흐름에 연결한 강의와
+            실습자료를 한곳에 모았습니다. 읽고, 보고, 직접 따라 해보세요.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#courses">강의 둘러보기 <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="https://github.com/amnotyoung" target="_blank" rel="noreferrer">
+              GitHub에서 보기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-index" aria-label="아카이브 현황">
+          <p class="index-kicker">ARCHIVE INDEX</p>
+          <dl>
+            <div><dt>공개 강의</dt><dd id="course-count">02</dd></div>
+            <div><dt>강의 단위</dt><dd id="module-count">17</dd></div>
+            <div><dt>슬라이드</dt><dd id="slide-count">141</dd></div>
+          </dl>
+          <div class="index-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p class="index-note">새로운 강의와 실습자료가 이곳에 계속 쌓입니다.</p>
+        </div>
+      </section>
+
+      <section class="catalog" id="courses" aria-labelledby="courses-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-number">01 / COURSES</p>
+            <h2 id="courses-title">현재 공개된 강의</h2>
+          </div>
+          <p>각 강의는 독립적으로 업데이트됩니다. 이곳에서는 한 번에 찾고 바로 시작할 수 있습니다.</p>
+        </div>
+
+        <div class="catalog-tools" aria-label="강의 검색과 필터">
+          <label class="search-box">
+            <span class="visually-hidden">강의 검색</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="course-search" type="search" placeholder="제목, 주제, 대상 검색" autocomplete="off" />
+          </label>
+          <div class="filters" id="course-filters" role="group" aria-label="주제 필터">
+            <button class="filter active" type="button" data-filter="all" aria-pressed="true">전체</button>
+            <button class="filter" type="button" data-filter="work">업무 활용</button>
+            <button class="filter" type="button" data-filter="claude">Claude Code</button>
+            <button class="filter" type="button" data-filter="data">데이터</button>
+          </div>
+        </div>
+
+        <div class="course-grid" id="course-grid" aria-live="polite">
+          <div class="loading-card">강의 목록을 불러오는 중입니다.</div>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>조건에 맞는 강의가 없습니다.</p>
+      </section>
+
+      <section class="learning-paths" id="paths" aria-labelledby="paths-title">
+        <div class="section-heading inverse">
+          <div>
+            <p class="section-number">02 / LEARNING PATHS</p>
+            <h2 id="paths-title">무엇을 배우게 되나요?</h2>
+          </div>
+          <p>강의는 달라도 배움은 하나의 업무 흐름으로 이어집니다.</p>
+        </div>
+
+        <ol class="path-list">
+          <li>
+            <span class="path-number">01</span>
+            <div><h3>시작하기</h3><p>채팅을 넘어 프로젝트 폴더와 파일을 중심으로 AI와 협업합니다.</p></div>
+            <span class="path-tag">환경 · 파일 · 프롬프트</span>
+          </li>
+          <li>
+            <span class="path-number">02</span>
+            <div><h3>연결하기</h3><p>MCP와 외부 도구를 연결해 규정, 법령, 문서, 회의록을 활용합니다.</p></div>
+            <span class="path-tag">MCP · 문서 · 데이터</span>
+          </li>
+          <li>
+            <span class="path-number">03</span>
+            <div><h3>축적하기</h3><p>Git과 GitHub, Wiki를 이용해 결과뿐 아니라 과정과 지식을 남깁니다.</p></div>
+            <span class="path-tag">Git · GitHub · Wiki</span>
+          </li>
+          <li>
+            <span class="path-number">04</span>
+            <div><h3>재사용하기</h3><p>반복 업무를 Skill과 Plugin으로 만들고 동료와 안전하게 공유합니다.</p></div>
+            <span class="path-tag">Skill · Plugin · Web</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="section-number">03 / ABOUT</p>
+          <h2 id="about-title">완성된 자료보다<br />계속 자라는 아카이브</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            강의자료는 한 번 만들고 끝나는 문서가 아닙니다. 실제 수업에서 확인한 질문과
+            사례를 반영해 계속 고치고, 새로운 과정은 같은 구조로 더합니다.
+          </p>
+          <p>
+            발표가 필요할 때는 슬라이드로, 혼자 학습할 때는 웹 문서와 실습자료로 사용할 수
+            있도록 서로 다른 형태를 함께 제공합니다.
+          </p>
+          <a href="https://github.com/amnotyoung" target="_blank" rel="noreferrer">전체 저장소 살펴보기 <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>일하는 사람을 위한 AI 학습 아카이브</p>
+      <p>Built in public · Updated as the work evolves</p>
+    </footer>
+
+    <dialog class="viewer" id="course-viewer" aria-labelledby="viewer-title">
+      <div class="viewer-shell">
+        <div class="viewer-bar">
+          <div>
+            <span id="viewer-type">COURSE</span>
+            <strong id="viewer-title">강의 보기</strong>
+          </div>
+          <div class="viewer-actions">
+            <a id="viewer-external" href="#" target="_blank" rel="noreferrer">새 탭 <span aria-hidden="true">↗</span></a>
+            <button id="viewer-close" type="button" aria-label="강의 미리보기 닫기">닫기 <span aria-hidden="true">×</span></button>
+          </div>
+        </div>
+        <iframe id="viewer-frame" title="강의 자료 미리보기" src="about:blank"></iframe>
+      </div>
+    </dialog>
+  </body>
+</html>

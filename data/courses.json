@@ -1,0 +1,44 @@
+[
+  {
+    "id": "koica-oos-ai-training",
+    "number": "01",
+    "accent": "blue",
+    "type": "집중 강의",
+    "year": "2026 · KOICA",
+    "title": "KOICA 해외사무소 AI·데이터 활용 교육",
+    "description": "업무 파일을 지식으로 바꾸고 MCP, Skill, Plugin, 웹앱, GitHub까지 하나의 흐름으로 연결하는 실무형 교육입니다.",
+    "audience": "KOICA 해외사무소 근무자",
+    "tags": ["AI 업무 활용", "MCP", "데이터", "GitHub"],
+    "filters": ["work", "claude", "data"],
+    "modules": 9,
+    "slides": 66,
+    "stats": [
+      { "value": "66", "label": "slides" },
+      { "value": "9", "label": "chapters" },
+      { "value": "KIT", "label": "practice" }
+    ],
+    "url": "https://amnotyoung.github.io/koica-oos-ai-training/",
+    "repository": "https://github.com/amnotyoung/koica-oos-ai-training"
+  },
+  {
+    "id": "lunch-time-claude-camp",
+    "number": "02",
+    "accent": "acid",
+    "type": "8주 과정",
+    "year": "2026 · CLAUDE CODE",
+    "title": "점심시간 Claude Code 캠프",
+    "description": "비개발자 동료가 점심시간에 자연어로 Claude Code를 배우며 매주 손에 잡히는 결과물을 만들어 가는 짧고 꾸준한 학습 과정입니다.",
+    "audience": "Claude Code를 처음 시작하는 비개발자",
+    "tags": ["Claude Code", "MCP", "Git", "에이전트"],
+    "filters": ["work", "claude"],
+    "modules": 8,
+    "slides": 75,
+    "stats": [
+      { "value": "8", "label": "weeks" },
+      { "value": "75", "label": "slides" },
+      { "value": "PDF", "label": "download" }
+    ],
+    "url": "https://amnotyoung.github.io/lunch-time-claude-camp/",
+    "repository": "https://github.com/amnotyoung/lunch-time-claude-camp"
+  }
+]
