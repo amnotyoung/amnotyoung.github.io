@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const metadataPath = join(repositoryRoot, "data", "columns.json");
+const KOREAN_WEEK_ORDINALS = ["첫째", "둘째", "셋째", "넷째", "다섯째"];
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -18,6 +19,15 @@ function readText(relativePath) {
     fail(`Missing or unsafe file: ${relativePath}`);
   }
   return readFileSync(path, "utf8");
+}
+
+function periodLabelForDate(value) {
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const ordinal = KOREAN_WEEK_ORDINALS[Math.floor((day - 1) / 7)];
+  return ordinal ? `${match[1]}년 ${month}월 ${ordinal} 주` : null;
 }
 
 let columns;
@@ -42,6 +52,9 @@ for (const [index, column] of columns.entries()) {
     !/^\d{4}-W\d{2}$/.test(column.id) ||
     !Number.isInteger(column.issue) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(column.published) ||
+    typeof column.period_label !== "string" ||
+    !/^\d{4}년 \d{1,2}월 (?:첫째|둘째|셋째|넷째|다섯째) 주$/.test(column.period_label) ||
+    column.period_label !== periodLabelForDate(column.published) ||
     typeof column.title !== "string" ||
     column.title.trim().length < 10 ||
     typeof column.description !== "string" ||
@@ -58,11 +71,38 @@ for (const [index, column] of columns.entries()) {
   if (!article.includes(`<link rel="canonical" href="${canonical}"`)) {
     fail(`Column canonical URL mismatch: ${column.id}`);
   }
-  if (!article.includes(column.title) || !article.includes(column.published.replaceAll("-", "."))) {
-    fail(`Column title or date mismatch: ${column.id}`);
+  if (
+    !article.includes(column.title) ||
+    !article.includes(column.published.replaceAll("-", ".")) ||
+    !article.includes(column.period_label)
+  ) {
+    fail(`Column title or period mismatch: ${column.id}`);
   }
   if (!archive.includes(`href="${column.url}"`)) {
     fail(`Column is absent from archive: ${column.id}`);
+  }
+  const archiveCard = archive.match(
+    new RegExp(`<a class="featured-column" href="${column.url.replaceAll("/", "\\/")}">([\\s\\S]*?)<\\/a>`),
+  )?.[1];
+  const periodParts = column.period_label.match(
+    /^(\d{4}년) (\d{1,2}월) ((?:첫째|둘째|셋째|넷째|다섯째) 주)$/,
+  );
+  if (
+    !archiveCard ||
+    !periodParts ||
+    !archiveCard.includes(`<span>${periodParts[1]}</span>`) ||
+    !archiveCard.includes(`<strong>${periodParts[2]}</strong>`) ||
+    !archiveCard.includes(`<em>${periodParts[3]}</em>`)
+  ) {
+    fail(`Human-readable period is absent from archive: ${column.id}`);
+  }
+  if (
+    archiveCard.includes(`ISSUE ${column.issue}`) ||
+    archiveCard.includes(`WEEK ${column.issue}`) ||
+    article.includes(`ISSUE ${column.issue}`) ||
+    article.includes(`WEEK ${column.issue}`)
+  ) {
+    fail(`Reader-facing ISO issue numbering is still present: ${column.id}`);
   }
   if (!sitemap.includes(`<loc>${canonical}</loc>`)) {
     fail(`Column is absent from sitemap: ${column.id}`);
