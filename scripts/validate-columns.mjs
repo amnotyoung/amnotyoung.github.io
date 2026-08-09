@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const metadataPath = join(repositoryRoot, "data", "columns.json");
 const KOREAN_WEEK_ORDINALS = ["첫째", "둘째", "셋째", "넷째", "다섯째"];
+const THREADS_PROFILE_URL = "https://www.threads.com/@amnotyoung.k";
+const THREADS_PROFILE_LABEL = "Threads · @amnotyoung.k";
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -46,6 +48,13 @@ const home = readText("index.html");
 const sitemap = readText("sitemap.xml");
 const ids = new Set();
 
+if (
+  !archive.includes(`href="${THREADS_PROFILE_URL}"`) ||
+  !archive.includes(THREADS_PROFILE_LABEL)
+) {
+  fail("Threads profile is absent from the column archive footer.");
+}
+
 for (const [index, column] of columns.entries()) {
   if (
     !column ||
@@ -68,6 +77,12 @@ for (const [index, column] of columns.entries()) {
 
   const article = readText(`columns/${column.id}/index.html`);
   const canonical = `https://amnotyoung.github.io${column.url}`;
+  if (
+    !article.includes(`href="${THREADS_PROFILE_URL}"`) ||
+    !article.includes(THREADS_PROFILE_LABEL)
+  ) {
+    fail(`Threads profile is absent from the article footer: ${column.id}`);
+  }
   if (!article.includes(`<link rel="canonical" href="${canonical}"`)) {
     fail(`Column canonical URL mismatch: ${column.id}`);
   }
