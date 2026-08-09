@@ -1,6 +1,6 @@
 # amnotyoung Open Archive
 
-공개 강의와 개발협력·해외조달 프로젝트를 목적별로 연결하는 사이트 대문입니다.
+공개 강의, 개발협력·해외조달 프로젝트와 기술·사회 주간 칼럼을 목적별로 연결하는 사이트 대문입니다.
 
 사이트: <https://amnotyoung.github.io/>
 
@@ -8,6 +8,13 @@
 
 - AI·데이터 교육: <https://amnotyoung.github.io/courses/>
 - 개발협력·해외조달: <https://amnotyoung.github.io/development-cooperation/>
+- 주간 칼럼: <https://amnotyoung.github.io/columns/>
+
+## 주간 칼럼 추가하기
+
+각 글은 `columns/YYYY-Www/index.html`에 저장하고 `columns/index.html`의 최신 글과
+목록을 갱신합니다. 기술과 사회, 조직, 국제개발협력을 한 주의 뉴스와 독서 관점으로
+연결하는 장문 원고를 싣습니다.
 
 ## AI·데이터 교육 과정 추가하기
 

@@ -38,7 +38,7 @@ a { color: inherit; }
 .home-hero h1 em { color: var(--lime); font-style: normal; }
 .hero-side { padding-bottom: 10px; }
 .hero-side > p { max-width: 520px; margin: 0 0 53px; color: #b7c0b9; font-size: clamp(14px, 1.35vw, 18px); line-height: 1.85; }
-.hero-side dl { margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #526056; }
+.hero-side dl { margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #526056; }
 .hero-side dl div { padding: 17px 10px 0 0; }
 .hero-side dt { color: #87938a; font-size: 10px; }
 .hero-side dd { margin: 8px 0 0; color: var(--white); font-family: var(--mono); font-size: clamp(22px, 2.5vw, 36px); }
@@ -49,11 +49,12 @@ a { color: inherit; }
 .section-intro p { margin: 0 0 11px; color: var(--orange); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
 .section-intro h2 { margin: 0; font-size: clamp(35px, 4.4vw, 64px); line-height: 1.1; letter-spacing: -.06em; }
 .section-intro > span, .section-intro.row > span { max-width: 390px; padding-bottom: 8px; color: var(--muted); font-size: 12px; line-height: 1.65; }
-.category-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--ink); }
+.category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--ink); }
 .category-door { min-height: 570px; padding: clamp(25px, 3.4vw, 50px); display: flex; flex-direction: column; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
 .category-door + .category-door { border-left: 1px solid var(--ink); }
 .category-door.education { background: var(--lime); }
 .category-door.development { background: var(--blue); color: white; }
+.category-door.columns { background: var(--orange); }
 .category-door:hover { position: relative; z-index: 1; transform: translate(-6px, -6px); box-shadow: 12px 12px 0 var(--ink); }
 .door-top, .door-bottom { display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; }
 .door-copy { margin: auto 0; }
@@ -61,6 +62,7 @@ a { color: inherit; }
 .door-copy h3 { margin: 0; font-size: clamp(47px, 6vw, 84px); line-height: 1; letter-spacing: -.075em; }
 .door-copy > span { max-width: 500px; margin-top: 28px; display: block; color: #3e493e; font-size: 14px; line-height: 1.72; }
 .development .door-copy > span { color: #dfe7ff; }
+.columns .door-copy > span { color: #4f2a20; }
 .door-bottom { padding-top: 20px; border-top: 1px solid currentColor; }
 .door-bottom strong { font-family: var(--sans); font-size: 12px; }
 .door-bottom i { margin-left: 8px; font-style: normal; font-size: 17px; }
