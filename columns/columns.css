@@ -49,7 +49,7 @@ a { color: inherit; }
 .featured-column-period strong { font-family: var(--column-sans); font-size: clamp(60px, 7.5vw, 108px); font-weight: 900; line-height: .8; letter-spacing: -.1em; }
 .featured-column-period em { font-family: var(--column-serif); font-size: clamp(25px, 2.8vw, 42px); font-style: normal; font-weight: 700; letter-spacing: -.05em; }
 .featured-column-copy { padding: clamp(38px, 5vw, 75px); display: flex; flex-direction: column; background: var(--column-white); }
-.featured-column-meta { display: flex; gap: 20px; color: var(--column-muted); font-family: var(--column-mono); font-size: 9px; letter-spacing: .08em; }
+.featured-column-meta { display: flex; flex-wrap: wrap; gap: 12px 20px; color: var(--column-muted); font-family: var(--column-mono); font-size: 9px; letter-spacing: .08em; }
 .featured-column-copy h3 { max-width: 900px; margin: 45px 0 28px; font-family: var(--column-serif); font-size: clamp(35px, 4.6vw, 66px); line-height: 1.28; letter-spacing: -.055em; word-break: keep-all; }
 .featured-column-copy > p { max-width: 760px; margin: 0; color: #515c53; font-family: var(--column-serif); font-size: 16px; line-height: 1.95; word-break: keep-all; }
 .featured-column-cta { margin-top: auto; padding-top: 45px; display: flex; justify-content: space-between; border-top: 1px solid var(--column-line); font-size: 12px; font-weight: 900; }
@@ -64,6 +64,8 @@ a { color: inherit; }
 .column-article-hero h1 { max-width: 920px; margin: 0; font-family: var(--column-serif); font-size: clamp(45px, 6.4vw, 92px); line-height: 1.18; letter-spacing: -.07em; word-break: keep-all; }
 .column-article-dek { max-width: 770px; margin: 35px 0 0; color: #4d584f; font-family: var(--column-serif); font-size: clamp(18px, 1.8vw, 24px); line-height: 1.85; word-break: keep-all; }
 .column-article-meta { margin-top: 42px; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 16px 28px; border-top: 1px solid var(--column-line); color: var(--column-muted); font-family: var(--column-mono); font-size: 9px; letter-spacing: .07em; }
+.column-view-count { color: var(--column-orange); font-variant-numeric: tabular-nums; }
+.column-view-count b { font: inherit; font-weight: 500; }
 
 .column-article-layout { padding: 95px clamp(22px, 6vw, 100px) 150px; display: grid; grid-template-columns: minmax(160px, 240px) minmax(0, 760px); gap: clamp(40px, 7vw, 110px); justify-content: start; }
 .column-toc { position: sticky; top: 34px; align-self: start; }

@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "23 * * * *"
 
 permissions:
   contents: read
@@ -12,7 +14,7 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'schedule' }}
 
 jobs:
   deploy:
@@ -23,6 +25,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Configure Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Refresh public view counts on schedule
+        if: github.event_name == 'schedule'
+        run: node scripts/build-view-counts.mjs
+
+      - name: Refresh public view counts for content deployment
+        if: github.event_name != 'schedule'
+        run: node scripts/build-view-counts.mjs --allow-stale
+
+      - name: Validate site
+        run: |
+          node scripts/validate-columns.mjs
+          node scripts/validate-view-counts.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
