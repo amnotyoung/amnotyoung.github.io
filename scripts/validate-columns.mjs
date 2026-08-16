@@ -124,6 +124,15 @@ for (const [index, column] of columns.entries()) {
   }
 }
 
+const expectedColumnCount = String(columns.length).padStart(2, "0");
+const expectedColumnLabel = `${columns.length} ${columns.length === 1 ? "COLUMN" : "COLUMNS"}`;
+if (
+  !home.includes(`<dt>주간 칼럼</dt><dd><span data-column-count="padded">${expectedColumnCount}</span></dd>`) ||
+  !home.includes(`<span data-column-count="label">${expectedColumnLabel}</span>`)
+) {
+  fail("Home column count does not match the column catalog.");
+}
+
 if (!home.includes('href="/columns/"') || !sitemap.includes("<loc>https://amnotyoung.github.io/columns/</loc>")) {
   fail("Column archive is not linked from the home page and sitemap.");
 }

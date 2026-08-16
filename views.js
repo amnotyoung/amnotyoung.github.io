@@ -3,6 +3,7 @@
 
   const SITE_URN = "amnotyoung.github.io";
   const COUNTS_URL = "/data/pageviews.json";
+  const COLUMNS_URL = "/data/columns.json";
   const ARTICLE_PATH = /^\/columns\/(\d{4}-W\d{2})\/?$/;
   const numberFormatter = new Intl.NumberFormat("ko-KR");
   const pendingTrackers = new Set();
@@ -54,8 +55,32 @@
     }
   }
 
+  async function renderColumnCount(elements) {
+    try {
+      const response = await fetch(COLUMNS_URL, {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error(`Column data returned ${response.status}`);
+
+      const columns = await response.json();
+      if (!Array.isArray(columns)) throw new Error("Column data is invalid");
+      const count = columns.length;
+      for (const element of elements) {
+        element.textContent = element.dataset.columnCount === "label"
+          ? `${count} ${count === 1 ? "COLUMN" : "COLUMNS"}`
+          : String(count).padStart(2, "0");
+      }
+    } catch {
+      // Keep the validated static count when live catalog loading fails.
+    }
+  }
+
   recordPageView();
 
   const countElements = [...document.querySelectorAll("[data-view-count]")];
   if (countElements.length > 0) renderCounts(countElements);
+
+  const columnCountElements = [...document.querySelectorAll("[data-column-count]")];
+  if (columnCountElements.length > 0) renderColumnCount(columnCountElements);
 })();
