@@ -9,6 +9,8 @@ const metadataPath = join(repositoryRoot, "data", "columns.json");
 const KOREAN_WEEK_ORDINALS = ["첫째", "둘째", "셋째", "넷째", "다섯째"];
 const THREADS_PROFILE_URL = "https://www.threads.com/@amnotyoung.k";
 const THREADS_PROFILE_LABEL = "Threads · @amnotyoung.k";
+const COLUMNS_OG_URL = "https://amnotyoung.github.io/assets/columns-og.png";
+const COLUMNS_OG_ALT = "amnotyoung 주간 칼럼 — 뉴스보다 오래 남는 질문을 읽습니다";
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -48,11 +50,25 @@ const home = readText("index.html");
 const sitemap = readText("sitemap.xml");
 const ids = new Set();
 
+function hasColumnSocialImage(html) {
+  return (
+    html.includes(`<meta property="og:image" content="${COLUMNS_OG_URL}" />`) &&
+    html.includes('<meta property="og:image:width" content="1200" />') &&
+    html.includes('<meta property="og:image:height" content="630" />') &&
+    html.includes(`<meta property="og:image:alt" content="${COLUMNS_OG_ALT}" />`) &&
+    html.includes('<meta name="twitter:card" content="summary_large_image" />') &&
+    html.includes(`<meta name="twitter:image" content="${COLUMNS_OG_URL}" />`)
+  );
+}
+
 if (
   !archive.includes(`href="${THREADS_PROFILE_URL}"`) ||
   !archive.includes(THREADS_PROFILE_LABEL)
 ) {
   fail("Threads profile is absent from the column archive footer.");
+}
+if (!hasColumnSocialImage(archive)) {
+  fail("Column archive social image metadata is invalid.");
 }
 
 for (const [index, column] of columns.entries()) {
@@ -85,6 +101,9 @@ for (const [index, column] of columns.entries()) {
   }
   if (!article.includes(`<link rel="canonical" href="${canonical}"`)) {
     fail(`Column canonical URL mismatch: ${column.id}`);
+  }
+  if (!hasColumnSocialImage(article)) {
+    fail(`Column social image metadata is invalid: ${column.id}`);
   }
   if (
     !article.includes(column.title) ||
