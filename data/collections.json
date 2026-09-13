@@ -1,0 +1,128 @@
+{
+  "projects": [
+    {
+      "id": "trends",
+      "title": "KOICA 해외사무소별 개발협력 동향",
+      "description": "소재국·겸임국의 동향과 사업을 국가별 위키·그래프로 탐색",
+      "url": "/devcoop-trends-wiki/",
+      "meta": "동향·사업"
+    },
+    {
+      "id": "map",
+      "title": "개발협력 위치정보 지도",
+      "description": "해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정",
+      "url": "/oda-map-lab/",
+      "meta": "위치정보"
+    },
+    {
+      "id": "procurement",
+      "title": "그 나라, 조달하고 건축하려면?",
+      "description": "국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인",
+      "url": "/overseas-procurement-100/",
+      "meta": "조달·건축"
+    },
+    {
+      "id": "construction",
+      "title": "KOICA 건축사업 사례 데이터",
+      "description": "2016–2025년 현지입찰 공고에 기반한 건축조사·사업비 교차검증 자료",
+      "url": "https://github.com/amnotyoung/koica-construction-tender",
+      "meta": "과거 공사비·GitHub"
+    }
+  ],
+  "repositories": [
+    {
+      "id": "slide-meme-inserter",
+      "title": "Slide Meme Inserter",
+      "description": "발표 맥락에 맞는 밈을 제안·삽입하는 Claude Code·Codex 스킬",
+      "url": "https://github.com/amnotyoung/slide-meme-inserter",
+      "filters": [
+        "ai"
+      ],
+      "meta": "AI·업무",
+      "note": "",
+      "secondary": []
+    },
+    {
+      "id": "oda-intelligence-plugin",
+      "title": "ODA Intelligence",
+      "description": "한국 ODA·국제원조 데이터·개발협력 문서·KOICA 규정 조사",
+      "url": "https://github.com/amnotyoung/oda-intelligence-plugin",
+      "filters": [
+        "ai"
+      ],
+      "meta": "AI·업무",
+      "note": "",
+      "secondary": []
+    },
+    {
+      "id": "koica-reg-mcp",
+      "title": "KOICA Reg MCP",
+      "description": "KOICA 현행 규정의 자연어 검색과 본문·인용·상호참조 검증",
+      "url": "https://github.com/amnotyoung/koica-reg-mcp",
+      "filters": [
+        "development"
+      ],
+      "meta": "개발협력",
+      "note": "비공식 참고용이며 정확성을 보증하지 않습니다. 법적 효력이 있는 공식 최신본은 ALIO 또는 KOICA 공식 채널에서 확인하세요.",
+      "secondary": [
+        {
+          "url": "https://t.me/koica_reg_bot",
+          "label": "봇 체험"
+        }
+      ]
+    },
+    {
+      "id": "dev-eval-agents",
+      "title": "DevEval Agents",
+      "description": "사업평가·영향평가 방법론 검토·보고서 품질심사와 초안 작성",
+      "url": "https://github.com/amnotyoung/dev-eval-agents",
+      "filters": [
+        "development"
+      ],
+      "meta": "개발협력",
+      "note": "",
+      "secondary": []
+    },
+    {
+      "id": "koica-construction-tender",
+      "title": "KOICA Construction Tender",
+      "description": "KOICA 건축사업의 유사사례·관련 공고·비용 근거 검색",
+      "url": "https://github.com/amnotyoung/koica-construction-tender",
+      "filters": [
+        "development"
+      ],
+      "meta": "개발협력",
+      "note": "과거 사례 단가는 미래 사업비의 직접 산정값이 아닙니다. 현지 QS·BOQ·시공사 견적과 물가·환율·세금·사업범위를 함께 검토해야 합니다.",
+      "secondary": []
+    },
+    {
+      "id": "koica-project-map",
+      "title": "KOICA Project Map",
+      "description": "사업 목록에서 편집 가능한 PPTX·PDF 지도 생성",
+      "url": "https://github.com/amnotyoung/koica-project-map",
+      "filters": [
+        "automation"
+      ],
+      "meta": "자동화·체험",
+      "note": "",
+      "secondary": []
+    },
+    {
+      "id": "aid-world",
+      "title": "Aid World",
+      "description": "피지 수자원 사업을 통해 협력을 배우는 1–2시간 내러티브 게임",
+      "url": "https://amnotyoung.itch.io/aid-world",
+      "filters": [
+        "automation"
+      ],
+      "meta": "자동화·체험",
+      "note": "",
+      "secondary": [
+        {
+          "url": "https://github.com/amnotyoung/idc-game",
+          "label": "소스"
+        }
+      ]
+    }
+  ]
+}

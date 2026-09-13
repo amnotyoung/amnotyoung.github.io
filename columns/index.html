@@ -1,137 +1,87 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AI, 기술, 조직과 국제개발협력을 한 주의 뉴스와 책의 관점으로 엮어 읽는 amnotyoung의 주간 칼럼입니다." />
-    <meta name="theme-color" content="#18211a" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="주간 칼럼 · amnotyoung" />
-    <meta property="og:description" content="한 주의 사건을 나열하지 않고, 기술이 조직과 사회를 바꾸는 흐름으로 읽습니다." />
-    <meta property="og:url" content="https://amnotyoung.github.io/columns/" />
-    <meta property="og:image" content="https://amnotyoung.github.io/assets/columns-og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="amnotyoung 주간 칼럼 — 뉴스보다 오래 남는 질문을 읽습니다" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://amnotyoung.github.io/assets/columns-og.png" />
-    <link rel="canonical" href="https://amnotyoung.github.io/columns/" />
-    <title>주간 칼럼 · amnotyoung</title>
-    <link rel="stylesheet" href="../hub.css?v=columns-v1" />
-    <link rel="stylesheet" href="columns.css?v=columns-v3" />
-    <script defer src="/views.js"></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#columns">칼럼 목록으로 바로가기</a>
-    <header class="hub-header">
-      <a class="wordmark" href="/" aria-label="공개 사이트 대문">
-        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i></span>
-        <span>amnotyoung / open archive</span>
-      </a>
-      <nav aria-label="주요 메뉴">
-        <a href="/">전체 대문</a>
-        <a href="/courses/">AI·데이터 교육</a>
-        <a href="/development-cooperation/">개발협력·해외조달</a>
-        <a class="mobile-primary" href="/columns/" aria-current="page">주간 칼럼</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="주간 칼럼 · amnotyoung" />
+  <title>주간 칼럼 · amnotyoung</title>
+  <link rel="canonical" href="https://amnotyoung.github.io/columns/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="주간 칼럼 · amnotyoung" />
+  <meta property="og:url" content="https://amnotyoung.github.io/columns/" />
+  <meta property="og:image" content="https://amnotyoung.github.io/assets/any/columns-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="주간 칼럼 · amnotyoung" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://amnotyoung.github.io/assets/any/columns-og.png" />
+  <link rel="preload" href="/assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/home.css?v=any-v3" />
+  <link rel="stylesheet" href="/collections.css?v=any-v3" />
+  <script src="/home.js?v=any-v3" defer></script>
+  <script defer src="/views.js"></script>
+</head>
+<body class="collection-page columns-page">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="amnotyoung 공개 아카이브 홈">
+      <img src="/assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100">
+      <span>amnotyoung</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="주요 메뉴">
+      <a href="/courses/">AI·데이터 교육</a>
+      <a href="/development-cooperation/">개발협력·해외조달</a>
+      <a href="/columns/" aria-current="page">주간 칼럼</a>
+      <a href="/open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="page-title"><h1 id="page-title">주간 칼럼</h1></section>
+    <section class="collection-catalog wrap" id="columns" aria-label="칼럼 목록">
+      <div class="library-tools search-only" hidden>
 
-    <main>
-      <section class="column-archive-hero" aria-labelledby="column-archive-title">
-        <div>
-          <p class="eyebrow">AI · TECHNOLOGY · SOCIETY</p>
-          <h1 id="column-archive-title">주간<br /><em>칼럼</em></h1>
-        </div>
-        <div class="column-archive-lead">
-          <p>뉴스를 빠르게 훑는 대신, 한 주의 사건을 책과 현장의 관점으로 연결합니다. 기술이 무엇을 가능하게 하고 그 결과를 누가 책임지는지 오래 읽습니다.</p>
-          <div class="archive-rule"><span>SINCE 2026</span><span>WEEKLY · SUNDAY</span></div>
-        </div>
-      </section>
-
-      <section class="column-library" id="columns" aria-labelledby="columns-title">
-        <div class="column-library-heading">
-          <div><p>01 / LATEST COLUMN</p><h2 id="columns-title">이번 주의 글</h2></div>
-          <span>AI·기술·비즈니스의 사건을 하나의 논지로 묶고, 매주 국제개발협력의 질문을 함께 다룹니다.</span>
-        </div>
-
-        <a class="featured-column" href="/columns/2026-W36/">
-          <div class="featured-column-number">
-            <span>2026년</span>
-            <div class="featured-column-period"><strong>9월</strong><em>첫째 주</em></div>
-          </div>
-          <div class="featured-column-copy">
-            <div class="featured-column-meta"><span>2026.09.06</span><span>WEEKLY COLUMN</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W36">—</b></span></div>
-            <h3>AI가 행동할수록, 기록은 누구의 것인가</h3>
-            <p>에이전트 사고, 업무 데이터, 공공 등록부를 통해 AI 시대의 증거와 책임이 누구에게 귀속되는지 살핍니다.</p>
-            <div class="featured-column-cta"><span>amnotyoung의 주간 코멘터리</span><strong>글 읽기 →</strong></div>
-          </div>
-        </a>
-
-        <a class="featured-column" href="/columns/2026-W35/">
-          <div class="featured-column-number">
-            <span>2026년</span>
-            <div class="featured-column-period"><strong>8월</strong><em>다섯째 주</em></div>
-          </div>
-          <div class="featured-column-copy">
-            <div class="featured-column-meta"><span>2026.08.30</span><span>WEEKLY COLUMN</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W35">—</b></span></div>
-            <h3>국가의 첫 화면을 누가 설계하는가</h3>
-            <p>공공 AI와 플랫폼 기본값이 시민의 질문과 선택, 책임 구조를 어떻게 다시 쓰는지 살핍니다.</p>
-            <div class="featured-column-cta"><span>amnotyoung의 주간 코멘터리</span><strong>글 읽기 →</strong></div>
-          </div>
-        </a>
-
-        <a class="featured-column" href="/columns/2026-W34/">
-          <div class="featured-column-number">
-            <span>2026년</span>
-            <div class="featured-column-period"><strong>8월</strong><em>넷째 주</em></div>
-          </div>
-          <div class="featured-column-copy">
-            <div class="featured-column-meta"><span>2026.08.23</span><span>WEEKLY COLUMN</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W34">—</b></span></div>
-            <h3>모델 밖의 관문이 AI의 규칙을 만든다</h3>
-            <p>전력 계약, 모델 라우팅, 플랫폼 조직과 안전 규칙을 통해 관문 소유와 공적 통제의 차이를 읽습니다.</p>
-            <div class="featured-column-cta"><span>amnotyoung의 주간 코멘터리</span><strong>글 읽기 →</strong></div>
-          </div>
-        </a>
-
-        <a class="featured-column" href="/columns/2026-W33/">
-          <div class="featured-column-number">
-            <span>2026년</span>
-            <div class="featured-column-period"><strong>8월</strong><em>셋째 주</em></div>
-          </div>
-          <div class="featured-column-copy">
-            <div class="featured-column-meta"><span>2026.08.16</span><span>WEEKLY COLUMN</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W33">—</b></span></div>
-            <h3>AI가 싸질수록, 비용과 책임은 어디로 이동하는가</h3>
-            <p>값싼 추론 뒤의 금융, 데이터센터, 보안, 업무 설계와 공공정보 제도로 이동하는 AI의 비용과 책임을 읽습니다.</p>
-            <div class="featured-column-cta"><span>amnotyoung의 주간 코멘터리</span><strong>글 읽기 →</strong></div>
-          </div>
-        </a>
-
-        <a class="featured-column" href="/columns/2026-W32/">
-          <div class="featured-column-number">
-            <span>2026년</span>
-            <div class="featured-column-period"><strong>8월</strong><em>둘째 주</em></div>
-          </div>
-          <div class="featured-column-copy">
-            <div class="featured-column-meta"><span>2026.08.09</span><span>WEEKLY COLUMN</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W32">—</b></span></div>
-            <h3>도구가 가능성을 넓힐 때, 누가 현실을 책임지는가</h3>
-            <p>WeatherNext, 보안 에이전트, 국가 AI 컴퓨팅센터와 중국어 데이터 부족을 통해 좋은 도구와 좋은 운영이 왜 함께 커져야 하는지 살펴봅니다.</p>
-            <div class="featured-column-cta"><span>amnotyoung의 주간 코멘터리</span><strong>글 읽기 →</strong></div>
-          </div>
-        </a>
-      </section>
-    </main>
-
-    <footer class="hub-footer">
-      <a href="/">← 전체 대문</a>
-      <span>amnotyoung · weekly columns</span>
-      <span>매주 한 번, 뉴스보다 오래 남는 질문</span>
-      <a
-        class="footer-contact"
-        href="https://www.threads.com/@amnotyoung.k"
-        target="_blank"
-        rel="me noopener noreferrer"
-        aria-label="Threads에서 amnotyoung.k에게 연락하기"
-      >Threads · @amnotyoung.k <span aria-hidden="true">↗</span></a>
-    </footer>
-  </body>
+        <form class="search" role="search">
+          <label for="resource-search">칼럼 검색</label>
+          <div class="search-field"><input id="resource-search" type="search" placeholder="제목, 주제 검색" autocomplete="off" enterkeyhint="search"><button type="submit" aria-label="검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
+        </form>
+      </div>
+      <p class="result-status" data-unit="칼럼" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="resource-grid column-list" id="resources">
+        <!-- COLLECTION-RESOURCES:START -->
+        <article class="resource" data-resource-id="column:2026-W36" data-type="column" data-filters="" data-search="ai가 행동할수록, 기록은 누구의 것인가 에이전트 사고·업무 데이터·공공 등록부의 증거와 책임 에이전트 사고, 업무 데이터, 공공 등록부를 통해 ai 시대의 증거와 책임이 누구에게 귀속되는지 살핍니다.  2026.09.06">
+          <div class="resource-meta"><time datetime="2026-09-06">2026.09.06</time><span>조회 <b data-view-count="2026-W36">—</b></span></div>
+          <h2><a href="/columns/2026-W36/">AI가 행동할수록, 기록은 누구의 것인가 <span aria-hidden="true">↗</span></a></h2>
+          <p>에이전트 사고·업무 데이터·공공 등록부의 증거와 책임</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W35" data-type="column" data-filters="" data-search="국가의 첫 화면을 누가 설계하는가 공공 ai와 플랫폼 기본값이 바꾸는 시민의 선택 공공 ai와 플랫폼 기본값이 시민의 질문과 선택, 책임 구조를 어떻게 다시 쓰는지 살핍니다.  2026.08.30">
+          <div class="resource-meta"><time datetime="2026-08-30">2026.08.30</time><span>조회 <b data-view-count="2026-W35">—</b></span></div>
+          <h2><a href="/columns/2026-W35/">국가의 첫 화면을 누가 설계하는가 <span aria-hidden="true">↗</span></a></h2>
+          <p>공공 AI와 플랫폼 기본값이 바꾸는 시민의 선택</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W34" data-type="column" data-filters="" data-search="모델 밖의 관문이 ai의 규칙을 만든다 전력·모델 라우팅·플랫폼의 관문 소유와 공적 통제 전력 계약, 모델 라우팅, 플랫폼 조직과 안전 규칙을 통해 관문 소유와 공적 통제의 차이를 읽습니다.  2026.08.23">
+          <div class="resource-meta"><time datetime="2026-08-23">2026.08.23</time><span>조회 <b data-view-count="2026-W34">—</b></span></div>
+          <h2><a href="/columns/2026-W34/">모델 밖의 관문이 AI의 규칙을 만든다 <span aria-hidden="true">↗</span></a></h2>
+          <p>전력·모델 라우팅·플랫폼의 관문 소유와 공적 통제</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W33" data-type="column" data-filters="" data-search="ai가 싸질수록, 비용과 책임은 어디로 이동하는가 금융·인프라·보안·업무 설계·공공정보 제도의 비용과 책임 값싼 추론 뒤의 금융, 데이터센터, 보안, 업무 설계와 공공정보 제도로 이동하는 ai의 비용과 책임을 읽습니다.  2026.08.16">
+          <div class="resource-meta"><time datetime="2026-08-16">2026.08.16</time><span>조회 <b data-view-count="2026-W33">—</b></span></div>
+          <h2><a href="/columns/2026-W33/">AI가 싸질수록, 비용과 책임은 어디로 이동하는가 <span aria-hidden="true">↗</span></a></h2>
+          <p>금융·인프라·보안·업무 설계·공공정보 제도의 비용과 책임</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W32" data-type="column" data-filters="" data-search="도구가 가능성을 넓힐 때, 누가 현실을 책임지는가 기상 예측·보안·국가 ai 인프라 사례로 보는 운영의 과제 weathernext, 보안 에이전트, 국가 ai 컴퓨팅센터와 중국어 데이터 부족을 통해 좋은 도구와 좋은 운영이 왜 함께 커져야 하는지 살펴봅니다.  2026.08.09">
+          <div class="resource-meta"><time datetime="2026-08-09">2026.08.09</time><span>조회 <b data-view-count="2026-W32">—</b></span></div>
+          <h2><a href="/columns/2026-W32/">도구가 가능성을 넓힐 때, 누가 현실을 책임지는가 <span aria-hidden="true">↗</span></a></h2>
+          <p>기상 예측·보안·국가 AI 인프라 사례로 보는 운영의 과제</p>
+        </article>
+        <!-- COLLECTION-RESOURCES:END -->
+      </div>
+      <div class="empty-state" hidden><h2>검색 결과가 없습니다</h2><p>다른 검색어를 입력하거나 분류를 초기화하세요.</p><button class="button" id="reset-search">검색·분류 초기화</button></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap">
+    <div class="footer-links"><a href="https://github.com/amnotyoung">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.threads.com/@amnotyoung.k">Threads <span aria-hidden="true">↗</span></a></div>
+  </footer>
+</body>
 </html>

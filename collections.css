@@ -1,0 +1,22 @@
+.site-header a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+.collection-catalog{padding-bottom:56px}
+.search-only{justify-content:flex-end}
+.collection-catalog .resource h2{font-size:24px;line-height:1.4;margin-bottom:12px;max-width:100%}
+.collection-catalog .resource h2 a{display:inline-flex;align-items:baseline;gap:8px;min-height:44px;text-decoration:none}
+.collection-catalog .resource h2 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.collection-catalog .resource h2 a>span{font-size:16px;font-weight:400;white-space:nowrap;flex-shrink:0}
+.collection-catalog .resource>p{max-width:100%}
+.resource-secondary{display:flex;gap:20px;margin-top:12px}
+.resource-secondary a{min-height:44px;display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:underline}
+.resource .resource-note{font-size:14px;margin-top:16px;padding-left:12px;border-left:2px solid var(--control)}
+.column-list{grid-template-columns:1fr}
+.column-list .resource{display:grid;grid-template-columns:150px minmax(0,1fr);column-gap:32px;padding-block:28px}
+.column-list .resource-meta{grid-row:1/3;display:flex;flex-direction:column;gap:6px;margin:6px 0 0}
+.column-list .resource-meta span::before{content:none}
+.column-list .resource-meta b{font-weight:400;font-variant-numeric:tabular-nums}
+.column-list .resource h2{font-size:28px;margin-bottom:8px}
+.column-list .resource>p{grid-column:2;max-width:780px}
+.collection-catalog .empty-state h2{font-size:24px;margin-bottom:12px}
+@media(max-width:1100px){.collection-page .filters{gap:18px}.column-list .resource{grid-template-columns:130px minmax(0,1fr);column-gap:24px}}
+@media(max-width:600px){.collection-catalog{padding-bottom:32px}.collection-page .filters{gap:10px 18px}.collection-catalog .resource h2{font-size:22px}.column-list .resource{display:flex;padding-block:24px}.column-list .resource-meta{flex-direction:row;gap:20px;margin:0 0 14px}.column-list .resource h2{font-size:24px}.column-list .resource>p{font-size:15px}}
+@media print{.column-list .resource{display:block}.column-list .resource-meta{margin-bottom:12px}}

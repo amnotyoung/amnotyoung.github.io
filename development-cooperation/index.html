@@ -1,127 +1,82 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="해외사무소별 개발협력 동향·사업, 공개 위치정보 지도, 국가별 조달·건축 제도와 건축사업 사례 데이터를 연결하는 공개 프로젝트 모음입니다."
-    />
-    <meta name="theme-color" content="#f0ede2" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="개발협력·해외조달 · amnotyoung" />
-    <meta property="og:description" content="해외사무소별 동향, 위치정보와 조달·건축 실행 근거를 연결하는 네 개의 공개 프로젝트" />
-    <meta property="og:url" content="https://amnotyoung.github.io/development-cooperation/" />
-    <link rel="canonical" href="https://amnotyoung.github.io/development-cooperation/" />
-    <title>개발협력·해외조달 · amnotyoung</title>
-    <link rel="stylesheet" href="../hub.css?v=open-source-v1" />
-    <script defer src="/views.js"></script>
-  </head>
-  <body class="collection-page">
-    <a class="skip-link" href="#projects">프로젝트로 바로가기</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="개발협력·해외조달 · amnotyoung" />
+  <title>개발협력·해외조달 · amnotyoung</title>
+  <link rel="canonical" href="https://amnotyoung.github.io/development-cooperation/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="개발협력·해외조달 · amnotyoung" />
+  <meta property="og:url" content="https://amnotyoung.github.io/development-cooperation/" />
+  <meta property="og:image" content="https://amnotyoung.github.io/assets/any/development-cooperation-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="개발협력·해외조달 · amnotyoung" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://amnotyoung.github.io/assets/any/development-cooperation-og.png" />
+  <link rel="preload" href="/assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/home.css?v=any-v3" />
+  <link rel="stylesheet" href="/collections.css?v=any-v3" />
+  <script src="/home.js?v=any-v3" defer></script>
+  <script defer src="/views.js"></script>
+</head>
+<body class="collection-page development-cooperation-page">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="amnotyoung 공개 아카이브 홈">
+      <img src="/assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100">
+      <span>amnotyoung</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="주요 메뉴">
+      <a href="/courses/">AI·데이터 교육</a>
+      <a href="/development-cooperation/" aria-current="page">개발협력·해외조달</a>
+      <a href="/columns/">주간 칼럼</a>
+      <a href="/open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="page-title"><h1 id="page-title">개발협력·해외조달</h1></section>
+    <section class="collection-catalog wrap" id="projects" aria-label="프로젝트 목록">
+      <div class="library-tools search-only" hidden>
 
-    <header class="hub-header light">
-      <a class="wordmark" href="/">
-        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i></span>
-        <span>amnotyoung / open archive</span>
-      </a>
-      <nav aria-label="주요 메뉴">
-        <a href="/">전체 대문</a>
-        <a href="/courses/">AI·데이터 교육</a>
-        <a class="mobile-primary" href="/open-source/">공개 저장소</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="collection-hero" aria-labelledby="collection-title">
-        <div class="collection-index">
-          <span>02</span>
-          <p>DEVELOPMENT COOPERATION<br />PROCUREMENT &amp; CONSTRUCTION</p>
-        </div>
-        <div>
-          <p class="eyebrow dark">KNOWLEDGE · DATA · MARKET</p>
-          <h1 id="collection-title">개발협력·<br /><em>해외조달</em></h1>
-          <p class="collection-lead">
-            해외사무소별 동향과 사업을 읽고, 공개 위치정보를 지도에서 살피고,
-            국가별 조달·건축 제도와 과거 사업비 근거까지 이어지는 네 개의 탐색 프로젝트입니다.
-          </p>
-        </div>
-      </section>
-
-      <section class="project-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-intro row">
-          <div><p>01 / PROJECTS</p><h2 id="projects-title">현재 공개된 프로젝트</h2></div>
-          <span>각 프로젝트는 독립된 사이트 또는 공개 저장소에서 계속 업데이트됩니다.</span>
-        </div>
-
-        <div class="project-stack">
-          <article class="project-row wiki">
-            <span class="project-number">01</span>
-            <div class="project-main">
-              <p>COUNTRY TRENDS &amp; PROJECTS</p>
-              <h3>KOICA 해외사무소별 개발협력 동향</h3>
-              <span>사무소 소재국과 소관 겸임국의 동향·사업을 국가별 위키와 그래프로 함께 탐색합니다.</span>
-              <ul aria-label="주요 기능"><li>동향·사업</li><li>지식 그래프</li><li>관계분석</li></ul>
-            </div>
-            <a href="/devcoop-trends-wiki/" aria-label="KOICA 해외사무소별 개발협력 동향 열기">사이트 열기 <i aria-hidden="true">↗</i></a>
-          </article>
-
-          <article class="project-row map">
-            <span class="project-number">02</span>
-            <div class="project-main">
-              <p>DEVELOPMENT LOCATION MAP</p>
-              <h3>개발협력 위치정보 지도</h3>
-              <span>해외사무소·대사관·개발협력 사업과 봉사단의 공개 위치 데이터를 지도에서 찾고 보정합니다.</span>
-              <ul aria-label="주요 기능"><li>위치 검색</li><li>레이어 탐색</li><li>수정 요청</li></ul>
-            </div>
-            <a href="/oda-map-lab/" aria-label="개발협력 위치정보 지도 열기">사이트 열기 <i aria-hidden="true">↗</i></a>
-          </article>
-
-          <article class="project-row procurement">
-            <span class="project-number">03</span>
-            <div class="project-main">
-              <p>PROCUREMENT &amp; CONSTRUCTION GUIDE</p>
-              <h3>그 나라, 조달하고 건축하려면?</h3>
-              <span>국가별 입찰·사업형성 절차와 건축 법·제도를 공식 근거에 대조해 실행 경로로 정리합니다.</span>
-              <ul aria-label="주요 기능"><li>해외조달</li><li>사업형성</li><li>건축 법·제도</li></ul>
-            </div>
-            <a href="/overseas-procurement-100/" aria-label="그 나라, 조달하고 건축하려면? 열기">사이트 열기 <i aria-hidden="true">↗</i></a>
-          </article>
-
-          <article class="project-row construction">
-            <span class="project-number">04</span>
-            <div class="project-main">
-              <p>CONSTRUCTION COST EVIDENCE</p>
-              <h3>KOICA 건축사업 사례 데이터</h3>
-              <span>2016–2025년 KOICA 현지입찰 공고를 구조화해 건축조사와 사업비 산정의 교차검증 근거를 제공합니다.</span>
-              <ul aria-label="주요 기능"><li>공개 사례 DB</li><li>건축조사</li><li>비용 교차검증</li></ul>
-            </div>
-            <a
-              href="https://github.com/amnotyoung/koica-construction-tender"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="KOICA 건축사업 사례 데이터 저장소 열기"
-            >데이터 보기 <i aria-hidden="true">↗</i></a>
-          </article>
-        </div>
-      </section>
-
-      <nav class="category-switch" aria-label="다른 카테고리">
-        <span>다른 입구</span>
-        <a href="/courses/">AI·데이터 교육 <i aria-hidden="true">→</i></a>
-      </nav>
-    </main>
-
-    <footer class="hub-footer light-footer">
-      <a href="/">← 전체 대문</a>
-      <span>개발협력·해외조달</span>
-      <a
-        class="footer-contact"
-        href="https://www.threads.com/@amnotyoung.k"
-        target="_blank"
-        rel="me noopener noreferrer"
-        aria-label="Threads에서 amnotyoung.k에게 연락하기"
-      >Threads · @amnotyoung.k <span aria-hidden="true">↗</span></a>
-    </footer>
-  </body>
+        <form class="search" role="search">
+          <label for="resource-search">프로젝트 검색</label>
+          <div class="search-field"><input id="resource-search" type="search" placeholder="제목, 주제 검색" autocomplete="off" enterkeyhint="search"><button type="submit" aria-label="검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
+        </form>
+      </div>
+      <p class="result-status" data-unit="프로젝트" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="resource-grid " id="resources">
+        <!-- COLLECTION-RESOURCES:START -->
+        <article class="resource" data-resource-id="project:trends" data-type="project" data-filters="" data-search="koica 해외사무소별 개발협력 동향 소재국·겸임국의 동향과 사업을 국가별 위키·그래프로 탐색 소재국·겸임국의 동향과 사업을 국가별 위키·그래프로 탐색  동향·사업">
+          <div class="resource-meta"><span>동향·사업</span></div>
+          <h2><a href="/devcoop-trends-wiki/">KOICA 해외사무소별 개발협력 동향 <span aria-hidden="true">↗</span></a></h2>
+          <p>소재국·겸임국의 동향과 사업을 국가별 위키·그래프로 탐색</p>
+        </article>
+        <article class="resource" data-resource-id="project:map" data-type="project" data-filters="" data-search="개발협력 위치정보 지도 해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정 해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정  위치정보">
+          <div class="resource-meta"><span>위치정보</span></div>
+          <h2><a href="/oda-map-lab/">개발협력 위치정보 지도 <span aria-hidden="true">↗</span></a></h2>
+          <p>해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정</p>
+        </article>
+        <article class="resource" data-resource-id="project:procurement" data-type="project" data-filters="" data-search="그 나라, 조달하고 건축하려면? 국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인 국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인  조달·건축">
+          <div class="resource-meta"><span>조달·건축</span></div>
+          <h2><a href="/overseas-procurement-100/">그 나라, 조달하고 건축하려면? <span aria-hidden="true">↗</span></a></h2>
+          <p>국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인</p>
+        </article>
+        <article class="resource" data-resource-id="project:construction" data-type="project" data-filters="" data-search="koica 건축사업 사례 데이터 2016–2025년 현지입찰 공고에 기반한 건축조사·사업비 교차검증 자료 2016–2025년 현지입찰 공고에 기반한 건축조사·사업비 교차검증 자료  과거 공사비·github">
+          <div class="resource-meta"><span>과거 공사비·GitHub</span></div>
+          <h2><a href="https://github.com/amnotyoung/koica-construction-tender">KOICA 건축사업 사례 데이터 <span aria-hidden="true">↗</span></a></h2>
+          <p>2016–2025년 현지입찰 공고에 기반한 건축조사·사업비 교차검증 자료</p>
+        </article>
+        <!-- COLLECTION-RESOURCES:END -->
+      </div>
+      <div class="empty-state" hidden><h2>검색 결과가 없습니다</h2><p>다른 검색어를 입력하거나 분류를 초기화하세요.</p><button class="button" id="reset-search">검색·분류 초기화</button></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap">
+    <div class="footer-links"><a href="https://github.com/amnotyoung">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.threads.com/@amnotyoung.k">Threads <span aria-hidden="true">↗</span></a></div>
+  </footer>
+</body>
 </html>

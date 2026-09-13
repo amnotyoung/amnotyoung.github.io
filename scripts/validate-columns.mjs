@@ -50,24 +50,24 @@ const home = readText("index.html");
 const sitemap = readText("sitemap.xml");
 const ids = new Set();
 
-function hasColumnSocialImage(html) {
+function hasColumnSocialImage(html, imageUrl = COLUMNS_OG_URL, imageAlt = COLUMNS_OG_ALT) {
   return (
-    html.includes(`<meta property="og:image" content="${COLUMNS_OG_URL}" />`) &&
+    html.includes(`<meta property="og:image" content="${imageUrl}" />`) &&
     html.includes('<meta property="og:image:width" content="1200" />') &&
     html.includes('<meta property="og:image:height" content="630" />') &&
-    html.includes(`<meta property="og:image:alt" content="${COLUMNS_OG_ALT}" />`) &&
+    html.includes(`<meta property="og:image:alt" content="${imageAlt}" />`) &&
     html.includes('<meta name="twitter:card" content="summary_large_image" />') &&
-    html.includes(`<meta name="twitter:image" content="${COLUMNS_OG_URL}" />`)
+    html.includes(`<meta name="twitter:image" content="${imageUrl}" />`)
   );
 }
 
 if (
   !archive.includes(`href="${THREADS_PROFILE_URL}"`) ||
-  !archive.includes(THREADS_PROFILE_LABEL)
+  !archive.includes(">Threads")
 ) {
   fail("Threads profile is absent from the column archive footer.");
 }
-if (!hasColumnSocialImage(archive)) {
+if (!hasColumnSocialImage(archive, "https://amnotyoung.github.io/assets/any/columns-og.png", "주간 칼럼 · amnotyoung")) {
   fail("Column archive social image metadata is invalid.");
 }
 
@@ -116,19 +116,14 @@ for (const [index, column] of columns.entries()) {
     fail(`Column is absent from archive: ${column.id}`);
   }
   const archiveCard = archive.match(
-    new RegExp(`<a class="featured-column" href="${column.url.replaceAll("/", "\\/")}">([\\s\\S]*?)<\\/a>`),
+    new RegExp(`<article class="resource" data-resource-id="column:${column.id}"[^>]*>([\\s\\S]*?)</article>`),
   )?.[1];
-  const periodParts = column.period_label.match(
-    /^(\d{4}년) (\d{1,2}월) ((?:첫째|둘째|셋째|넷째|다섯째) 주)$/,
-  );
   if (
     !archiveCard ||
-    !periodParts ||
-    !archiveCard.includes(`<span>${periodParts[1]}</span>`) ||
-    !archiveCard.includes(`<strong>${periodParts[2]}</strong>`) ||
-    !archiveCard.includes(`<em>${periodParts[3]}</em>`)
+    !archiveCard.includes(`<time datetime="${column.published}">${column.published.replaceAll("-", ".")}</time>`) ||
+    !archiveCard.includes(column.title)
   ) {
-    fail(`Human-readable period is absent from archive: ${column.id}`);
+    fail(`Column title or publication date is absent from archive: ${column.id}`);
   }
   if (
     archiveCard.includes(`ISSUE ${column.issue}`) ||

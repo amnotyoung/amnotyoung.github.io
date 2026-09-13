@@ -40,11 +40,15 @@ jobs:
         run: node scripts/build-view-counts.mjs --allow-stale
 
       - name: Build homepage catalog
-        run: node scripts/build-home.mjs
+        run: |
+          node scripts/build-home.mjs
+          node scripts/build-collections.mjs
 
       - name: Validate site
         run: |
           node scripts/build-home.mjs --check
+          node scripts/build-collections.mjs --check
+          node scripts/validate-branding.mjs
           node scripts/validate-columns.mjs
           node scripts/validate-view-counts.mjs
 

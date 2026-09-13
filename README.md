@@ -12,12 +12,15 @@
 
 ```sh
 node scripts/build-home.mjs
+node scripts/build-collections.mjs
 node scripts/build-home.mjs --check
+node scripts/build-collections.mjs --check
+node scripts/validate-branding.mjs
 node scripts/validate-columns.mjs
 node scripts/validate-view-counts.mjs
 ```
 
-홈 스타일과 검색·메뉴는 `home.css`, `home.js`, 브랜드 자산은 `assets/any/`에 있습니다. 교육·칼럼 등 하위 페이지는 기존 화면을 유지합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
+홈과 교육·개발협력·칼럼·공개 저장소 목록은 `home.css`, `home.js`의 공통 디자인·검색·메뉴를 사용합니다. 목록 전용 배치는 `collections.css`, 브랜드 자산은 `assets/any/`에 있습니다. 목록 데이터는 배포 시 `scripts/build-collections.mjs`로 갱신하며, 프로젝트·저장소 정보는 `data/collections.json`에서 관리합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
 
 ## 카테고리
 

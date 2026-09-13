@@ -28,16 +28,24 @@ const status = document.querySelector('.result-status');
 const emptyState = document.querySelector('.empty-state');
 let activeFilter = 'all';
 let searchTimer;
+let isComposing = false;
+const aliases = [['생성형 인공지능','생성형 ai'],['인공지능','ai'],['에이아이','ai'],['클로드 코드','claude code'],['클로드','claude'],['claudecode','claude code'],['코이카','koica'],['깃 허브','github'],['깃허브','github'],['git hub','github'],['엠씨피','mcp'],['파이썬','python'],['스타타','stata'],['세계 은행','world bank'],['세계은행','world bank'],['머신 러닝','machine learning'],['머신러닝','machine learning']];
+function normalize(value) {
+  let text = value.normalize('NFKC').toLocaleLowerCase('ko');
+  aliases.forEach(([alias,word]) => { text = text.replaceAll(alias,word); });
+  return text.replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
+}
 function updateResults() {
-  const words = input.value.trim().toLocaleLowerCase('ko').split(/\s+/).filter(Boolean);
+  const words = normalize(input.value).split(/\s+/).filter(Boolean);
   let count = 0;
   cards.forEach(card => {
-    const matches = (activeFilter === 'all' || card.dataset.type === activeFilter)
-      && words.every(word => card.dataset.search.includes(word));
+    const search = normalize(card.dataset.search);
+    const matches = (activeFilter === 'all' || card.dataset.type === activeFilter || (card.dataset.filters ?? '').split(' ').includes(activeFilter))
+      && words.every(word => search.includes(word) || search.replaceAll(' ','').includes(word));
     card.hidden = !matches;
     if (matches) count++;
   });
-  status.textContent = words.length ? `검색 결과 ${count}개` : `${count}개의 자료`;
+  status.textContent = words.length ? `검색 결과 ${count}개` : `${count}개의 ${status.dataset.unit ?? '자료'}`;
   emptyState.hidden = count !== 0;
 }
 filters.forEach(button => button.addEventListener('click', () => {
@@ -45,7 +53,9 @@ filters.forEach(button => button.addEventListener('click', () => {
   filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
   updateResults();
 }));
-input.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(updateResults, 180); });
+input.addEventListener('compositionstart', () => { isComposing = true; clearTimeout(searchTimer); });
+input.addEventListener('compositionend', () => { isComposing = false; updateResults(); });
+input.addEventListener('input', () => { clearTimeout(searchTimer); if (!isComposing) searchTimer = setTimeout(updateResults, 180); });
 document.querySelector('.search').addEventListener('submit', event => {
   event.preventDefault(); clearTimeout(searchTimer); updateResults();
 });
