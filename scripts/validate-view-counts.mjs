@@ -48,6 +48,10 @@ for (const path of listHtmlFiles()) {
   }
 }
 
+if (!readText("index.html").includes('data-view-count="site"')) {
+  fail("Site visit count is absent from the home page.");
+}
+
 const archive = readText("columns/index.html");
 const expectedColumnIds = columns.map((column) => column.id).sort();
 const actualColumnIds = Object.keys(pageviews.columns ?? {}).sort();

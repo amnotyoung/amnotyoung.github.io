@@ -7,7 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const routes = ['/', '/courses/', '/development-cooperation/', '/columns/', '/open-source/'];
 for (const route of routes) {
   const html = readFileSync(resolve(root, `.${route}index.html`), 'utf8');
-  for (const required of ['/home.css?v=any-v3','/home.js?v=any-v3','/assets/any/any-logo-mono-reference.jpg','aria-controls="main-nav"','href="/"','content="#ffffff"']) {
+  for (const required of ['/home.css?v=any-v4','/home.js?v=any-v3','/assets/any/any-logo-mono-reference.jpg','aria-controls="main-nav"','href="/"','content="#ffffff"']) {
     if (!html.includes(required)) throw new Error(`Missing shared branding on ${route}: ${required}`);
   }
   for (const navRoute of routes.slice(1)) {

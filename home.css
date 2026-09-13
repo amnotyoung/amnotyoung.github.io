@@ -67,6 +67,7 @@ nav a:hover,.footer-links a:hover{text-decoration:underline}
 .site-footer{padding-top:32px;padding-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:28px;position:relative}
 .site-footer::before{content:"";position:absolute;top:0;left:64px;right:64px;height:1px;background:var(--line)}
 .footer-links{display:flex;gap:26px}
+.site-visits{display:flex;align-items:center;gap:8px;min-height:44px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
 .footer-links a{font-size:14px;display:inline-flex;align-items:center;gap:12px;min-height:44px;text-decoration:none}
 .preview-note{display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--muted);min-height:44px}
 .preview-note a{min-height:24px}
