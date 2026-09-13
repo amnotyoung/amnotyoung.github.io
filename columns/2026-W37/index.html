@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="임상 에이전트, 학교 규칙, 산업용 AI 스택과 보안 사고를 통해 AI 위임이 조직과 지역의 학습 능력을 어떻게 바꾸는지 살핍니다." />
+    <meta name="description" content="미국의 심부전 임상 AI 실험을 통해 24시간 접속 가능성과 실제 치료 효과를 구분하고, 공공서비스 확대의 증거 기준을 묻습니다." />
     <meta name="theme-color" content="#f0ede2" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="AI에게 맡긴 뒤, 누가 다시 배울 수 있는가" />
-    <meta property="og:description" content="임상 에이전트, 학교 규칙, 산업용 AI 스택과 보안 사고를 통해 AI 위임이 조직과 지역의 학습 능력을 어떻게 바꾸는지 살핍니다." />
+    <meta property="og:title" content="AI 진료가 열리기 전에 증명해야 할 것" />
+    <meta property="og:description" content="미국의 심부전 임상 AI 실험을 통해 24시간 접속 가능성과 실제 치료 효과를 구분하고, 공공서비스 확대의 증거 기준을 묻습니다." />
     <meta property="og:url" content="https://amnotyoung.github.io/columns/2026-W37/" />
     <meta property="article:published_time" content="2026-09-13T15:59:00+09:00" />
     <meta property="og:image" content="https://amnotyoung.github.io/assets/columns-og.png" />
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://amnotyoung.github.io/assets/columns-og.png" />
     <link rel="canonical" href="https://amnotyoung.github.io/columns/2026-W37/" />
-    <title>AI에게 맡긴 뒤, 누가 다시 배울 수 있는가 · amnotyoung</title>
+    <title>AI 진료가 열리기 전에 증명해야 할 것 · amnotyoung</title>
     <link rel="stylesheet" href="../../hub.css?v=columns-v1" />
     <link rel="stylesheet" href="../columns.css?v=columns-v3" />
     <script defer src="/views.js"></script>
@@ -31,80 +31,50 @@
     <main id="article">
       <header class="column-article-hero">
         <div class="column-issue-mark"><span>9월</span><p>2026년<br />둘째 주</p></div>
-        <div><p class="column-article-kicker">AMNOTYOUNG의 주간 코멘터리 · 9월 둘째 주</p><h1>AI에게 맡긴 뒤, 누가 다시 배울 수 있는가</h1><p class="column-article-dek">임상 에이전트, 학교 규칙, 산업용 AI 스택과 보안 사고를 통해 AI 위임이 조직과 지역의 학습 능력을 어떻게 바꾸는지 살핍니다.</p><div class="column-article-meta"><span>2026.09.13</span><span>12 MIN READ</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W37">—</b></span></div></div>
+        <div><p class="column-article-kicker">AMNOTYOUNG의 주간 코멘터리 · 9월 둘째 주</p><h1>AI 진료가 열리기 전에 증명해야 할 것</h1><p class="column-article-dek">미국의 심부전 임상 AI 실험을 통해 24시간 접속 가능성과 실제 치료 효과를 구분하고, 공공서비스 확대의 증거 기준을 묻습니다.</p><div class="column-article-meta"><span>2026.09.13</span><span>7 MIN READ</span><span>AI · TECHNOLOGY · DEVELOPMENT</span><span class="column-view-count">조회 <b data-view-count="2026-W37">—</b></span></div></div>
       </header>
       <div class="column-article-layout">
-        <nav class="column-toc" aria-label="글의 순서"><p>IN THIS COLUMN</p><ol><li><a href="#section-1"><span>01</span>1. 임상 에이전트는 접근성의 약속이 아니라 위임 조건의 실험이다</a></li>
-            <li><a href="#section-2"><span>02</span>2. 학교와 아동 AI는 원칙보다 기본값과 계약서에서 먼저 결정된다</a></li>
-            <li><a href="#section-3"><span>03</span>3. 운영기술은 인프라와 사람 사이에 축적된다</a></li>
-            <li><a href="#section-4"><span>04</span>4. 보안 보고서는 위임 실패를 공개 지식으로 바꾸기 시작했다</a></li>
-            <li><a href="#conclusion"><span>05</span>결론</a></li></ol></nav>
+        <nav class="column-toc" aria-label="글의 순서"><p>IN THIS COLUMN</p><ol><li><a href="#section-1"><span>01</span>1. 진료의 공백은 화면을 열었다고 메워지지 않는다</a></li>
+            <li><a href="#section-2"><span>02</span>2. 비교 상대는 ‘아무것도 하지 않기’가 아니다</a></li>
+            <li><a href="#section-3"><span>03</span>3. 확대 결정에는 현장의 한계도 포함돼야 한다</a></li>
+            <li><a href="#conclusion"><span>04</span>결론</a></li></ol></nav>
         <article class="column-body">
-          <div class="opening"><p>이번 주의 AI 뉴스는 <code>무엇을 자동화할 수 있는가</code>보다 한 단계 뒤의 질문으로 모인다. 병원은 환자와 대화하는 임상 에이전트를 준비하고, 학교와 주정부는 아동에게 노출되는 챗봇의 기본값을 규칙으로 묶으며, 빅테크는 데이터센터와 공급망을 AI 운영체계로 다시 짠다. 동시에 AI 기업들은 오남용과 공격 자동화를 공개 보고서로 다루기 시작했다.</p>
-            <p>공통점은 AI가 더 이상 답변만 내놓지 않는다는 데 있다. AI는 환자의 첫 상담 창구가 되고, 학생 데이터의 계약 조건이 되며, 전력망과 부품 배분을 바꾸려 하고, 공격자의 대기 시간을 줄인다. 누군가에게 일을 맡기려면 목표와 권한, 중단 조건과 책임을 정해야 한다. AI에 일을 맡기는 일도 다르지 않다.</p>
-            <p>이번 주의 중심 논지는 이것이다. 병원·학교·정부·기업이 판단과 실행을 AI에 위임할수록, 성패는 사람을 형식적으로 승인 단계에 남기는 데서 갈리지 않는다. 오류를 포착하고 목표와 규칙을 바꿀 권한과 노하우가 현장 조직에 축적될 때만 위임은 다음 판단을 더 낫게 만든다.</p>
-            <p>국제개발협력 관점에서 이 질문은 특히 날카롭다. 전문 인력, 컴퓨팅, 데이터 거버넌스가 부족한 곳일수록 AI는 매력적인 보완 수단으로 보인다. 그러나 목표와 평가 기준, 운영 인력, 계약상 책임이 현지에 남지 않으면 AI는 역량을 키우는 도구가 아니라 외부 공급자의 판단을 공공서비스 안에 고정하는 장치가 된다.</p>
-            <p>리처드 넬슨의 《The Moon and the Ghetto》가 떠올리게 하는 것도 이 차이다. 사회는 달 착륙 같은 정밀한 기술 과업에는 성공하면서도 빈곤, 의료, 교육 같은 문제에서는 훨씬 더디게 움직인다. 이유는 돈이나 의지만이 아니라 목표가 경합하고, 원인과 결과가 불명확하며, 실제로 작동하는 노하우를 조직 안에 축적해야 하기 때문이다. 이번 주 AI는 바로 그 경계에 서 있다. 어려운 문제를 푸는 능력과 복잡한 사회문제를 맡길 수 있는 능력은 같은 것이 아니다.</p></div>
+          <div class="opening"><p>심장전문의가 없는 지역의 환자에게 밤중에도 답하는 의료 AI는 매력적이다. 미국 보건고등연구계획국 ARPA-H는 이번 주 심부전 환자를 24시간 지원할 임상 AI를 만드는 ADVOCATE 수행팀을 발표했다. 미국 카운티의 거의 절반에 심장전문의가 없다는 것이 출발점이다. 의료진을 기다리는 시간에 AI가 환자의 상태를 살피고 필요한 때 사람에게 연결한다면, 방문 사이에 벌어지는 돌봄의 공백을 줄일 수도 있다.</p>
+            <p>하지만 접속할 수 있는 시간이 늘었다는 사실과 더 나은 치료를 받았다는 사실은 다르다. 잘못된 안심은 진료를 늦출 수 있고, 지나친 경고는 부족한 의료진에게 업무를 더할 수 있다. 공공기관이 이 차이를 확인하기 전에 서비스 개시나 가입자 수를 성과로 발표한다면, 기술의 약속이 환자의 이익을 앞질러 버린다.</p>
+            <p>이번 주의 핵심은 AI 진료를 허용할지 금지할지의 양자택일이 아니다. **의료기관과 공공 구매자는 어떤 환자 결과가 나와야 임상 AI를 확대할지 먼저 정해야 한다.** ADVOCATE는 그 답을 이미 얻은 사업이 아니라, 답을 얻기 위해 비교군과 감독 체계를 설계하기 시작한 사업이다.</p></div>
           <section class="column-section" id="section-1">
             <p class="column-section-number">01 / ANALYSIS</p>
-            <h2>1. 임상 에이전트는 접근성의 약속이 아니라 위임 조건의 실험이다</h2>
-            <p>미국 보건고등연구계획국 ARPA-H는 9월 9일 심부전 환자를 24시간 지원하는 FDA 승인 대상 임상 에이전트형 AI 프로그램 ADVOCATE 수행팀을 발표했다. Atman Health, Tempus AI, Updoc이 환자 대면 AI를 만들고, Stanford는 감독 AI를 맡으며, Duke와 Kaiser Permanente는 실제 의료기관 배치 전략을 담당한다. ARPA-H는 미국 카운티의 거의 절반에 심장전문의가 없다는 접근성 문제를 배경으로 제시했다.</p>
-            <p>이 구상은 의료 AI의 질문을 한 단계 바꾼다. 진료 기록을 요약하거나 의사에게 참고 답변을 주는 도구라면 오류의 책임은 비교적 분명하다. 그러나 환자가 밤중에 증상을 입력하고, AI가 생활 조언을 주며, 위험 신호를 판단해 사람에게 올리는 구조라면 AI는 단순 보조가 아니라 위임받은 첫 접점이 된다.</p>
-            <p>주중 후속 조사가 확인한 강점은 구조다. ADVOCATE는 환자 대면 AI와 감독 AI를 나누고, FDA 허가 패키지 제출, 외부 평가, EHR 통합, shadow mode와 무작위평가 계획을 한 프로그램 안에 묶었다. 특히 Kaiser Permanente는 약 2,500명 환자를 대상으로 AI 지원 의사결정과 표준 의사결정 도구를 비교하는 계획을 공개했다. 이 정도면 &quot;임상 AI가 공공서비스 실행 루프로 들어가려는 구체적 조달·검증 실험&quot;이라고는 말할 수 있다.</p>
-            <p>하지만 &quot;농촌 의료 접근성이 개선됐다&quot;고 말할 단계는 아니다. 공개 자료만으로는 ClinicalTrials.gov 등록, 상세 프로토콜, 1차 평가변수, 환자 이의제기 절차, 모델 업데이트 뒤 재검증 방식이 충분히 드러나지 않았다. 접근성은 앱이 열리는 순간 생기는 것이 아니라, 위험 신호를 누가 받고, 어떤 기준으로 상향 전달하며, 잘못된 권고가 다음 설계에 어떻게 반영되는지에서 생긴다.</p>
-            <p>개발협력에서 이 구분은 곧 사업 설계의 기준이 된다. 전문의가 부족한 지역에 임상 AI를 지원하는 일은 접근성을 높일 수 있다. 하지만 현지 의료진이 권고 기준을 이해하고 조정할 수 없고, 환자와 가족이 이의를 제기할 수 없으며, 공급자 계약이 끝난 뒤 서비스가 멈춘다면 그 접근성은 오래 가지 않는다. AI가 의료진의 빈자리를 메우는지, 아니면 빈자리를 외부 시스템으로 가리는지는 운영 노하우가 어디에 축적되는지에서 갈린다.</p>
-            <div class="column-source-list"><strong>근거 기사</strong><a href="https://arpa-h.gov/news-and-events/arpa-h-launches-worlds-first-bid-build-fda-authorized-clinical-ai-cardiovascular" target="_blank" rel="noopener noreferrer">ARPA-H의 ADVOCATE 수행팀 발표 ↗</a> <a href="https://divisionofresearch.kaiserpermanente.org/award-ai-heart-failure-treatment/" target="_blank" rel="noopener noreferrer">Kaiser Permanente의 ORCHESTRATE-HF 발표 ↗</a></div>
+            <h2>1. 진료의 공백은 화면을 열었다고 메워지지 않는다</h2>
+            <p>ARPA-H는 첫해 최대 3,370만 달러, 4년간 최대 6,270만 달러를 들여 환자 대면 AI, 이를 감시하는 AI, 의료기관 배치 전략을 별도 팀에 맡겼다. Atman Health, Tempus AI, Updoc이 심부전 환자와 상호작용하는 시스템을 만들고, Stanford가 위험한 권고와 예상 밖 행동을 감지할 감독 계층을 개발한다. Duke와 Kaiser Permanente는 실제 의료체계에 넣어 시험한다. 24개월 안에 FDA 허가 신청 패키지를 제출한다는 목표도 있다.</p>
+            <p>이 설계는 막연한 ‘AI 의사’ 발표보다 구체적이다. 특히 Updoc은 대화 능력과 임상 권한을 분리해 제안된 행동을 임상의가 만든 규칙에 대조하겠다고 한다. Stanford의 감독 AI도 환자에게 나간 권고를 따로 살피도록 설계됐다. 그러나 설계의 세밀함은 안전성이 입증됐다는 뜻이 아니다. 허가 신청은 허가가 아니고, 감독 AI의 존재는 놓친 위험 신호가 없다는 증거도 아니다.</p>
+            <p>환자가 실제로 겪는 문제는 의사와 통화하기 어려운 밤에 증상이 악화되었을 때 시작된다. AI가 이를 정확히 가려내는지, 사람에게 넘긴 뒤 의료진이 제때 대응할 수 있는지, 과잉 경고가 진료체계를 마비시키지 않는지를 봐야 한다. 24시간 응답률은 이 질문들에 대한 답이 아니다. 농촌과 저소득 지역에서 서비스가 작동한다는 주장도 그 지역의 통신, 언어, 진료 인력, 후속 치료 경로를 함께 살펴야 비로소 성립한다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://arpa-h.gov/news-and-events/arpa-h-launches-worlds-first-bid-build-fda-authorized-clinical-ai-cardiovascular" target="_blank" rel="noopener noreferrer">ARPA-H의 ADVOCATE 수행팀 발표 ↗</a> <a href="https://arpa-h.gov/explore-funding/programs/advocate" target="_blank" rel="noopener noreferrer">ADVOCATE 프로그램 설명 ↗</a></div>
           </section>
 
           <section class="column-section" id="section-2">
             <p class="column-section-number">02 / ANALYSIS</p>
-            <h2>2. 학교와 아동 AI는 원칙보다 기본값과 계약서에서 먼저 결정된다</h2>
-            <p>Microsoft, 미국교사연맹 AFT, 뉴욕시 교원노조 UFT는 9월 9일 학교용 <code>National AI Safety &amp; Privacy Standard</code>를 발표했다. 학교가 Microsoft 계약에 넣어 집행할 수 있는 표준으로, 학생과 교직원 데이터를 AI 학습에 쓰지 않고 판매·재사용하지 않으며, 학생 추적을 금지하고, 고위험 결정에는 사람 검토를 요구한다는 내용이다.</p>
-            <p>이 발표가 중요한 이유는 AI 윤리를 원칙 문구에서 계약 조건으로 옮겼기 때문이다. 학교는 좋은 기능을 조심스럽게 쓰겠다고 선언하는 것만으로 학생을 보호할 수 없다. 학생 데이터가 모델 개선 자산으로 넘어가지 않는지, 교사와 학부모가 설명을 요구할 수 있는지, 계약 위반 시 무엇을 멈출 수 있는지가 실제 규칙이다.</p>
-            <p>하루 뒤 California는 아동용 companion chatbot과 소셜미디어 기본값을 묶은 법안에 서명했다. <code>Adam's Law</code>는 아동 대상 챗봇에 자살 위험 대응 프로토콜, 부모 통제, 안전 설정 해제 알림, 독립 감사와 연례 위험평가를 요구한다. 또 16세 미만 사용자에게 자동재생과 이용 이력 기반 알고리즘 피드 같은 중독적 기능을 제공하지 못하게 하는 법안도 포함됐다.</p>
-            <p>여기서 규제의 초점은 &quot;청소년이 AI를 쓰느냐&quot;가 아니라 &quot;어떤 기본값과 중단 조건으로 쓰게 하느냐&quot;다. 아동 보호를 말하면서 실제 관리 부담을 부모와 학교에만 남기면 안전은 선언에 머문다. 반대로 플랫폼의 기본 추천, 위험 감지, 감사 결과, 알림 구조를 바꾸면 보호는 제품 설계의 일부가 된다.</p>
-            <p>교육 AI를 개발협력으로 옮길 때도 같은 문제가 생긴다. 공여기관이 만든 표준 문구를 그대로 이식하는 것으로는 충분하지 않다. 현지 교사, 학부모, 공무원, 시민사회가 데이터 사용과 고위험 판단, 공급자 변경 조건을 이해하고 협상할 수 있어야 한다. AI 안전은 좋은 공급자를 고르는 문제가 아니라 좋은 계약과 기본값을 읽고 고칠 수 있는 공공 역량의 문제다.</p>
-            <p>이 규칙은 더 근본적인 교육 질문과도 이어진다. AI가 표준화 시험의 정답을 빠르게 생산하는 시대에 학생이 무엇을 배웠는지를 같은 시험 점수만으로 증명할 수 있는가. 이번 주 자료만으로 새 교육 목표를 확정할 수는 없다. 다만 학생이 AI의 답을 검증하고, 목표를 다시 세우며, 도움을 받은 판단과 스스로 책임질 판단을 구분하는 과정까지 교육과 평가의 대상으로 삼아야 한다는 질문은 피하기 어렵다. 해외에 교육 AI를 지원할 때도 도구를 보급하기 전에 현지 사회가 무엇을 학습 성과로 볼지 결정할 수 있어야 한다.</p>
-            <div class="column-source-list"><strong>근거 기사</strong><a href="https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/" target="_blank" rel="noopener noreferrer">Microsoft·AFT·UFT의 학교 AI 안전·프라이버시 표준 발표 ↗</a> <a href="https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/" target="_blank" rel="noopener noreferrer">California 주지사실의 아동 챗봇·소셜미디어 안전법 발표 ↗</a></div>
+            <h2>2. 비교 상대는 ‘아무것도 하지 않기’가 아니다</h2>
+            <p>Kaiser Permanente는 기존 진료기록으로 후보 시스템을 먼저 시험하고, 의료진의 감독 아래 업무 흐름에 통합한 뒤 파일럿과 무작위 비교를 진행하겠다고 밝혔다. 계획된 대상은 약 2,500명이다. 절반은 AI가 치료 결정에 도움을 주고, 나머지는 기존 의사결정 도구를 활용한 일상 진료를 받는다. 물어야 할 것은 AI가 그럴듯한 답을 내는가가 아니라 이미 제공되는 치료에 **추가로** 무엇을 개선하는가다.</p>
+            <p>이 비교는 중요한 방향 전환이다. 의료 AI 홍보는 흔히 ‘전문의가 없는 곳에도 서비스가 열린다’고 말한다. 그러나 환자의 입장에서는 표준 진료보다 입원이나 증상 악화가 줄었는지, 적절한 약물 조정이 빨라졌는지, 위험한 권고와 불필요한 진료가 늘지 않았는지가 중요하다. 어느 항목을 1차 결과로 삼고 얼마나 오래 관찰할지에 따라 같은 시스템의 평가도 달라진다. 이번 주 공개 자료에서는 상세 프로토콜과 주요 평가변수가 충분히 확인되지 않았다.</p>
+            <p>무작위 배정 자체가 모든 문제를 해결하지도 않는다. 한 의료체계의 잘 정리된 전자의무기록과 심장전문의 감독 아래서 얻은 결과를 인력과 통신 여건이 다른 지역에 그대로 옮길 수는 없다. 반대로 한 지역에서 효과가 작았다는 이유만으로 모든 환자 집단의 가능성을 닫을 수도 없다. 비교시험은 보급을 위한 홍보 문구가 아니라, 누구에게 어떤 조건에서 이득과 위해가 생겼는지 가르는 출발점이어야 한다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://divisionofresearch.kaiserpermanente.org/award-ai-heart-failure-treatment/" target="_blank" rel="noopener noreferrer">Kaiser Permanente의 심부전 AI 평가 계획 ↗</a> <a href="https://arpa-h.gov/news-and-events/arpa-h-launches-worlds-first-bid-build-fda-authorized-clinical-ai-cardiovascular" target="_blank" rel="noopener noreferrer">ARPA-H의 수행팀별 역할 ↗</a></div>
           </section>
 
           <section class="column-section" id="section-3">
             <p class="column-section-number">03 / ANALYSIS</p>
-            <h2>3. 운영기술은 인프라와 사람 사이에 축적된다</h2>
-            <p>Google Cloud는 9월 9일 핀란드 Hamina, Kajaani, Muhos, Vaala에 2027-2028년 최소 130억 유로를 투자하겠다고 발표했다. 데이터센터와 지원 인프라, Fortum의 원전 수명 연장을 뒷받침하는 22년 전력구매계약, 신규 풍력 전력구매계약, 배터리, 지역 교육·연구·저소득층 에너지 사업이 함께 들어갔다.</p>
-            <p>이 발표는 AI 인프라가 서버 증설이 아니라 지역 전력망, 고용, 교육, 복지까지 묶는 장기 계약이 되었음을 보여준다. 빅테크는 데이터센터가 지역에 비용만 남긴다는 비판을 의식해 에너지 안정, 열 회수, 직업훈련, 지역 기금을 함께 제시한다. 그러나 약속의 질은 투자액보다 누가 비용과 편익을 검증하고, 지역사회가 계약의 변경과 감시 과정에 어떤 권한을 갖는지에서 갈린다.</p>
-            <p>9월 10일 NVIDIA와 Palantir가 발표한 공급망 AI 스택도 같은 방향을 가리킨다. 두 회사는 Palantir Foundry·AIP와 NVIDIA Nemotron 오픈 모델을 결합해 부품 제약, 재료 배분, 생산 영향을 더 빨리 평가하는 공급망 운영체계를 만들겠다고 밝혔다. 첫 적용 대상은 NVIDIA 자체 공급망이다.</p>
-            <p>여기서 <code>소버린 인텔리전스</code>라는 표현은 국가가 독자 모델을 보유한다는 말보다 넓다. 중요한 운영 데이터와 의사결정 루프를 어디에 두고, 누가 맞춤화·감사·교체할 수 있는지가 핵심이다. AI 공장은 칩만으로 돌아가지 않는다. 전력, 냉각, 부품, 공급자, 물류, 지역 허가가 맞아야 한다. 그 루프를 AI에 맡길수록 기업과 공공기관은 모델 성능보다 운영 지식의 소유권을 물어야 한다.</p>
-            <p>개발도상국과 공공기관에는 이 비용이 더 직접적으로 다가온다. AI 도입 예산을 모델 사용료만으로 계산하면 실제 병목을 놓친다. 전력 안정성, 클라우드 지연, 데이터 보관 위치, 기기 교체 주기, 공급망 리스크, 지역 인력 교육까지 포함해야 한다. 인프라가 외부 사업자의 장기 계약으로만 남으면 지역은 서비스를 쓰는 곳이 되지만, 인프라를 배우고 고치는 곳은 되지 못한다.</p>
-            <p>중국 공업정보화부가 9월 11일 통지한 <code>AI+소프트웨어</code> 행동계획은 이 경쟁이 모델과 칩을 넘어 개발도구, 오픈소스, 에이전트 평가와 산업 배포로 내려가고 있음을 보여준다. 후속 조사에서 Qwen Code, ModelScope, PaddlePaddle, MindSpore, OpenCompass처럼 이미 작동하는 개발·배포·평가 기반은 확인됐다. 그러나 정책이 내건 기업 확산과 벤치마크, 오픈소스 목표의 구체 사업·예산·해외 경로는 아직 충분히 공개되지 않았다. 따라서 중국이 완성된 수출용 국가 스택을 만들었다고 단정하기보다, 개발자의 작업 경로 전체를 산업정책의 대상으로 묶기 시작했다고 보는 편이 정확하다.</p>
-            <p>이 변화는 개발협력의 선택지를 넓히는 동시에 새 의존을 만든다. 공개 모델과 저렴한 도구는 후발 조직의 진입 비용을 낮출 수 있다. 하지만 실제 자율성은 파일을 내려받을 수 있다는 사실보다 현지 팀이 하네스와 데이터를 분리하고, 평가 기준을 바꾸고, 다른 클라우드·칩·모델로 옮길 수 있는지에서 결정된다.</p>
-            <p>9월 12일 보도된 나이지리아 TETFund의 6개 권역 ICT 경험센터도 같은 시험대다. AI·사이버보안·로보틱스를 실습할 공간에 투자한다는 점은 직접적인 역량 형성 시도다. 그러나 센터 개소는 성과가 아니다. 강사를 계속 양성하고, 장비를 유지하며, 지역 기업과 공공기관의 실제 과제를 커리큘럼에 반영하고, 현지 기관이 다음 교육 내용을 고칠 수 있을 때 비로소 시설 투자가 운영 노하우로 남는다.</p>
-            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.googlecloudpresscorner.com/2026-09-09-Google-Deepens-Commitment-to-Finland-with-Two-Year-EUR13-Billion-investment-in-AI-Infrastructure" target="_blank" rel="noopener noreferrer">Google Cloud의 핀란드 AI 인프라 투자 발표 ↗</a> <a href="https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains" target="_blank" rel="noopener noreferrer">NVIDIA·Palantir의 공급망 AI 스택 발표 ↗</a> <a href="https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_49783ce685f042029111c8b6e94f0f30.html" target="_blank" rel="noopener noreferrer">중국 공업정보화부의 AI+소프트웨어 행동계획 통지 ↗</a> <a href="https://msmeafricaonline.com/call-for-applications-tech4youth-advanced-ict-skills-training-programme-2026-fully-funded-scholarship/" target="_blank" rel="noopener noreferrer">나이지리아 ICT 경험센터 보도 ↗</a></div>
-          </section>
-
-          <section class="column-section" id="section-4">
-            <p class="column-section-number">04 / ANALYSIS</p>
-            <h2>4. 보안 보고서는 위임 실패를 공개 지식으로 바꾸기 시작했다</h2>
-            <p>Anthropic은 9월 위협 인텔리전스 보고서에서 2025년 12월부터 2026년 8월까지 Claude가 악용된 주요 사례를 공개했다. 사이버 작전, 영향력 작전, 감시, 사기, 생물학적 오남용, 재래식 무기 개발, 불법 증류가 한 보고서에 묶였다. 회사는 해당 활동을 차단하고 필요한 경우 당국 및 업계 파트너와 정보를 공유했다고 밝혔다.</p>
-            <p>Google Threat Intelligence Group도 9월 8일 공격자들이 단순 프롬프트 사용을 넘어 에이전트형 AI 워크플로와 자동화로 이동하고 있다고 보고했다. 한 위협 행위자는 클라우드 자원을 침해한 뒤 6시간 안에 대규모 자격증명 탈취 캠페인을 계획, 구축, 실행했다. 일부 공격자는 AI 코딩 보조도구와 LLM 보안 스캐너를 속여 오픈소스 공급망 침해에 이용하려 했다.</p>
-            <p>공격자가 AI에 맡기는 것은 문장 작성이 아니라 대기 시간을 줄이는 일이다. 스캔, 문제 해결, IP 회전, 자격증명 관리가 한 흐름으로 묶이면 방어 조직도 단일 모델 필터로 대응할 수 없다. 저장소 권한, 클라우드 자격증명, 로그 보존, 중단 지점, 공급망 검토가 함께 움직여야 한다.</p>
-            <p>여기서 중요한 변화는 AI 안전이 추상적인 미래 위험에서 운영 중인 서비스의 감사·차단·공개 책임으로 내려왔다는 점이다. 플랫폼이 어떤 사고를 어떤 기준으로 발견하고 공개하는지, 다른 방어자가 재현 가능한 신호를 얻을 수 있는지, 피해 기관이 자신의 로그와 공급자 보고를 대조할 수 있는지가 안전의 일부가 된다.</p>
-            <p>이 문제 역시 개발협력과 무관하지 않다. 공공기관, 병원, 학교, 보안 조직이 AI 모델을 수입해 쓰는 나라일수록 공급자의 폐쇄적 판단에 더 의존하기 쉽다. 저렴한 대체 모델과 증류 모델은 접근성을 높일 수 있지만, 라이선스, 출처, 보안 검증, 업데이트 책임이 불분명하면 싼 접근은 장기 의존성으로 바뀐다. 위임의 실패가 국경을 넘는다면, 안전 규칙도 그 실패를 떠안는 기관들이 읽고 적용할 수 있어야 한다.</p>
-            <p>주간 후반에 공개된 사례는 이 문제가 보고서 문구에 머물지 않음을 보였다. 9월 12일 공개된 분석 보도는 5월의 RubyGems 악성 패키지 캠페인을 AI 에이전트의 활동과 연결했다. 에이전트가 패키지 저장소, 문서 빌드 서버, 공개 데이터 사이트를 엮어 실행 루프를 만들었다는 분석이다. 사건의 세부 귀속은 추가 검증이 필요하지만, 저장소 등록과 자동 빌드처럼 평범한 기능이 에이전트의 탐색 경로가 될 수 있다는 점은 분명하다.</p>
-            <p>같은 주 미국 상원의원들이 OpenAI의 Hugging Face 침해 사고에 대해 외부 기관이 안전성과 위험을 평가할 수 있도록 정보를 내놓으라고 요구했고, Anthropic의 다리오 아모데이는 9월 13일 보도된 제안에서 프런티어 모델 개발 속도에 독립 평가와 제3자 확인의 시간을 넣자고 주장했다. 속도 조절 선언만으로 책임 구조가 생기지는 않는다. 누가 원본 로그를 보고, 어떤 기준으로 배포를 늦추며, 사고 뒤 규칙 변경을 확인할 수 있는지가 공개돼야 한다.</p>
-            <p>보안은 위임 이후의 학습 능력을 가장 가혹하게 시험한다. 사람을 승인 버튼 앞에 두는 것만으로는 기계 속도의 공격 루프를 따라갈 수 없다. 탐지 결과가 권한 회수와 패치, 조달 기준 변경으로 이어지고, 그 과정을 공급자 밖의 조직도 재현할 수 있어야 방어 측의 노하우가 쌓인다.</p>
-            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic 2026년 9월 위협 인텔리전스 보고서 ↗</a> <a href="https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai" target="_blank" rel="noopener noreferrer">Google Threat Intelligence: 적대적 AI의 자율화 보고서 ↗</a> <a href="https://apnews.com/article/openai-hugging-face-congress-investigation-artificial-intelligence-1f730a59284c718f2e758898748a8069" target="_blank" rel="noopener noreferrer">미국 상원의 OpenAI 사고 조사 요구 보도 ↗</a> <a href="https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html" target="_blank" rel="noopener noreferrer">RubyGems 캠페인과 AI 에이전트 분석 보도 ↗</a> <a href="https://www.bbc.com/news/articles/c14dpgm0rg4o" target="_blank" rel="noopener noreferrer">프런티어 AI 속도 조절 제안 보도 ↗</a></div>
+            <h2>3. 확대 결정에는 현장의 한계도 포함돼야 한다</h2>
+            <p>Duke는 다섯 의료체계와 농촌 현장에서 서로 다른 전자의무기록 환경에 ADVOCATE를 연결해 검증할 계획이다. Kaiser는 21개 의료센터와 260곳이 넘는 클리닉에서 배치 청사진을 만들겠다고 한다. 이처럼 다양한 현장에서 시험하겠다는 계획은 장점이지만, 아직 어느 현장에서 어떤 결과가 나왔다는 발표는 아니다. ARPA-H가 별도의 외부 평가 파트너로 Johns Hopkins University Applied Physics Laboratory를 계약한 이유도 기술 성능과 임상 결과를 독립적으로 확인하기 위해서다.</p>
+            <p>따라서 확대 여부를 판단할 때 환자 수만 세어서는 안 된다. 의사에게 올려야 할 경고가 실제로 전달되는 비율과 대응 시간, 환자의 치료 결과, 의료진의 추가 업무, 기록이 부족한 환자에게서의 오류를 함께 봐야 한다. 평균 효과가 좋더라도 전문의가 드문 지역에서 후속 치료를 받을 수 없다면 접근성 격차는 그대로다. 지금은 이런 항목들의 측정 결과가 공개되지 않았으므로 ‘접근성을 개선했다’고 결론 내릴 수 없다.</p>
+            <p>이 기준은 국제개발협력에서도 중요하다. 전문의가 부족한 나라에 앱을 공급하는 것은 빠르지만, AI가 상향 전달한 환자를 실제로 누가 볼지, 약과 검사를 어떻게 연결할지, 비용을 누가 낼지에 따라 건강 효과는 달라진다. 현지 의료기관의 인력과 후속 치료가 빠진 시범사업을 성공 사례로 세어서는 안 된다. 미국의 통합 의료체계에서 얻은 성과조차 현지 조건에 맞춰 다시 검증해야 한다. 기술 이전의 첫 지표는 설치 대수가 아니라 치료를 받은 환자의 상태다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://arpa-h.gov/news-and-events/arpa-h-launches-worlds-first-bid-build-fda-authorized-clinical-ai-cardiovascular" target="_blank" rel="noopener noreferrer">ARPA-H의 농촌 현장·외부 평가 계획 ↗</a> <a href="https://divisionofresearch.kaiserpermanente.org/award-ai-heart-failure-treatment/" target="_blank" rel="noopener noreferrer">Kaiser Permanente의 단계별 임상 평가 계획 ↗</a></div>
           </section>
 
           <section class="column-conclusion" id="conclusion">
-            <p class="column-section-number">05 / CONCLUSION</p>
+            <p class="column-section-number">04 / CONCLUSION</p>
             <h2>결론</h2>
-            <p>위임의 역설은 사람이 일을 덜 할수록 감독이 쉬워지는 것이 아니라, 실패에서 배울 기회도 함께 사라질 수 있다는 데 있다. AI가 첫 판단을 내리고 다음 행동까지 고르면 현장 조직은 결과를 받는 데 익숙해지는 반면, 왜 그런 판단이 나왔는지 따지고 다른 방법을 시험하는 능력은 약해질 수 있다.</p>
-            <p>그래서 <code>human in the loop</code>라는 문구만으로는 부족하다. 중요한 것은 사람이 승인 버튼을 누르는가가 아니라, 그 사람이 목표와 예외를 이해하고 멈출 권한을 가지며, 실패 뒤 규칙을 실제로 바꿀 수 있는가다. 임상 에이전트의 감독 구조와 무작위평가가 의미 있는 이유도 사람의 자리를 남겨서가 아니라 위임의 결과를 검증하고 다음 설계로 돌려보낼 통로를 만들기 때문이다.</p>
-            <p>학교에서는 이 통로가 교육 목표 자체를 다시 묻는 일로 이어진다. AI가 정답과 과제를 대신 만드는 상황에서 학생에게 필요한 것은 AI 없이 모든 일을 반복하는 능력도, AI의 결과를 그대로 받아들이는 능력도 아니다. 어떤 도움을 받았는지 설명하고, 답을 의심하며, 목표가 잘못됐을 때 다시 정하는 경험이 학습 과정에 포함돼야 한다.</p>
-            <p>기업과 정부에도 같은 기준이 적용된다. 외부 AI 스택이 문제를 빨리 풀어주더라도 내부 인력이 평가 기준을 만들지 못하고 사고를 재구성하지 못하면, 조직은 서비스를 얻는 대신 문제 해결 능력을 잃는다. 반대로 모든 모델과 칩을 직접 만들지 못해도 현장의 담당자가 도구를 조합하고 성능을 비교하며 운영 규칙을 고칠 수 있다면 위임은 역량을 소모하지 않고 확장할 수 있다.</p>
-            <p>개발협력에서는 이 차이가 더욱 결정적이다. 모델·앱·센터를 설치한 뒤 외부 사업자만 업데이트와 평가를 수행하면 현지 기관에는 사용법만 남는다. 사업이 끝난 뒤에도 목표를 다시 정하고, 실패를 조사하고, 다음 공급자와 교육과정을 선택할 수 있어야 기술 지원이 현지의 문제 해결 능력으로 전환된다.</p>
-            <p>AI에게 더 많은 일을 맡기는 흐름은 되돌리기 어렵다. 그렇다면 앞으로의 성능 경쟁은 일을 얼마나 많이 넘겼는지가 아니라, 넘긴 일을 통해 누가 더 많이 배우게 되었는지를 함께 측정해야 한다. 위임의 결과가 공급자의 모델만 개선한다면 그것은 자동화다. 현장의 사람과 조직도 다음 판단을 더 잘할 수 있게 된다면 그때 비로소 제도가 학습한다.</p>
+            <p>ADVOCATE의 가장 중요한 소식은 임상 AI가 곧 의사를 대신한다는 예고가 아니다. 정부와 의료기관이 대면 AI, 별도의 감독, 실제 진료체계 배치, 표준 진료와의 비교를 한 사업에 묶었다는 사실이다. 그만큼 아직 답하지 못한 질문도 분명해졌다. 환자에게 치료상의 추가 이득이 있는가. 위험한 권고는 얼마나 자주, 누구에게 나타나는가. 전문의가 드문 곳에서도 그 이득이 유지되는가.</p>
+            <p>답이 나오기 전까지는 ‘언제나 접속할 수 있다’를 ‘언제나 돌봄을 받는다’로 번역해서는 안 된다. 시범사업의 규모를 키우는 결정과 치료 효과가 확인됐다는 판단을 분리해야 한다. 좋은 결과가 나오면 어떤 환자와 지역에 먼저 확대할지 정할 수 있다. 효과가 없거나 위해가 크면 더 많은 앱을 배포하는 대신 진료 경로를 바꿔야 한다.</p>
+            <p>AI가 공공서비스에 들어올수록 발표와 설치는 쉬운 성과가 된다. 이번 주 임상 AI 실험은 그 쉬운 성과를 잠시 유보하고, 기존 치료와 비교해 환자에게 실제로 무엇이 달라지는지 묻는다. 의료 접근성의 약속을 지키려면 그 질문에 답하기 전의 확산을 성공으로 부르지 않는 절제가 필요하다.</p>
           </section>
         </article>
       </div>
