@@ -39,8 +39,12 @@ jobs:
         if: github.event_name != 'schedule'
         run: node scripts/build-view-counts.mjs --allow-stale
 
+      - name: Build homepage catalog
+        run: node scripts/build-home.mjs
+
       - name: Validate site
         run: |
+          node scripts/build-home.mjs --check
           node scripts/validate-columns.mjs
           node scripts/validate-view-counts.mjs
 

@@ -36,14 +36,16 @@ const pageviews = JSON.parse(readText("data/pageviews.json"));
 
 for (const path of listHtmlFiles()) {
   const relativePath = relative(repositoryRoot, path).replaceAll("\\", "/");
+  // The explicitly marked design sandbox does not track preview visits.
+  if (relativePath.startsWith("design-preview/")) {
+    if (!readText(relativePath).includes('<meta name="robots" content="noindex, nofollow">')) {
+      fail(`Design preview must be marked noindex: ${relativePath}`);
+    }
+    continue;
+  }
   if (!readText(relativePath).includes(counterScript)) {
     fail(`View counter script is absent from: ${relativePath}`);
   }
-}
-
-const home = readText("index.html");
-if (!home.includes('data-view-count="site"')) {
-  fail("Site visit count is absent from the home page.");
 }
 
 const archive = readText("columns/index.html");

@@ -1,200 +1,151 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="AI·데이터 교육, 개발협력·조달·건축 프로젝트, 기술과 사회를 읽는 주간 칼럼을 연결하는 공개 아카이브입니다."
-    />
-    <meta name="theme-color" content="#162019" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="amnotyoung · Open Archive" />
-    <meta property="og:description" content="배우고 탐색하고 생각하기 위한 공개 자료와 주간 칼럼을 정리했습니다." />
-    <meta property="og:url" content="https://amnotyoung.github.io/" />
-    <meta property="og:image" content="https://amnotyoung.github.io/assets/site-og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="amnotyoung 공개 사이트의 AI·데이터 교육, 개발협력·해외조달, 주간 칼럼" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://amnotyoung.github.io/assets/site-og.png" />
-    <link rel="canonical" href="https://amnotyoung.github.io/" />
-    <title>amnotyoung · Open Archive</title>
-    <link rel="stylesheet" href="hub.css?v=counter-v1" />
-    <script defer src="/views.js"></script>
-  </head>
-  <body class="home-page">
-    <a class="skip-link" href="#categories">카테고리로 바로가기</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="AI·데이터 교육, 개발협력·해외조달 자료와 주간 칼럼">
+  <link rel="canonical" href="https://amnotyoung.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI·개발협력 아카이브 · amnotyoung">
+  <meta property="og:description" content="AI·데이터 교육, 개발협력·해외조달 자료와 주간 칼럼">
+  <meta property="og:url" content="https://amnotyoung.github.io/">
+  <meta property="og:image" content="https://amnotyoung.github.io/assets/any/home-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI·개발협력 아카이브 · amnotyoung">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://amnotyoung.github.io/assets/any/home-og.png">
+  <title>AI·개발협력 아카이브 · amnotyoung</title>
+  <link rel="preload" href="/assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/home.css?v=any-v2">
+  <script src="/home.js?v=any-v2" defer></script>
+  <script defer src="/views.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="amnotyoung 공개 아카이브 홈">
+      <img src="/assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100">
+      <span>amnotyoung</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="주요 메뉴">
+      <a href="/courses/">AI·데이터 교육</a>
+      <a href="/development-cooperation/">개발협력·해외조달</a>
+      <a href="/columns/">주간 칼럼</a>
+      <a href="/open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
 
-    <header class="hub-header">
-      <a class="wordmark" href="/" aria-label="공개 사이트 대문">
-        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i></span>
-        <span>amnotyoung / open archive</span>
-      </a>
-      <nav aria-label="주요 메뉴">
-        <a href="/courses/">AI·데이터 교육</a>
-        <a href="/development-cooperation/">개발협력·해외조달</a>
-        <a class="mobile-primary" href="/columns/">주간 칼럼</a>
-        <a href="/open-source/">공개 저장소</a>
-      </nav>
-    </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <h1 id="hero-title">AI·개발협력 아카이브</h1>
+    </section>
 
-    <main>
-      <section class="home-hero" aria-labelledby="hero-title">
-        <div>
-          <p class="eyebrow">PUBLIC ARCHIVE · THREE ENTRANCES</p>
-          <h1 id="hero-title">무엇을<br /><em>찾고 있나요?</em></h1>
-        </div>
-        <div class="hero-side">
-          <p>
-            배우는 자료, 개발협력 현장을 탐색하는 도구, 기술과 사회를 읽는 글을
-            목적에 따라 나눴습니다. 필요한 입구를 선택하세요.
-          </p>
-          <dl aria-label="공개 사이트 구성">
-            <div><dt>카테고리</dt><dd>03</dd></div>
-            <div><dt>강의</dt><dd>05</dd></div>
-            <div><dt>탐색 프로젝트</dt><dd>04</dd></div>
-            <div><dt>주간 칼럼</dt><dd><span data-column-count="padded">05</span></dd></div>
-            <div><dt>공개 저장소</dt><dd>07</dd></div>
-            <div><dt>누적 방문</dt><dd><span data-view-count="site">—</span></dd></div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="category-section" id="categories" aria-labelledby="categories-title">
-        <div class="section-intro">
-          <p>01 / CATEGORIES</p>
-          <h2 id="categories-title">세 개의 입구</h2>
-        </div>
-
-        <div class="category-grid">
-          <a class="category-door education" href="/courses/">
-            <div class="door-top">
-              <span>01</span>
-              <span>LEARN</span>
-            </div>
-            <div class="door-copy">
-              <p>COURSES &amp; PRACTICE</p>
-              <h3>AI·데이터<br />교육</h3>
-              <span>AI 에이전트, Claude Code, 데이터 분석과 조직 협업을 배우는 과정</span>
-            </div>
-            <div class="door-bottom">
-              <span>4 COURSES</span>
-              <strong>강의 아카이브 열기 <i aria-hidden="true">↗</i></strong>
-            </div>
-          </a>
-
-          <a class="category-door development" href="/development-cooperation/">
-            <div class="door-top">
-              <span>02</span>
-              <span>EXPLORE</span>
-            </div>
-            <div class="door-copy">
-              <p>KNOWLEDGE, DATA &amp; MARKET</p>
-              <h3>개발협력·<br />해외조달</h3>
-              <span>해외사무소별 동향과 사업, 개발협력 위치정보, 국가별 조달·건축 제도와 사례 데이터를 탐색하는 도구</span>
-            </div>
-            <div class="door-bottom">
-              <span>4 PROJECTS</span>
-              <strong>프로젝트 모아보기 <i aria-hidden="true">↗</i></strong>
-            </div>
-          </a>
-
-          <a class="category-door columns" href="/columns/">
-            <div class="door-top">
-              <span>03</span>
-              <span>READ</span>
-            </div>
-            <div class="door-copy">
-              <p>AI, TECHNOLOGY &amp; SOCIETY</p>
-              <h3>주간<br />칼럼</h3>
-              <span>한 주의 뉴스를 책과 현장의 관점으로 엮어 기술이 조직과 사회를 어떻게 바꾸는지 읽습니다.</span>
-            </div>
-            <div class="door-bottom">
-              <span data-column-count="label">5 COLUMNS</span>
-              <strong>이번 주 글 읽기 <i aria-hidden="true">↗</i></strong>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <section class="featured-repositories" id="open-source" aria-labelledby="featured-repositories-title">
-        <div class="section-intro row">
-          <div>
-            <p>02 / FEATURED REPOSITORIES</p>
-            <h2 id="featured-repositories-title">공개 도구와 실험</h2>
-          </div>
-          <span>업무와 개발협력 현장에서 시작해 누구나 다시 쓰고 검토할 수 있도록 공개한 프로젝트입니다.</span>
-        </div>
-
-        <div class="featured-repository-grid">
-          <article class="repository-card" data-accent="lime">
-            <div class="repository-card-top"><span>01</span><span>AI SLIDE TOOL</span></div>
-            <div class="repository-card-copy">
-              <h3>Slide Meme<br />Inserter</h3>
-              <p>발표의 맥락과 청중을 읽고 HTML 슬라이드에 익숙한 밈을 적절한 타이밍에 제안·삽입합니다.</p>
-            </div>
-            <ul aria-label="프로젝트 기술"><li>Claude Code</li><li>Codex</li><li>Python</li></ul>
-            <div class="repository-card-links">
-              <a href="https://github.com/amnotyoung/slide-meme-inserter" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="repository-card" data-accent="blue">
-            <div class="repository-card-top"><span>02</span><span>REGULATION SEARCH</span></div>
-            <div class="repository-card-copy">
-              <h3>KOICA Reg<br />MCP</h3>
-              <p>KOICA 현행 규정 149개와 약 6,400개 조문을 자연어로 검색하고 본문·인용·상호참조를 검증합니다.</p>
-            </div>
-            <ul aria-label="프로젝트 기술"><li>MCP</li><li>KOICA</li><li>Python</li></ul>
-            <div class="repository-card-links">
-              <a href="https://github.com/amnotyoung/koica-reg-mcp" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="repository-card" data-accent="orange">
-            <div class="repository-card-top"><span>03</span><span>ODA RESEARCH PLUGIN</span></div>
-            <div class="repository-card-copy">
-              <h3>ODA<br />Intelligence</h3>
-              <p>한국 ODA 사업, 국제원조 데이터, 개발협력 문서와 KOICA 규정을 AI 작업환경에서 근거와 함께 조사합니다.</p>
-            </div>
-            <ul aria-label="프로젝트 기술"><li>Claude</li><li>Codex</li><li>ChatGPT Dev</li></ul>
-            <div class="repository-card-links">
-              <a href="https://github.com/amnotyoung/oda-intelligence-plugin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="repository-card" data-accent="teal">
-            <div class="repository-card-top"><span>04</span><span>WEB GAME · RELEASED</span></div>
-            <div class="repository-card-copy">
-              <h3>Aid<br />World</h3>
-              <p>피지 수자원 사업의 이해관계자 사이를 오가며 경청, 협력과 주민 주체성을 선택으로 배우는 내러티브 게임입니다.</p>
-            </div>
-            <ul aria-label="프로젝트 기술"><li>Godot 4</li><li>Web Play</li><li>IDC</li></ul>
-            <div class="repository-card-links">
-              <a href="https://amnotyoung.itch.io/aid-world" target="_blank" rel="noreferrer">웹 플레이 <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/amnotyoung/idc-game" target="_blank" rel="noreferrer">소스 <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-        </div>
-
-        <a class="repository-index-link" href="/open-source/">
-          <span>SELECTED REPOSITORIES · 07</span>
-          <strong>모든 공개 저장소 보기 <i aria-hidden="true">→</i></strong>
+    <section class="entrances wrap" id="categories" aria-label="자료 분야">
+      <div class="entrance-grid">
+        <a class="entrance" href="/courses/">
+          <h2>AI·데이터 교육 <span aria-hidden="true">↗</span></h2>
+          <p>AI 에이전트·데이터 분석 강의와 실습</p>
         </a>
-      </section>
-    </main>
+        <a class="entrance" href="/development-cooperation/">
+          <h2>개발협력·해외조달 <span aria-hidden="true">↗</span></h2>
+          <p>사업·동향·조달·건축 자료와 탐색 도구</p>
+        </a>
+        <a class="entrance" href="/columns/">
+          <h2>주간 칼럼 <span aria-hidden="true">↗</span></h2>
+          <p>기술·조직·사회를 읽는 글</p>
+        </a>
+      </div>
+    </section>
 
-    <footer class="hub-footer">
-      <span>amnotyoung · open archive</span>
-      <span>독립적으로 만들고, 목적별로 연결합니다.</span>
-      <a
-        class="footer-contact"
-        href="https://www.threads.com/@amnotyoung.k"
-        target="_blank"
-        rel="me noopener noreferrer"
-        aria-label="Threads에서 amnotyoung.k에게 연락하기"
-      >Threads · @amnotyoung.k <span aria-hidden="true">↗</span></a>
-    </footer>
-  </body>
+    <section class="library wrap" id="library" aria-labelledby="library-title">
+      <div class="section-heading"><h2 id="library-title"><span id="open-source">자료</span></h2></div>
+      <div class="library-tools" hidden>
+        <div class="filters" role="group" aria-label="자료 유형">
+          <button type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button type="button" data-filter="course" aria-pressed="false">교육</button>
+          <button type="button" data-filter="column" aria-pressed="false">칼럼</button>
+          <button type="button" data-filter="tool" aria-pressed="false">공개 도구</button>
+        </div>
+        <form class="search" role="search">
+          <label for="resource-search">자료 검색</label>
+          <div class="search-field"><input id="resource-search" type="search" placeholder="제목, 키워드로 찾기" autocomplete="off"><button type="submit" aria-label="검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
+        </form>
+      </div>
+      <p class="result-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="resource-grid" id="resources">
+        <!-- HOME-RESOURCES:START -->
+        <article class="resource" data-resource-id="course:koica-oos-ai-training" data-type="course" data-search="koica 해외사무소 ai·데이터 활용 교육 해외사무소 실무자를 위한 지식 관리·mcp·웹앱 실습 업무 파일을 지식으로 바꾸고 mcp, skill, plugin, 웹앱, github까지 하나의 흐름으로 연결하는 실무형 교육입니다. 교육 9개 장 ai 업무 활용 mcp 데이터 github 코이카 claude code 생성형 ai 업무 자동화 지식 관리 skill plugin 웹앱 해외 사무소">
+          <div class="resource-meta"><span>교육</span><span>9개 장</span></div>
+          <h3><a href="/courses/koica/chapters/ch01/">KOICA 해외사무소 AI·데이터 활용 교육 <span aria-hidden="true">↗</span></a></h3>
+          <p>해외사무소 실무자를 위한 지식 관리·MCP·웹앱 실습</p>
+        </article>
+        <article class="resource" data-resource-id="course:lunch-time-claude-camp" data-type="course" data-search="점심시간 claude code 캠프 비개발자를 위한 자연어 코딩 입문 비개발자 동료가 점심시간에 자연어로 claude code를 배우며 매주 손에 잡히는 결과물을 만들어 가는 짧고 꾸준한 학습 과정입니다. 교육 8주 과정 claude code mcp git 에이전트 클로드 입문 초보 자연어 코딩 비개발자 점심 캠프">
+          <div class="resource-meta"><span>교육</span><span>8주 과정</span></div>
+          <h3><a href="/courses/lunch-camp/">점심시간 Claude Code 캠프 <span aria-hidden="true">↗</span></a></h3>
+          <p>비개발자를 위한 자연어 코딩 입문</p>
+        </article>
+        <article class="resource" data-resource-id="course:oda-ai-stats" data-type="course" data-search="데이터 고급 통계 분석 실무 활용 world bank 데이터로 배우는 python·stata 통계 분석 world bank wdi 실데이터를 python과 stata로 분석하며 회귀, 패널 고정효과, 머신러닝과 인간의 검증력을 함께 익히는 실습 과정입니다. 교육 5개 모듈 oda 데이터 python stata 인과추론 고급 통계 통계 분석 파이썬 스타타 세계은행 wdi 회귀 분석 패널 데이터 고정 효과 머신러닝">
+          <div class="resource-meta"><span>교육</span><span>5개 모듈</span></div>
+          <h3><a href="/courses/oda-ai-stats/modules/m01/">데이터 고급 통계 분석 실무 활용 <span aria-hidden="true">↗</span></a></h3>
+          <p>World Bank 데이터로 배우는 Python·STATA 통계 분석</p>
+        </article>
+        <article class="resource" data-resource-id="course:ai-collaboration-session1" data-type="course" data-search="ai, 개인의 도구에서 조직을 잇는 시스템으로 mcp·github를 활용한 조직 협업 설계 ai 에이전트, 텍스트 우선, mcp, github를 조직 협업 흐름으로 연결합니다. 9개 모듈을 검색하고 필요한 내용부터 골라 읽을 수 있습니다. 교육 9개 모듈 ai 에이전트 mcp github 협업 시스템 claude code 클로드 조직 협업 ai 워크플로 텍스트 우선 지식 관리 계약 리더">
+          <div class="resource-meta"><span>교육</span><span>9개 모듈</span></div>
+          <h3><a href="/courses/ai-collaboration-session1/">AI, 개인의 도구에서 조직을 잇는 시스템으로 <span aria-hidden="true">↗</span></a></h3>
+          <p>MCP·GitHub를 활용한 조직 협업 설계</p>
+        </article>
+        <article class="resource" data-resource-id="course:github-onboarding" data-type="course" data-search="github 온보딩 브랜치·pr·리뷰를 실습하는 github 입문 git과 github의 기본 개념부터 브랜치, commit·push·pull, pr과 리뷰·merge까지 배웁니다. 조작형 데모와 한국어 자막 영상으로 변경사항이 팀의 결과물에 반영되는 과정을 시각적으로 익힙니다. 교육 22개 슬라이드 git github 버전관리 팀 협업 깃허브 온보딩 입문 초보 비개발자 repository repo 브랜치 commit push pull pr 리뷰 merge 데모 자막 영상 claude code codex">
+          <div class="resource-meta"><span>교육</span><span>22개 슬라이드</span></div>
+          <h3><a href="/github-onboarding/">GitHub 온보딩 <span aria-hidden="true">↗</span></a></h3>
+          <p>브랜치·PR·리뷰를 실습하는 GitHub 입문</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W36" data-type="column" data-search="ai가 행동할수록, 기록은 누구의 것인가 에이전트 사고·업무 데이터·공공 등록부의 증거와 책임 에이전트 사고, 업무 데이터, 공공 등록부를 통해 ai 시대의 증거와 책임이 누구에게 귀속되는지 살핍니다. 칼럼 2026.09.06">
+          <div class="resource-meta"><span>칼럼</span><span>2026.09.06</span></div>
+          <h3><a href="/columns/2026-W36/">AI가 행동할수록, 기록은 누구의 것인가 <span aria-hidden="true">↗</span></a></h3>
+          <p>에이전트 사고·업무 데이터·공공 등록부의 증거와 책임</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W35" data-type="column" data-search="국가의 첫 화면을 누가 설계하는가 공공 ai와 플랫폼 기본값이 바꾸는 시민의 선택 공공 ai와 플랫폼 기본값이 시민의 질문과 선택, 책임 구조를 어떻게 다시 쓰는지 살핍니다. 칼럼 2026.08.30">
+          <div class="resource-meta"><span>칼럼</span><span>2026.08.30</span></div>
+          <h3><a href="/columns/2026-W35/">국가의 첫 화면을 누가 설계하는가 <span aria-hidden="true">↗</span></a></h3>
+          <p>공공 AI와 플랫폼 기본값이 바꾸는 시민의 선택</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W34" data-type="column" data-search="모델 밖의 관문이 ai의 규칙을 만든다 전력·모델 라우팅·플랫폼의 관문 소유와 공적 통제 전력 계약, 모델 라우팅, 플랫폼 조직과 안전 규칙을 통해 관문 소유와 공적 통제의 차이를 읽습니다. 칼럼 2026.08.23">
+          <div class="resource-meta"><span>칼럼</span><span>2026.08.23</span></div>
+          <h3><a href="/columns/2026-W34/">모델 밖의 관문이 AI의 규칙을 만든다 <span aria-hidden="true">↗</span></a></h3>
+          <p>전력·모델 라우팅·플랫폼의 관문 소유와 공적 통제</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W33" data-type="column" data-search="ai가 싸질수록, 비용과 책임은 어디로 이동하는가 금융·인프라·보안·업무 설계·공공정보 제도의 비용과 책임 값싼 추론 뒤의 금융, 데이터센터, 보안, 업무 설계와 공공정보 제도로 이동하는 ai의 비용과 책임을 읽습니다. 칼럼 2026.08.16">
+          <div class="resource-meta"><span>칼럼</span><span>2026.08.16</span></div>
+          <h3><a href="/columns/2026-W33/">AI가 싸질수록, 비용과 책임은 어디로 이동하는가 <span aria-hidden="true">↗</span></a></h3>
+          <p>금융·인프라·보안·업무 설계·공공정보 제도의 비용과 책임</p>
+        </article>
+        <article class="resource" data-resource-id="column:2026-W32" data-type="column" data-search="도구가 가능성을 넓힐 때, 누가 현실을 책임지는가 기상 예측·보안·국가 ai 인프라 사례로 보는 운영의 과제 weathernext, 보안 에이전트, 국가 ai 컴퓨팅센터와 중국어 데이터 부족을 통해 좋은 도구와 좋은 운영이 왜 함께 커져야 하는지 살펴봅니다. 칼럼 2026.08.09">
+          <div class="resource-meta"><span>칼럼</span><span>2026.08.09</span></div>
+          <h3><a href="/columns/2026-W32/">도구가 가능성을 넓힐 때, 누가 현실을 책임지는가 <span aria-hidden="true">↗</span></a></h3>
+          <p>기상 예측·보안·국가 AI 인프라 사례로 보는 운영의 과제</p>
+        </article>
+        <article class="resource" data-resource-id="tool:oda-intelligence" data-type="tool" data-search="oda intelligence 한국 oda·국제원조·개발협력 문서 조사를 위한 ai 플러그인 한국 oda·국제원조·개발협력 문서 조사를 위한 ai 플러그인 공개 도구 github oda mcp claude codex 개발협력">
+          <div class="resource-meta"><span>공개 도구</span><span>GitHub</span></div>
+          <h3><a href="https://github.com/amnotyoung/oda-intelligence-plugin">ODA Intelligence <span aria-hidden="true">↗</span></a></h3>
+          <p>한국 ODA·국제원조·개발협력 문서 조사를 위한 AI 플러그인</p>
+        </article>
+        <article class="resource" data-resource-id="tool:koica-reg-mcp" data-type="tool" data-search="koica reg mcp 현행 규정의 자연어 검색과 본문·인용·상호참조 검증 현행 규정의 자연어 검색과 본문·인용·상호참조 검증 공개 도구 github koica 코이카 mcp 규정">
+          <div class="resource-meta"><span>공개 도구</span><span>GitHub</span></div>
+          <h3><a href="https://github.com/amnotyoung/koica-reg-mcp">KOICA Reg MCP <span aria-hidden="true">↗</span></a></h3>
+          <p>현행 규정의 자연어 검색과 본문·인용·상호참조 검증</p>
+        </article>
+        <!-- HOME-RESOURCES:END -->
+      </div>
+      <div class="empty-state" hidden><h3>일치하는 자료가 없습니다</h3><p>다른 검색어를 입력하거나 전체 자료를 확인해보세요.</p><button class="button" id="reset-search">검색·분류 초기화 <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer wrap">
+    <div class="footer-links"><a href="https://github.com/amnotyoung">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.threads.com/@amnotyoung.k">Threads <span aria-hidden="true">↗</span></a></div>
+  </footer>
+</body>
 </html>

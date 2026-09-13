@@ -6,7 +6,18 @@
 
 ## 디자인 명세
 
-[ANY 웹사이트 디자인 명세 초안](docs/design-web.md)은 브랜드 시각 원칙을 웹의 탐색·읽기·반응형 화면에 맞게 확장한 제안입니다. 공통 규칙과 이 사이트의 적용안을 구분하며, 현재 구현 완료 상태를 뜻하지 않습니다.
+[ANY 웹사이트 디자인 명세 초안](docs/design-web.md)은 브랜드 시각 원칙을 웹의 탐색·읽기·반응형 화면에 맞게 확장한 제안입니다. 공통 규칙과 사이트 적용안을 구분합니다. 홈에 v0.2의 색상·서체·간명성 원칙을 적용했습니다.
+
+홈 목록은 `data/courses.json`, `data/columns.json`, `data/home.json`에서 생성합니다. 짧은 소개는 `data/home.json`의 `summaries`에서 관리하며, 항목이 없으면 원래 설명을 사용합니다. 배포 시 목록을 자동 생성합니다.
+
+```sh
+node scripts/build-home.mjs
+node scripts/build-home.mjs --check
+node scripts/validate-columns.mjs
+node scripts/validate-view-counts.mjs
+```
+
+홈 스타일과 검색·메뉴는 `home.css`, `home.js`, 브랜드 자산은 `assets/any/`에 있습니다. 교육·칼럼 등 하위 페이지는 기존 화면을 유지합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
 
 ## 카테고리
 
