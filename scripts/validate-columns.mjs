@@ -9,7 +9,7 @@ const metadataPath = join(repositoryRoot, "data", "columns.json");
 const KOREAN_WEEK_ORDINALS = ["첫째", "둘째", "셋째", "넷째", "다섯째"];
 const THREADS_PROFILE_URL = "https://www.threads.com/@amnotyoung.k";
 const THREADS_PROFILE_LABEL = "Threads · @amnotyoung.k";
-const COLUMNS_OG_URL = "https://amnotyoung.github.io/assets/any/columns-og.png";
+const COLUMNS_OG_URL = "https://amnotyoung.github.io/assets/any/columns-og-v2.png";
 const COLUMNS_OG_ALT = "주간 칼럼 · amnotyoung";
 
 function fail(message) {
@@ -67,7 +67,7 @@ if (
 ) {
   fail("Threads profile is absent from the column archive footer.");
 }
-if (!hasColumnSocialImage(archive, "https://amnotyoung.github.io/assets/any/columns-og.png", "주간 칼럼 · amnotyoung")) {
+if (!hasColumnSocialImage(archive, "https://amnotyoung.github.io/assets/any/columns-og-v2.png", "주간 칼럼 · amnotyoung")) {
   fail("Column archive social image metadata is invalid.");
 }
 

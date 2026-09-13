@@ -29,7 +29,8 @@ for (const column of columns) {
   let head = before.match(/^[\s\S]*?<\/head>/)?.[0];
   if (!head) throw new Error(`Document head is missing: ${column.id}`);
   head = head.replace(/<meta name="theme-color" content="[^"]*"\s*\/>/,'<meta name="theme-color" content="#ffffff" />')
-    .replaceAll('https://amnotyoung.github.io/assets/columns-og.png','https://amnotyoung.github.io/assets/any/columns-og.png')
+    .replaceAll('https://amnotyoung.github.io/assets/columns-og.png','https://amnotyoung.github.io/assets/any/columns-og-v2.png')
+    .replaceAll('https://amnotyoung.github.io/assets/any/columns-og.png','https://amnotyoung.github.io/assets/any/columns-og-v2.png')
     .replaceAll('amnotyoung 주간 칼럼 — 뉴스보다 오래 남는 질문을 읽습니다','주간 칼럼 · amnotyoung')
     .replace(/\s*<link rel="stylesheet"[^>]*>/g,'')
     .replace(/\s*<link rel="preload"[^>]*>/g,'')
