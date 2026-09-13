@@ -1,3 +1,4 @@
+(() => {
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
 const mobile = window.matchMedia('(max-width: 900px)');
@@ -22,6 +23,7 @@ mobile.addEventListener('change', () => { menuOpen = false; syncMenu(); });
 syncMenu();
 
 const input = document.querySelector('#resource-search');
+if (!input) return;
 const cards = [...document.querySelectorAll('.resource')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const status = document.querySelector('.result-status');
@@ -67,3 +69,4 @@ document.querySelector('#reset-search').addEventListener('click', () => {
 });
 document.querySelector('.library-tools').hidden = false;
 updateResults();
+})();

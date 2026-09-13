@@ -43,11 +43,14 @@ jobs:
         run: |
           node scripts/build-home.mjs
           node scripts/build-collections.mjs
+          node scripts/build-column-layouts.mjs
 
       - name: Validate site
         run: |
           node scripts/build-home.mjs --check
           node scripts/build-collections.mjs --check
+          node scripts/build-column-layouts.mjs --check
+          node scripts/test-column-layouts.mjs
           node scripts/validate-branding.mjs
           node scripts/validate-columns.mjs
           node scripts/validate-view-counts.mjs

@@ -9,8 +9,8 @@ const metadataPath = join(repositoryRoot, "data", "columns.json");
 const KOREAN_WEEK_ORDINALS = ["첫째", "둘째", "셋째", "넷째", "다섯째"];
 const THREADS_PROFILE_URL = "https://www.threads.com/@amnotyoung.k";
 const THREADS_PROFILE_LABEL = "Threads · @amnotyoung.k";
-const COLUMNS_OG_URL = "https://amnotyoung.github.io/assets/columns-og.png";
-const COLUMNS_OG_ALT = "amnotyoung 주간 칼럼 — 뉴스보다 오래 남는 질문을 읽습니다";
+const COLUMNS_OG_URL = "https://amnotyoung.github.io/assets/any/columns-og.png";
+const COLUMNS_OG_ALT = "주간 칼럼 · amnotyoung";
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -107,8 +107,7 @@ for (const [index, column] of columns.entries()) {
   }
   if (
     !article.includes(column.title) ||
-    !article.includes(column.published.replaceAll("-", ".")) ||
-    !article.includes(column.period_label)
+    !article.includes(`<time datetime="${column.published}">${column.published.replaceAll("-", ".")}</time>`)
   ) {
     fail(`Column title or period mismatch: ${column.id}`);
   }

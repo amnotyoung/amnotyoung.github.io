@@ -13,8 +13,10 @@
 ```sh
 node scripts/build-home.mjs
 node scripts/build-collections.mjs
+node scripts/build-column-layouts.mjs
 node scripts/build-home.mjs --check
 node scripts/build-collections.mjs --check
+node scripts/build-column-layouts.mjs --check
 node scripts/validate-branding.mjs
 node scripts/validate-columns.mjs
 node scripts/validate-view-counts.mjs
@@ -30,8 +32,7 @@ node scripts/validate-view-counts.mjs
 
 ## 주간 칼럼 추가하기
 
-각 글은 `columns/YYYY-Www/index.html`에 저장하고 `columns/index.html`의 최신 글과
-목록을 갱신합니다. 기술과 사회, 조직, 국제개발협력을 한 주의 뉴스와 독서 관점으로
+각 글은 `columns/YYYY-Www/index.html`의 `<article class="column-body">` 안에 작성하고 `data/columns.json`에 등록합니다. 배포 시 `scripts/build-column-layouts.mjs`가 과거·신규 칼럼 모두에 공통 헤더·읽기 스타일·목차·푸터를 적용합니다. 본문과 출처는 보존하며, 필요한 본문 구조가 없으면 배포가 실패합니다. 칼럼 목록과 홈은 메타데이터에서 자동 생성됩니다. 본문 스타일은 `columns/reader.css`, 모바일 목차는 `columns/reader.js`에서 공통 관리합니다. 기술과 사회, 조직, 국제개발협력을 한 주의 뉴스와 독서 관점으로
 연결하는 장문 원고를 싣습니다.
 
 ## 방문·조회 카운트
