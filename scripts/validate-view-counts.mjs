@@ -5,7 +5,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const counterScript = '<script defer src="/views.js"></script>';
+const counterScriptPath = resolve(repositoryRoot, "views.js");
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -31,6 +31,20 @@ function listHtmlFiles(directory = repositoryRoot) {
   return files;
 }
 
+function hasCounterScript(html, pagePath) {
+  const scripts = html.matchAll(/<script\b([^>]*)><\/script>/g);
+  for (const [, attributes] of scripts) {
+    if (!/\bdefer\b/.test(attributes)) continue;
+    const src = attributes.match(/\bsrc="([^"]+)"/)?.[1];
+    if (!src) continue;
+    const path = src.startsWith("/")
+      ? resolve(repositoryRoot, `.${src}`)
+      : resolve(dirname(pagePath), src);
+    if (path === counterScriptPath) return true;
+  }
+  return false;
+}
+
 const columns = JSON.parse(readText("data/columns.json"));
 const pageviews = JSON.parse(readText("data/pageviews.json"));
 
@@ -43,7 +57,7 @@ for (const path of listHtmlFiles()) {
     }
     continue;
   }
-  if (!readText(relativePath).includes(counterScript)) {
+  if (!hasCounterScript(readText(relativePath), path)) {
     fail(`View counter script is absent from: ${relativePath}`);
   }
 }

@@ -24,6 +24,8 @@ node scripts/validate-view-counts.mjs
 
 홈과 교육·개발협력·칼럼·공개 저장소 목록은 `home.css`, `home.js`의 공통 디자인·검색·메뉴를 사용합니다. 목록 전용 배치는 `collections.css`, 브랜드 자산은 `assets/any/`에 있습니다. 목록 데이터는 배포 시 `scripts/build-collections.mjs`로 갱신하며, 프로젝트·저장소 정보는 `data/collections.json`에서 관리합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
 
+교육 과정과 장·모듈 문서는 기존 학습 레이아웃 위에 `courses/learning-brand.css`와 `courses/learning-brand.js`를 로드합니다. 공통 헤더·모바일 메뉴·색상·서체·푸터는 이 두 파일에서 관리하고, KOICA·ODA 통계의 장 목차와 완료 상태는 각 과정 스크립트에서 유지합니다. 공통 자산은 상대경로로 참조해 개별 HTML 파일을 직접 열어도 표시되며, 이때 디렉터리 링크는 `index.html`로 연결됩니다.
+
 ## 카테고리
 
 - AI·데이터 교육: <https://amnotyoung.github.io/courses/>

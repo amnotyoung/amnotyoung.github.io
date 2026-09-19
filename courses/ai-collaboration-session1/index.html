@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
       content="AI 에이전트, 텍스트 우선, MCP, GitHub를 조직의 협업 흐름으로 연결하는 9개 모듈 읽기형 과정"
     />
-    <meta name="theme-color" content="#f4f1e9" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="AI, 개인의 도구에서 조직을 잇는 시스템으로" />
     <meta
@@ -18,25 +18,35 @@
     <link rel="canonical" href="https://amnotyoung.github.io/courses/ai-collaboration-session1/" />
     <title>AI, 개인의 도구에서 조직을 잇는 시스템으로 · AI 학습 아카이브</title>
     <link rel="stylesheet" href="../../course.css" />
+    <link rel="preload" href="../../assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../learning-brand.css" />
     <script src="course.js" defer></script>
-    <script defer src="/views.js"></script>
+    <script defer src="../../views.js"></script>
+    <script defer src="../learning-brand.js"></script>
   </head>
   <body class="collaboration-course">
-    <header class="course-header">
-      <a class="back-link" href="/courses/" target="_top"><span aria-hidden="true">←</span> Learning archive</a>
-      <a
-        class="header-repo"
-        href="https://github.com/amnotyoung/ai-tool-to-system"
-        target="_blank"
-        rel="noreferrer"
-      >Source repository ↗</a>
+    <a class="learning-skip" href="#main">본문 바로가기</a>
+    <header class="learning-site-header">
+      <div class="learning-header-inner">
+        <a class="learning-brand" href="../../" aria-label="amnotyoung 공개 아카이브 홈">
+          <img src="../../assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100" />
+          <span>amnotyoung</span>
+        </a>
+        <button class="learning-menu-toggle" type="button" aria-expanded="false" aria-controls="learning-main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+        <nav class="learning-site-nav" id="learning-main-nav" aria-label="주요 메뉴">
+          <a href="../" aria-current="location">AI·데이터 교육</a>
+          <a href="../../development-cooperation/">개발협력·해외조달</a>
+          <a href="../../columns/">주간 칼럼</a>
+          <a href="../../open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="course-hero" data-number="04">
         <div>
           <p class="course-kicker">2026 · AI WORKFLOW · 9 MODULES</p>
-          <h1>AI, 개인의 도구에서<br />조직을 잇는 시스템으로</h1>
+          <h1>AI, 개인의 도구에서 조직을 잇는 시스템으로</h1>
         </div>
         <div class="course-intro">
           <p>
@@ -59,7 +69,7 @@
 
       <div class="course-layout">
         <nav class="course-nav" id="module-index" aria-label="과정 목차와 검색">
-          <p>COURSE INDEX</p>
+          <p>과정 목차</p>
           <form class="course-search" id="course-search" role="search">
             <label for="module-search">내용 검색</label>
             <div class="search-control">
@@ -335,19 +345,19 @@
           <h2 id="resources-title">근거를 확인하고<br />작은 루프부터 만듭니다</h2>
         </div>
         <div class="resource-list">
-          <a href="https://dora.dev/research/" target="_blank" rel="noreferrer"><span>DORA 소프트웨어 전달·AI 연구</span><span aria-hidden="true">↗</span></a>
-          <a href="https://dora.dev/ai/roi/report/" target="_blank" rel="noreferrer"><span>2026 ROI of AI-assisted Software Development</span><span aria-hidden="true">↗</span></a>
-          <a href="https://code.claude.com/docs/ko/skills" target="_blank" rel="noreferrer"><span>Claude Code Skills 공식 문서</span><span aria-hidden="true">↗</span></a>
-          <a href="https://gitlab.com/gitlab-com/content-sites/handbook" target="_blank" rel="noreferrer"><span>GitLab 공개 핸드북 저장소</span><span aria-hidden="true">↗</span></a>
-          <a href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer"><span>Google Gemma 4 모델 카드</span><span aria-hidden="true">↗</span></a>
-          <a href="https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=125533" target="_blank" rel="noreferrer"><span>행정안전부 마크다운 보도자료 정책</span><span aria-hidden="true">↗</span></a>
+          <a href="https://dora.dev/research/" rel="noreferrer"><span>DORA 소프트웨어 전달·AI 연구</span><span aria-hidden="true">↗</span></a>
+          <a href="https://dora.dev/ai/roi/report/" rel="noreferrer"><span>2026 ROI of AI-assisted Software Development</span><span aria-hidden="true">↗</span></a>
+          <a href="https://code.claude.com/docs/ko/skills" rel="noreferrer"><span>Claude Code Skills 공식 문서</span><span aria-hidden="true">↗</span></a>
+          <a href="https://gitlab.com/gitlab-com/content-sites/handbook" rel="noreferrer"><span>GitLab 공개 핸드북 저장소</span><span aria-hidden="true">↗</span></a>
+          <a href="https://ai.google.dev/gemma/docs/core/model_card_4" rel="noreferrer"><span>Google Gemma 4 모델 카드</span><span aria-hidden="true">↗</span></a>
+          <a href="https://www.mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=125533" rel="noreferrer"><span>행정안전부 마크다운 보도자료 정책</span><span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
-    <footer class="course-footer">
-      <span>AI, 개인의 도구에서 조직을 잇는 시스템으로</span>
-      <a href="/courses/" target="_top">전체 강의로 돌아가기 ↑</a>
+    <footer class="learning-footer">
+      <span>amnotyoung</span>
+      <div class="learning-footer-links"><a href="https://github.com/amnotyoung">GitHub ↗</a><a href="https://www.threads.com/@amnotyoung.k">Threads ↗</a></div>
     </footer>
   </body>
 </html>

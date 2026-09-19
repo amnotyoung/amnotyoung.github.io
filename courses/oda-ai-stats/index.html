@@ -3,30 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="World Bank WDI 실데이터를 Python과 STATA로 분석하는 데이터 고급 통계 분석 실무 활용 과정" />
     <title>데이터 고급 통계 분석 실무 활용 · AI 학습 아카이브</title>
     <link rel="stylesheet" href="../../course.css" />
-    <script defer src="/views.js"></script>
+    <link rel="preload" href="../../assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../learning-brand.css" />
+    <script defer src="../../views.js"></script>
+    <script defer src="../learning-brand.js"></script>
   </head>
   <body>
-    <header class="course-header">
-      <a class="back-link" href="/courses/" target="_top"><span aria-hidden="true">←</span> Learning archive</a>
-      <a class="header-repo" href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer">Source repository ↗</a>
+    <a class="learning-skip" href="#main">본문 바로가기</a>
+    <header class="learning-site-header">
+      <div class="learning-header-inner">
+        <a class="learning-brand" href="../../" aria-label="amnotyoung 공개 아카이브 홈">
+          <img src="../../assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100" />
+          <span>amnotyoung</span>
+        </a>
+        <button class="learning-menu-toggle" type="button" aria-expanded="false" aria-controls="learning-main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+        <nav class="learning-site-nav" id="learning-main-nav" aria-label="주요 메뉴">
+          <a href="../" aria-current="location">AI·데이터 교육</a>
+          <a href="../../development-cooperation/">개발협력·해외조달</a>
+          <a href="../../columns/">주간 칼럼</a>
+          <a href="../../open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="course-hero" data-number="03">
         <div>
           <p class="course-kicker">2026 · ODA DATA · ADVANCED STATISTICS</p>
-          <h1>데이터 고급 통계<br />분석 실무 활용</h1>
+          <h1>데이터 고급 통계 분석 실무 활용</h1>
         </div>
         <div class="course-intro">
           <p>AI로 통계 분석의 난이도를 낮추되, 결과의 타당성은 사람이 검증합니다. World Bank WDI 실데이터를 Python과 STATA 양쪽에서 분석하고 폐쇄망 업무까지 연결합니다.</p>
           <div class="hero-actions">
             <a href="modules/m01/">1모듈부터 학습하기 <span aria-hidden="true">→</span></a>
-            <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" target="_blank" rel="noreferrer">슬라이드 모드 <span aria-hidden="true">↗</span></a>
+            <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" rel="noreferrer">슬라이드 모드 <span aria-hidden="true">↗</span></a>
             <a href="https://amnotyoung.github.io/oda-ai-stats/slides/lecture-deck.pdf">PDF 받기 <span aria-hidden="true">↓</span></a>
-            <a href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer">저장소 <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/amnotyoung/oda-ai-stats" rel="noreferrer">저장소 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -40,7 +56,7 @@
 
       <div class="course-layout">
         <nav class="course-nav" aria-label="과정 목차">
-          <p>COURSE INDEX</p>
+          <p>과정 목차</p>
           <ol>
             <li><a href="modules/m01/"><span>01</span>두 도구와 두 환경</a></li>
             <li><a href="modules/m02/"><span>02</span>WDI 불러오기·정제</a></li>
@@ -117,15 +133,18 @@
       <section class="resource-section" aria-labelledby="stats-resources-title">
         <div><p class="course-kicker">DATA, CODE & PRACTICE</p><h2 id="stats-resources-title">같은 분석을<br />직접 재현합니다</h2></div>
         <div class="resource-list">
-          <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" target="_blank" rel="noreferrer"><span>43장 인터랙티브 슬라이드</span><span aria-hidden="true">↗</span></a>
+          <a href="https://amnotyoung.github.io/oda-ai-stats/slides/viewer.html" rel="noreferrer"><span>43장 인터랙티브 슬라이드</span><span aria-hidden="true">↗</span></a>
           <a href="https://github.com/amnotyoung/oda-ai-stats/raw/main/stata-practice.zip"><span>STATA 오프라인 실습 패키지</span><span aria-hidden="true">↓</span></a>
-          <a href="https://colab.research.google.com/github/amnotyoung/oda-ai-stats/blob/main/notebooks/01_load_clean.ipynb" target="_blank" rel="noreferrer"><span>Colab 실습 시작하기</span><span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/amnotyoung/oda-ai-stats/blob/main/handouts/verification_checklist.md" target="_blank" rel="noreferrer"><span>인간의 검증력 체크리스트</span><span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/amnotyoung/oda-ai-stats" target="_blank" rel="noreferrer"><span>전체 데이터·코드·노트북</span><span aria-hidden="true">↗</span></a>
+          <a href="https://colab.research.google.com/github/amnotyoung/oda-ai-stats/blob/main/notebooks/01_load_clean.ipynb" rel="noreferrer"><span>Colab 실습 시작하기</span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/amnotyoung/oda-ai-stats/blob/main/handouts/verification_checklist.md" rel="noreferrer"><span>인간의 검증력 체크리스트</span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/amnotyoung/oda-ai-stats" rel="noreferrer"><span>전체 데이터·코드·노트북</span><span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
-    <footer class="course-footer"><span>데이터 고급 통계 분석 실무 활용</span><a href="/courses/" target="_top">전체 강의로 돌아가기 ↑</a></footer>
+    <footer class="learning-footer">
+      <span>amnotyoung</span>
+      <div class="learning-footer-links"><a href="https://github.com/amnotyoung">GitHub ↗</a><a href="https://www.threads.com/@amnotyoung.k">Threads ↗</a></div>
+    </footer>
   </body>
 </html>

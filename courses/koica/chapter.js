@@ -119,7 +119,7 @@
         <div class="lesson-resources">${resources
           .map(
             (resource) => `
-              <a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">
+              <a href="${escapeHtml(resource.url)}">
                 <span><strong>${escapeHtml(resource.title)}</strong><small>${escapeHtml(resource.text)}</small></span>
                 <b aria-hidden="true">↗</b>
               </a>`,
@@ -164,7 +164,7 @@
         ${
           next
             ? `<a class="pager-next" href="${chapterHref(next)}"><span>다음 장 →</span><strong>${next.number}. ${escapeHtml(next.title)}</strong></a>`
-            : `<a class="pager-next" href="/courses/"><span>과정 완료 →</span><strong>전체 강의로 돌아가기</strong></a>`
+            : `<a class="pager-next" href="../../../"><span>과정 완료 →</span><strong>전체 강의로 돌아가기</strong></a>`
         }
       </nav>`;
   }
@@ -200,17 +200,33 @@
 
   root.innerHTML = `
     <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
+    <a class="learning-skip" href="#main">본문 바로가기</a>
+    <header class="learning-site-header">
+      <div class="learning-header-inner">
+        <a class="learning-brand" href="../../../../" aria-label="amnotyoung 공개 아카이브 홈">
+          <img src="../../../../assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100" />
+          <span>amnotyoung</span>
+        </a>
+        <button class="learning-menu-toggle" type="button" aria-expanded="false" aria-controls="learning-main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+        <nav class="learning-site-nav" id="learning-main-nav" aria-label="주요 메뉴">
+          <a href="../../../" aria-current="location">AI·데이터 교육</a>
+          <a href="../../../../development-cooperation/">개발협력·해외조달</a>
+          <a href="../../../../columns/">주간 칼럼</a>
+          <a href="../../../../open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
     <header class="lesson-header">
-      <a class="archive-link" href="/courses/" target="_top">amnotyoung / learning archive</a>
+      <a class="archive-link" href="../../../">강의 목록</a>
       <div class="lesson-header-actions">
         <a href="../../">과정 소개</a>
-        <a href="https://amnotyoung.github.io/koica-oos-ai-training/#${chapter.slideStart}" target="_blank" rel="noreferrer">슬라이드 ↗</a>
+        <a href="https://amnotyoung.github.io/koica-oos-ai-training/#${chapter.slideStart}">슬라이드 ↗</a>
         <button id="toc-toggle" type="button" aria-expanded="false" aria-controls="course-nav">목차</button>
       </div>
     </header>
     <div class="lesson-shell">
       ${renderCourseNavigation()}
-      <main class="lesson-article">
+      <main class="lesson-article" id="main">
         <section class="lesson-hero">
           <div class="lesson-meta"><span>CHAPTER ${chapter.number} / 09</span><span>${escapeHtml(chapter.duration)}</span></div>
           <p class="lesson-label">${escapeHtml(chapter.label)}</p>
@@ -227,14 +243,11 @@
         <button class="complete-button" id="complete-chapter" type="button" aria-pressed="false"></button>
         ${renderPager()}
       </main>
-    </div>`;
-
-  const tocToggle = document.querySelector("#toc-toggle");
-  const courseNav = document.querySelector("#course-nav");
-  tocToggle?.addEventListener("click", () => {
-    const open = courseNav.classList.toggle("open");
-    tocToggle.setAttribute("aria-expanded", String(open));
-  });
+    </div>
+    <footer class="learning-footer">
+      <span>amnotyoung</span>
+      <div class="learning-footer-links"><a href="https://github.com/amnotyoung">GitHub ↗</a><a href="https://www.threads.com/@amnotyoung.k">Threads ↗</a></div>
+    </footer>`;
 
   document.querySelector("#complete-chapter")?.addEventListener("click", () => {
     const completed = completionKeys();
