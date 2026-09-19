@@ -7,7 +7,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const courses = read('data/courses.json');
 const columns = read('data/columns.json');
-const { summaries, tools } = read('data/home.json');
+const { repositories } = read('data/collections.json');
+const { summaries } = read('data/home.json');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const courseMeta = course => {
   const stat = ['weeks', 'chapters', 'modules', 'slides'].map(unit => course.stats?.find(stat => stat.label === unit)).find(Boolean);
@@ -17,7 +18,7 @@ const courseMeta = course => {
 const records = [
   ...courses.map(course => ({...course, type:'course', label:'교육', meta:courseMeta(course)})),
   ...columns.map(column => ({...column, type:'column', label:'칼럼', meta:column.published.replaceAll('-', '.')})),
-  ...tools.map(tool => ({...tool, type:'tool', label:'공개 도구', meta:'GitHub'})),
+  ...repositories.map(repository => ({...repository, type:'tool', label:'공개 도구'})),
 ];
 const ids = new Set();
 const html = records.map(record => {
@@ -28,11 +29,12 @@ const html = records.map(record => {
     throw new Error(`Invalid resource: ${id}`);
   }
   const description = summaries[record.id] ?? record.description;
-  const searchable = [record.title, description, record.description, record.label, record.meta, ...(record.tags ?? []), ...(record.keywords ?? [])].join(' ').toLocaleLowerCase('ko');
+  const searchable = [record.title, description, record.description, record.note, record.label, record.meta, ...(record.tags ?? []), ...(record.keywords ?? [])].filter(Boolean).join(' ').toLocaleLowerCase('ko');
   return `        <article class="resource" data-resource-id="${escape(id)}" data-type="${record.type}" data-search="${escape(searchable)}">
           <div class="resource-meta"><span>${record.label}</span><span>${escape(record.meta)}</span></div>
           <h3><a href="${escape(record.url)}">${escape(record.title)} <span aria-hidden="true">↗</span></a></h3>
-          <p>${escape(description)}</p>
+          <p>${escape(description)}</p>${record.note ? `
+          <p class="resource-note">${escape(record.note)}</p>` : ''}
         </article>`;
 }).join('\n');
 const path = resolve(root, 'index.html');

@@ -61,6 +61,7 @@ nav a:hover,.footer-links a:hover{text-decoration:underline}
 .resource h3 a{text-decoration:none}
 .resource h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
 .resource>p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:0;max-width:500px}
+.resource>.resource-note{font-size:13px;line-height:1.65;margin-top:8px}
 .empty-state{padding:64px 16px;text-align:center;border-bottom:1px solid var(--line)}
 .empty-state h3{font-size:22px;margin-bottom:12px}
 .empty-state p{color:var(--muted);margin-bottom:24px}
