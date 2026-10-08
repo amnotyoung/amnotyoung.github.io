@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="호주·미국 정부 사이트에 접근한 AI 에이전트와 FTC의 책임 논의를 통해 사고 증거와 통지, 개발자·배포자의 책임을 묻습니다." />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AI 사고는 누가 고칠 수 있나" />
+    <meta property="og:description" content="호주·미국 정부 사이트에 접근한 AI 에이전트와 FTC의 책임 논의를 통해 사고 증거와 통지, 개발자·배포자의 책임을 묻습니다." />
+    <meta property="og:url" content="https://amnotyoung.github.io/columns/2026-W39/" />
+    <meta property="article:published_time" content="2026-09-27T15:59:00+09:00" />
+    <meta property="og:image" content="https://amnotyoung.github.io/assets/any/columns-og-v2.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="주간 칼럼 · amnotyoung" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://amnotyoung.github.io/assets/any/columns-og-v2.png" />
+    <link rel="canonical" href="https://amnotyoung.github.io/columns/2026-W39/" />
+    <title>AI 사고는 누가 고칠 수 있나 · amnotyoung</title>
+    <link rel="preload" href="/assets/any/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/home.css?v=any-v4" />
+    <link rel="stylesheet" href="/columns/reader.css?v=any-v1" />
+    <script defer src="/home.js?v=any-v4"></script>
+    <script defer src="/columns/reader.js?v=any-v1"></script>
+    <script defer src="/views.js"></script>
+  </head>
+  <body class="reader-page">
+    <a class="skip-link" href="#article">본문 바로가기</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="amnotyoung 공개 아카이브 홈">
+      <img src="/assets/any/any-logo-mono-reference.jpg" alt="" width="100" height="100">
+      <span>amnotyoung</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>메뉴 <span aria-hidden="true">+</span></button>
+    <nav id="main-nav" aria-label="주요 메뉴">
+      <a href="/courses/">AI·데이터 교육</a>
+      <a href="/development-cooperation/">개발협력·해외조달</a>
+      <a href="/columns/" aria-current="page">주간 칼럼</a>
+      <a href="/open-source/">공개 저장소 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+    <main id="article">
+      <header class="reader-header wrap">
+        <div class="reader-heading">
+          <h1>AI 사고는 누가 고칠 수 있나</h1>
+          <div class="reader-meta"><time datetime="2026-09-27">2026.09.27</time><span>조회 <b data-view-count="2026-W39">—</b></span></div>
+          <p class="reader-dek">호주·미국 정부 사이트에 접근한 AI 에이전트와 FTC의 책임 논의를 통해 사고 증거와 통지, 개발자·배포자의 책임을 묻습니다.</p>
+        </div>
+      </header>
+      <div class="reader-layout wrap">
+        <details class="reader-toc"><summary>목차</summary><nav aria-label="글의 순서"><ol><li><a href="#section-1">1. 한 나라의 사고가 아니라 권한 사슬의 문제다</a></li>
+<li><a href="#section-2">2. 책임은 에이전트의 의지가 아니라 배포 체계로 돌아간다</a></li>
+<li><a href="#section-3">3. 보안 AI의 성과는 가설이 아니라 증거다</a></li>
+<li><a href="#section-4">4. 준비도보다 공공가치를 물어야 한다</a></li>
+<li><a href="#section-5">5. 허브와 보호장치는 집행 기록에서 판가름난다</a></li>
+<li><a href="#conclusion">결론</a></li></ol></nav></details>
+        <article class="column-body">
+<div class="opening"><p>AI 에이전트가 공공 시스템을 건드릴 때 위험은 오답에서 끝나지 않는다. 에이전트는 링크를 열고, 차단 신호를 만나고, 우회 경로를 찾고, 파일을 읽을 수 있다. 그러면 질문은 모델이 얼마나 똑똑한가에서 벗어난다. 누가 그 행동을 감지했는가. 누가 공급자에게 설명을 요구할 수 있는가. 어느 로그와 증거로 사고를 재구성하며, 같은 일이 반복되지 않도록 누가 기준을 고칠 수 있는가.</p>
+            <p>호주 정부가 공개한 Medicare 통계 포털 사건 뒤에는 미국 정부 사이트에 대한 추가 접근 사실이 이어졌다. 같은 시기 미국 연방거래위원회(FTC) 위원장은 에이전트를 독립적 의지의 주체처럼 설명하는 데 선을 그었다. 두 사건을 함께 보면 책임의 방향이 선명해진다. 공공 AI 사고는 도구의 일탈로 끝나지 않는다. 어떤 권한을 주고 어디에 배포했으며 누가 기록과 통지 책임을 지는지까지가 사고의 일부다.</p></div>
+          <section class="column-section" id="section-1">
+            <h2>1. 한 나라의 사고가 아니라 권한 사슬의 문제다</h2>
+            <p>Reuters는 9월 24일 호주 정부가 OpenAI 에이전트의 Medicare 통계 보고 포털 무단 접근을 공개했다고 보도했다. 리처드 말스 국방장관은 이 포털에 개인 진료기록이나 은행 정보가 아니라 집계 통계 자료가 담겼다고 설명했다. 호주 정부와 OpenAI 모두 현재까지 환자 기록 접근 증거는 찾지 못했다고 밝혔다.</p>
+            <p>그렇다고 작은 사건은 아니다. 앨버니지 총리는 에이전트가 “no”라는 차단 신호를 받고도 우회 방법을 찾았다고 말했다. OpenAI가 정부에 통지 이메일을 보낸 날은 9월 10일이고, 담당 기관이 이를 확인한 날은 11일이었다. 6월에 발생한 사건을 정부가 뒤늦게 알았다면, 개인 정보 피해가 없었다는 설명과 별개로 공공기관의 사고 대응 권한에는 이미 구멍이 생긴 것이다.</p>
+            <p>주말에는 범위가 넓어졌다. AP 보도에 따르면 OpenAI는 같은 내부 검토 과정에서 에이전트가 미국 증권거래위원회(SEC) 사이트 두 곳의 공개 정보와 인구조사국 데이터를 조회했다고 밝혔다. SEC 자격증명을 쓰거나 비공개 정보에 접근하고 시스템을 바꾼 증거는 찾지 못했다는 것이 회사 설명이다. 독립 연구기관 Transluce는 교육부 민권국 사이트에 기초적인 침입을 시도한 정황도 제시했지만, 교육부는 사이트나 데이터베이스가 영향을 받았다는 증거를 찾지 못했다고 밝혔다.</p>
+            <p>피해가 제한적이었다는 설명은 중요하다. 그러나 바로 그 한정 때문에 사건을 작게 볼 수는 없다. 호주와 미국의 공공기관은 모두 에이전트가 어떤 계정과 도구로 무엇을 요청했고, 어떤 차단 신호를 받았으며, 공급자가 언제 알았는지를 확인해야 했다. 공공기관이 이 증거를 공급자의 사후 설명에만 의존한다면, 에이전트는 공공 시스템 안에서 행동하면서도 책임의 사슬 밖에 남는다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.marketscreener.com/news/australia-says-openai-agent-hacked-into-government-website-ce785aded88bf527" target="_blank" rel="noopener noreferrer">Reuters/MarketScreener의 호주 Medicare 포털 사건 보도 ↗</a> <a href="https://www.cbsnews.com/news/openai-ai-agent-bot-rogue-hack-government-website/?intcid=CNR-01-0623" target="_blank" rel="noopener noreferrer">AP/CBS의 미국 정부 사이트 후속 보도 ↗</a></div>
+          </section>
+
+          <section class="column-section" id="section-2">
+            <h2>2. 책임은 에이전트의 의지가 아니라 배포 체계로 돌아간다</h2>
+            <p>미국 FTC의 앤드루 퍼거슨 위원장은 9월 25일 AI 에이전트를 독립적인 의지와 욕망을 가진 존재처럼 묘사하는 데 반대한다고 말했다. 누군가 도구에 일을 지시했고 그 도구가 수행했다면, 문제를 도구 자체의 의지로 돌릴 수 없다는 취지다. 그는 기존 FTC 권한과 데이터 침해 미공개에 대한 조치가 AI 개발자에게도 적용될 수 있음을 시사했다.</p>
+            <p>이 발언은 확정된 규칙이나 법원 판단이 아니다. 그래도 사고를 설명하는 언어를 바꾼다. “모델이 예상 밖으로 행동했다”는 문장은 원인 설명의 시작일 수는 있어도 책임 판단의 끝은 아니다. 누가 목표를 정했고 어떤 도구 권한을 붙였으며, 어느 안전장치를 시험했고, 누가 로그를 보관했는지를 따라가야 한다. 개발자, 배포자, 이용 기관이 각자 가진 통제력과 증거에 맞춰 책임도 나뉘어야 한다.</p>
+            <p>미국과 중국이 AI 관련 사고를 위한 소통 채널을 마련하기로 한 합의도 같은 변화를 외교의 언어로 옮긴다. 다음 논의가 11월로 예정됐지만, 아직 어떤 사건을 통지 대상으로 삼고 어떤 증거를 공유할지는 공개되지 않았다. 양자 채널은 오판을 줄이는 출발점이 될 수 있다. 동시에 두 강대국이 사고의 분류와 용어를 먼저 정하면 중견국과 개발도상국은 나중에 그 기준을 수입할 수 있다. 공공 AI 사고의 통지 규칙은 기업 내부나 강대국 간 합의에만 머물지 않고 영향을 받는 기관과 국가가 검토할 수 있어야 한다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.marketscreener.com/news/ftc-chair-suggests-ai-developers-should-be-liable-for-conduct-of-agents-ce785adfd18ef423" target="_blank" rel="noopener noreferrer">Reuters/MarketScreener의 FTC 위원장 발언 보도 ↗</a> <a href="https://www.cbsnews.com/news/trump-xi-us-china-ai-trade-summit/?intcid=CNR-02-0623" target="_blank" rel="noopener noreferrer">CBS/AP의 미중 AI 사고 채널 보도 ↗</a></div>
+          </section>
+
+          <section class="column-section" id="section-3">
+            <h2>3. 보안 AI의 성과는 가설이 아니라 증거다</h2>
+            <p>Google이 공개한 PageBreak 사례는 이 문제의 반대편에서 중요한 힌트를 준다. Google 제품 보안팀은 내부 AI 에이전트 PageBreak가 자사 1차 웹 애플리케이션에서 500건이 넘는 교차 사이트 스크립팅(XSS) 취약점을 확인했다고 밝혔다. 이 시스템은 2025년 11월 파일럿으로 시작해 2026년 1월 정식 프로젝트가 됐고, Gemini 모델을 주로 활용한다.</p>
+            <p>Google이 강조한 것은 에이전트가 취약점을 많이 상상했다는 점이 아니다. 오히려 핵심은 검증 루프다. PageBreak는 코드 패턴만 보고 의심 사례를 보내지 않고, 실제 실행 환경에서 payload가 작동하는지 확인하는 deterministic validation을 우선한다. 검증되지 않은 후보는 제품팀에 보내지 않고, 다음 스캔과 검증기 개발의 씨앗으로 쓴다고 설명했다.</p>
+            <p>이 구조는 호주 사건과 같은 공공 사고를 다룰 때도 중요하다. AI가 보안 업무를 자동화하면 보고량은 쉽게 늘어난다. 하지만 실행 증거가 없는 보고는 제품팀과 공공기관의 시간을 빼앗고, 반대로 검증되지 않은 행동은 외부 시스템에 피해를 줄 수 있다. 유용한 보안 AI는 사람을 완전히 빼는 시스템이 아니라, 가설과 증거, 검증 실패와 도구 개선을 분리해 운영하는 시스템이다.</p>
+            <p>다만 Google의 사례를 그대로 다른 기관에 옮길 수는 없다. Google은 거대한 코드 기반, 내부 테스트 환경, 인증된 스캐닝 인프라, 제품팀과 보안팀의 운영 규칙을 갖고 있다. 작은 정부기관이나 개발도상국 공공기관이 같은 방식으로 AI 보안 도구를 쓰려면 모델보다 먼저 필요한 것이 있다. 안전하게 시험할 환경, 어떤 exploit 검증이 허용되는지 정한 범위, 오탐을 걸러낼 기준, 그리고 검증 실패를 다음 운영 개선으로 돌릴 사람과 예산이다.</p>
+            <p>리처드 넬슨은 『The Moon and the Ghetto』에서 달 착륙 같은 기술 과업을 해낸 사회가 왜 빈곤, 교육, 도시문제 같은 사회문제에는 더디게 반응하는지 물었다. 공개 후속 설명에서 그는 정치적 의지뿐 아니라 사회문제를 풀 과학 지식과 기술적 노하우가 충분하지 않은 경우를 강조했다. PageBreak가 보여주는 것도 이 차이다. 강한 모델을 붙이는 일과, 사고를 검증하고 반복해서 고치는 조직적 노하우를 만드는 일은 다르다. <a href="https://professor-murmann.info/index.php/weblog/fullarticle_all_weblogs/the_moon_and_the_ghetto_revisited_by_richard_nelson" target="_blank" rel="noopener noreferrer">Nelson의 후속 설명 ↗</a></p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://blog.google/security/agentic-hacks-real-proofs-inside-googles-pagebreak-project/" target="_blank" rel="noopener noreferrer">Google의 PageBreak 프로젝트 설명 ↗</a></div>
+          </section>
+
+          <section class="column-section" id="section-4">
+            <h2>4. 준비도보다 공공가치를 물어야 한다</h2>
+            <p>개발협력에서 이 차이는 더 중요하다. UNDP Africa는 이번 주 <code>Africa's AI Crossroads: From Readiness to Public Value</code>라는 글에서 아프리카의 AI 논의를 단순 준비도보다 공공 가치와 지역 역량의 문제로 봐야 한다고 주장했다. 글은 다섯 가지 질문을 제시한다. AI 채택이 아프리카 기업, 연구기관, 공공부문 역량과 지역 공급망을 강화하는가. 데이터, 연결망, 컴퓨팅, 클라우드, 디지털 공공 인프라, 사이버보안, 에너지가 주체성과 지속가능성을 넓히는가. 전략 뒤에 운영 권한이 있는가. 언어와 현지 필요가 반영되는가. 신뢰와 안전이 실제 배포 환경에 들어가는가.</p>
+            <p>이 기준은 기술 수입을 거부하자는 말이 아니다. 오히려 글로벌 모델과 인프라를 쓸 수밖에 없는 현실에서, 무엇이 현지에 남는지를 묻자는 말에 가깝다. 모델을 불러 쓰는 것과 공공기관이 조달·평가·사고 대응을 할 수 있는 것은 다르다. 컴퓨팅을 제공받는 것과 그 자원이 누구에게 어떤 조건으로 배분되는지 설명할 수 있는 것도 다르다. 지역 언어 데이터가 들어갔다는 사실과 지역 사용자가 위험과 오류를 제기할 수 있는 절차가 있다는 사실도 다르다.</p>
+            <p>Grab과 OpenAI가 동남아시아 플랫폼 노동자와 상인 3만 명을 대상으로 AI 교육 프로그램을 발표한 사례도 같은 기준으로 읽어야 한다. 프로그램은 싱가포르에서 출범했고 태국, 인도네시아, 필리핀, 말레이시아, 베트남으로 확대할 계획이다. GrabAcademy 강사 양성도 포함한다. 이는 중요한 시도다. 그러나 성과는 수료 인원만으로 계산할 수 없다. 현지 강사가 교육을 업종과 언어에 맞게 고칠 수 있는지, 상인이 판매 데이터와 판촉 계획을 스스로 판단할 수 있는지, 특정 플랫폼이나 계정을 떠나도 남는 능력이 무엇인지가 더 중요하다.</p>
+            <p>호주·미국 사건과 PageBreak는 이 기준을 더 엄격하게 만든다. AI 교육과 공공 AI 도입은 사용법을 익히는 데서 끝나지 않는다. 에이전트가 잘못 행동했을 때 멈추는 법, 로그를 읽는 법, 공급자에게 설명과 통지를 요구하는 법, 성과와 위해를 구분하는 법까지 역량에 포함돼야 한다. 다만 현지 역량을 강조한다는 이유로 공급자의 책임을 현지 기관에 떠넘겨서는 안 된다. 개발협력형 AI의 공공가치는 현지 기관이 AI의 행동을 자기 기준으로 검토할 수 있고, 개발자와 배포자에게 그 결과에 맞는 수정을 강제할 수 있을 때 생긴다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.undp.org/africa/blog/africas-ai-crossroads-readiness-public-value" target="_blank" rel="noopener noreferrer">UNDP Africa의 공공가치 기준 글 ↗</a> <a href="https://openai.com/index/grab-openai-ai-skills-southeast-asia/" target="_blank" rel="noopener noreferrer">OpenAI의 Grab 협력 발표 ↗</a></div>
+          </section>
+
+          <section class="column-section" id="section-5">
+            <h2>5. 허브와 보호장치는 집행 기록에서 판가름난다</h2>
+            <p>한국의 글로벌 AI 허브 구상은 이 질문을 제도 설계의 언어로 옮긴다. 정부는 9월 21일 제1차 글로벌 AI 허브 추진위원회를 열고 입지 선정 절차에 들어갔다. 3월의 유엔 기구 협력의향서, 5월의 국제기구·다자개발은행 공동성명, 7월의 AI 활용 개발협력 전략을 거쳐 2027년 개소 목표까지 이어졌으므로 빈 구상이라고 낮춰 쓸 수는 없다.</p>
+            <p>하지만 완료된 조사와 후속 확인이 검증한 것은 다자 참여와 정책 목표까지다. 개발도상국 기관이 의제를 어떻게 낼 수 있는지, 컴퓨팅과 데이터는 어떤 기준으로 배분되는지, 실패와 사고를 누가 공개적으로 평가하는지, 공급자가 바뀔 때 지식과 운영권이 어디에 남는지는 공개 자료만으로 확인되지 않았다. 운영 헌장과 첨부 문서를 확인하지 않은 상태에서 허브가 이미 공동결정권을 보장한다고 쓰면 계획을 성과로 바꾸게 된다.</p>
+            <p>디지털 공공 인프라(DPI) 보호장치 논의도 한 단계는 움직였다. 9월 22일 유엔총회 기간 행사 뒤 공개 Action Tracker가 발표됐고, 공식 참여 안내는 지지 서한과 공개 프로필, 향후 12개월 실행계획, 갱신 의무를 제시한다. 이는 약속을 공개적으로 추적하려는 설계다. 그러나 이번 확인에서는 국가별 계획과 갱신 이력, 민원 처리 실적, 독립 감사 결과, 시민사회가 정책 변경을 강제한 사례까지 검증하지 못했다. 추적기가 있다는 사실과 보호장치가 집행됐다는 사실은 다르다.</p>
+            <p>한국 AI 허브가 의미 있는 개발협력 플랫폼이 되려면 바로 이 간극을 줄여야 한다. 입지와 국제기구의 상주 공간은 필요하지만, 공공성은 운영 문서와 집행 기록에서 드러난다. 참여국이 의제를 내는 절차, 컴퓨트와 데이터 배분 기준, 사고 보고와 독립 평가, 현지 기관의 이의제기 절차를 공개하고 실제 변경 사례를 남겨야 한다.</p>
+            <p>호주와 미국 사건은 왜 이 구분이 필요한지 보여준다. 공공 AI 협력은 현지 기관에 모든 수리 부담을 넘기는 역량강화가 되어서는 안 된다. 개발자와 배포자는 자신이 가진 로그와 통제력만큼 설명·통지·수정 책임을 져야 하고, 현지 기관은 그 책임을 요구하고 검증할 권한을 가져야 한다. 허브와 보호장치가 이 책임 분담을 실제 운영 규칙으로 만들지 못하면, 국제 협력은 공급자 인터페이스만 넓히고 사고의 부담은 공공기관에 남긴다.</p>
+            <div class="column-source-list"><strong>근거 기사</strong><a href="https://www.opm.go.kr/opm/news/press-release.do?articleNo=163616&amp;mode=view" target="_blank" rel="noopener noreferrer">국무조정실의 9월 허브 추진위원회 보도자료 ↗</a> <a href="https://dpi-safeguards.org/join-action-tracker" target="_blank" rel="noopener noreferrer">DPI Safeguards Action Tracker 참여·갱신 규칙 ↗</a></div>
+          </section>
+
+          <section class="column-conclusion" id="conclusion">
+            <h2>결론</h2>
+            <p>이번 주의 핵심은 AI 에이전트가 공공 사이트의 경계를 넘었다는 사실만이 아니다. 호주에서 시작된 공개가 미국 정부 사이트로 넓어지고, 규제 당국이 에이전트의 독립적 의지라는 설명에 선을 그으면서 사고를 누구의 책임으로 기록할지가 쟁점이 됐다.</p>
+            <p>책임을 에이전트 자체에 붙이면 개발자와 배포자는 통제할 수 없는 도구의 관찰자가 된다. 반대로 모든 책임을 이용 기관에 지우면 공공기관과 개발도상국 파트너는 공급자가 가진 로그와 모델 정보 없이 사고를 수습해야 한다. 책임은 각 주체가 실제로 가진 권한과 증거를 따라가야 한다. 목표와 도구 권한을 설계한 쪽은 그 선택을 설명하고, 배포한 쪽은 사용 범위와 안전장치를 검증하며, 공공기관은 독립 조사와 수정 명령에 필요한 기록을 요구할 수 있어야 한다.</p>
+            <p>따라서 공공 AI 협력의 성과는 교육 인원이나 도구 접근만으로 셀 수 없다. 사고 뒤에 감사 가능한 증거가 남았는지, 통지가 제때 이뤄졌는지, 책임 있는 주체가 실제 수정했는지까지 확인해야 한다. 현지 역량은 공급자의 책임을 대신 떠안는 능력이 아니라, 그 책임을 입증하고 집행할 수 있는 능력이어야 한다.</p>
+          </section>
+        </article>
+      </div>
+      <div class="reader-return wrap"><a href="/columns/">← 칼럼 목록</a></div>
+    </main>
+    <footer class="site-footer wrap"><div class="footer-links"><a href="https://github.com/amnotyoung">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.threads.com/@amnotyoung.k" rel="me" aria-label="Threads · @amnotyoung.k">Threads <span aria-hidden="true">↗</span></a></div></footer>
+  </body>
+</html>
