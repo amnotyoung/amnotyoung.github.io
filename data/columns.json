@@ -1,5 +1,14 @@
 [
   {
+    "id": "2026-W40",
+    "issue": 40,
+    "published": "2026-10-04",
+    "period_label": "2026년 10월 첫째 주",
+    "title": "AI 인프라의 실패 비용은 누가 내는가",
+    "description": "Broadcom의 Anthropic 대출과 데이터센터의 긴 회수 기간, 지역사회 비용과 공공 실증을 통해 AI 인프라 투자의 실패 부담이 어디로 이동하는지 짚습니다.",
+    "url": "/columns/2026-W40/"
+  },
+  {
     "id": "2026-W39",
     "issue": 39,
     "published": "2026-09-27",
