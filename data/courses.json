@@ -108,5 +108,26 @@
     ],
     "url": "/github-onboarding/",
     "repository": "https://github.com/amnotyoung/github-onboarding"
+  },
+  {
+    "id": "oos-ai-project-management",
+    "number": "06",
+    "accent": "teal",
+    "type": "3시간 실습",
+    "year": "2026 · VVS",
+    "title": "AI로 하는 사업 실행관리·보고 실무",
+    "description": "사업계획과 현장 회의록을 대조해 변경사항을 찾고, 근거를 갖춘 결재문과 보고서를 만드는 3시간 실습입니다.",
+    "audience": "개발협력 사업의 실행관리와 보고를 맡은 실무자",
+    "tags": ["사업관리", "개발협력", "회의록", "HWPX"],
+    "keywords": ["VVS", "KOICA", "사업계획", "변경관리", "결재문", "Claude Code", "Codex"],
+    "filters": ["work"],
+    "modules": 4,
+    "slides": 24,
+    "stats": [
+      { "value": "3", "label": "hours" },
+      { "value": "24", "label": "slides" }
+    ],
+    "url": "/oos-ai-project-management/slides/",
+    "repository": "https://github.com/amnotyoung/oos-ai-project-management"
   }
 ]
