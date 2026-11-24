@@ -19,8 +19,7 @@ const filterLabels = {
   all: "전체",
   work: "업무 활용",
   claude: "Claude Code",
-  data: "데이터",
-  stats: "통계 분석",
+  data: "데이터·통계",
 };
 
 const searchAliases = [

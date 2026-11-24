@@ -54,7 +54,7 @@
     "audience": "ODA 데이터를 분석하고 결과를 검증해야 하는 실무자",
     "tags": ["ODA 데이터", "Python", "STATA", "인과추론"],
     "keywords": ["고급 통계", "통계 분석", "파이썬", "스타타", "세계은행", "WDI", "회귀 분석", "패널 데이터", "고정 효과", "머신러닝"],
-    "filters": ["work", "data", "stats"],
+    "filters": ["work", "data"],
     "modules": 5,
     "slides": 43,
     "stats": [

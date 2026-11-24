@@ -1,13 +1,6 @@
 {
   "projects": [
     {
-      "id": "trends",
-      "title": "KOICA 해외사무소별 개발협력 동향",
-      "description": "소재국·겸임국의 동향과 사업을 국가별 위키·그래프로 탐색",
-      "url": "/devcoop-trends-wiki/",
-      "meta": "동향·사업"
-    },
-    {
       "id": "map",
       "title": "개발협력 위치정보 지도",
       "description": "해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정",
