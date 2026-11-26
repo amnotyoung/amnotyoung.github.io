@@ -8,7 +8,8 @@ const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const { summaries } = read('data/home.json');
 const { projects, repositories } = read('data/collections.json');
-const courses = read('data/courses.json');
+const courseUpdates = read('data/course-updates.json');
+const courses = read('data/courses.json').map(course => ({...course, updatedAt:courseUpdates[course.id]}));
 for (const { id, updatedAt } of courses) {
   const date = new Date(updatedAt);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(updatedAt) || Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== updatedAt) {

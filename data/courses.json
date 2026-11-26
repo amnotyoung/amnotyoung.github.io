@@ -1,7 +1,10 @@
 [
   {
     "id": "koica-oos-ai-training",
-    "updatedAt": "2026-11-24",
+    "materials": {
+      "local": ["courses/koica/index.html", "courses/koica/chapter-data.js"],
+      "source": ["koica-oos-ai-data-training.html", "발표-슬라이드-내용.md", "participant-kit", ".participant-package-src", "assets"]
+    },
     "number": "01",
     "accent": "blue",
     "type": "집중 강의",
@@ -24,7 +27,10 @@
   },
   {
     "id": "lunch-time-claude-camp",
-    "updatedAt": "2026-08-03",
+    "materials": {
+      "local": ["courses/lunch-camp/index.html"],
+      "source": ["weeks", "pdf", "references", "index.html"]
+    },
     "number": "02",
     "accent": "acid",
     "type": "8주 과정",
@@ -47,7 +53,10 @@
   },
   {
     "id": "oda-ai-stats",
-    "updatedAt": "2026-08-03",
+    "materials": {
+      "local": ["courses/oda-ai-stats/index.html", "courses/oda-ai-stats/module-data.js"],
+      "source": ["slides", "handouts", "notebooks", "data", "stata", "stata-practice.zip"]
+    },
     "number": "03",
     "accent": "orange",
     "type": "통계 실무",
@@ -70,7 +79,10 @@
   },
   {
     "id": "ai-collaboration-session1",
-    "updatedAt": "2026-08-03",
+    "materials": {
+      "local": ["courses/ai-collaboration-session1/index.html"],
+      "source": ["materials", "slides"]
+    },
     "number": "04",
     "accent": "teal",
     "type": "읽기형 과정",
@@ -93,7 +105,9 @@
   },
   {
     "id": "github-onboarding",
-    "updatedAt": "2026-10-20",
+    "materials": {
+      "source": ["github-onboarding.md", "index.html", "lab.html", "lab.js", "demo.js", "slides.js", "workshop-*.mjs", "assets/demo", "assets/screens"]
+    },
     "number": "05",
     "accent": "acid",
     "type": "GitHub 입문",
@@ -116,7 +130,9 @@
   },
   {
     "id": "oos-ai-project-management",
-    "updatedAt": "2026-11-24",
+    "materials": {
+      "source": ["[0-9][0-9]_*.md", "slides", "sample_project", "의뢰부서_제출용", "수강생_배포용_실습패키지.zip"]
+    },
     "number": "06",
     "accent": "teal",
     "type": "3시간 실습",

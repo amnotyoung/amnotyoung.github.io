@@ -11,6 +11,7 @@
 홈 목록은 `data/courses.json`, `data/collections.json`에서 생성합니다. 짧은 소개는 `data/home.json`의 `summaries`에서 관리하며, 항목이 없으면 원래 설명을 사용합니다. 공개 도구는 공개 저장소 목록과 같은 데이터에서 가져옵니다. 배포 시 목록을 자동 생성합니다.
 
 ```sh
+python3 scripts/refresh-course-updates.py
 node scripts/build-home.mjs
 node scripts/build-collections.mjs
 node scripts/build-home.mjs --check
@@ -37,7 +38,9 @@ GitHub Pages 예약 배포가 매시간 사이트 누적 방문 횟수를 갱신
 
 새 강의는 `data/courses.json`에 항목을 추가하면 강의 아카이브 첫 화면에 자동으로 나타납니다.
 
-교육 탭은 `updatedAt`이 최근인 강의부터 표시합니다. 사이트의 강의 본문이나 연결된 원본 슬라이드·실습 자료를 공개하거나 수정할 때 해당 과정의 날짜를 한국 시간 기준 `YYYY-MM-DD`로 갱신합니다.
+교육 탭은 교재가 최근에 바뀐 강의부터 표시합니다. 사이트 배포와 매시간 예약 배포 때 원본 저장소 기본 브랜치와 이 사이트의 교재 이력을 읽고, 가장 최근 변경일을 한국 날짜로 환산합니다. 원본 조회에 실패하면 그 배포를 중단하고 직전 공개 목록을 유지합니다.
+
+강의를 등록할 때 `data/courses.json`의 `materials.source`에 원본 저장소의 교재 파일·폴더 또는 Git 경로 패턴을 지정합니다. 사이트에도 교재가 있으면 `materials.local`에 파일을 추가합니다. 로컬 HTML은 본문의 글과 자료 링크·이미지를 비교하므로 공통 메뉴 변경은 날짜에 영향을 주지 않습니다. 기존 경로 안에 추가한 자료는 자동으로 추적합니다. 결과 파일 `data/course-updates.json`은 스크립트가 생성하며, 오프라인 목록 빌드에서도 사용할 수 있습니다.
 
 필수 정보는 제목, 소개, 대상, 태그, 강의 URL, 저장소 URL, 강의 단위 수와 슬라이드 수입니다. `filters`에는 `work`, `claude`, `data`, `stats` 가운데 해당하는 값을 넣습니다.
 
