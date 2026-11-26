@@ -9,6 +9,13 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;',
 const { summaries } = read('data/home.json');
 const { projects, repositories } = read('data/collections.json');
 const courses = read('data/courses.json');
+for (const { id, updatedAt } of courses) {
+  const date = new Date(updatedAt);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(updatedAt) || Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== updatedAt) {
+    throw new Error(`Invalid course update date for ${id}: ${updatedAt}`);
+  }
+}
+courses.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
 const courseMeta = course => {
   const stat = ['weeks', 'chapters', 'modules', 'slides'].map(unit => course.stats?.find(stat => stat.label === unit)).find(Boolean);
   return stat ? `${stat.value}${{weeks:'주 과정',chapters:'개 장',modules:'개 모듈',slides:'개 슬라이드'}[stat.label]}` : course.type;
@@ -29,11 +36,14 @@ for (const [slug, records] of Object.entries(catalogs)) {
     if (ids.has(id) || !record.title || !record.description || !record.meta) throw new Error(`Invalid resource: ${id}`);
     ids.add(id);
     const description = summaries[record.id] ?? record.description;
+    const updated = record.type === 'course'
+      ? `<span>업데이트 <time datetime="${record.updatedAt}">${record.updatedAt.replaceAll('-', '.')}</time></span>`
+      : '';
     const search = [record.title,description,record.description,record.audience ?? '',record.meta,...(record.tags ?? []),...(record.keywords ?? [])].join(' ').toLocaleLowerCase('ko');
     const note = record.note ? `\n          <p class="resource-note">${escape(record.note)}</p>` : '';
     const secondary = record.secondary?.length ? `\n          <div class="resource-secondary">${record.secondary.map(item => link(item.url,item.label)).join(' ')}</div>` : '';
     return `        <article class="resource" data-resource-id="${escape(id)}" data-type="${record.type}" data-filters="${escape((record.filters ?? []).join(' '))}" data-search="${escape(search)}">
-          <div class="resource-meta"><span>${escape(record.meta)}</span></div>
+          <div class="resource-meta"><span>${escape(record.meta)}</span>${updated}</div>
           <h2>${link(record.url,record.title)}</h2>
           <p>${escape(description)}</p>${note}${secondary}
         </article>`;

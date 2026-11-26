@@ -1,6 +1,7 @@
 [
   {
     "id": "koica-oos-ai-training",
+    "updatedAt": "2026-11-24",
     "number": "01",
     "accent": "blue",
     "type": "집중 강의",
@@ -23,6 +24,7 @@
   },
   {
     "id": "lunch-time-claude-camp",
+    "updatedAt": "2026-08-03",
     "number": "02",
     "accent": "acid",
     "type": "8주 과정",
@@ -45,6 +47,7 @@
   },
   {
     "id": "oda-ai-stats",
+    "updatedAt": "2026-08-03",
     "number": "03",
     "accent": "orange",
     "type": "통계 실무",
@@ -67,6 +70,7 @@
   },
   {
     "id": "ai-collaboration-session1",
+    "updatedAt": "2026-08-03",
     "number": "04",
     "accent": "teal",
     "type": "읽기형 과정",
@@ -89,6 +93,7 @@
   },
   {
     "id": "github-onboarding",
+    "updatedAt": "2026-10-20",
     "number": "05",
     "accent": "acid",
     "type": "GitHub 입문",
@@ -111,6 +116,7 @@
   },
   {
     "id": "oos-ai-project-management",
+    "updatedAt": "2026-11-24",
     "number": "06",
     "accent": "teal",
     "type": "3시간 실습",
