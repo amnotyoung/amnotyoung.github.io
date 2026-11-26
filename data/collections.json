@@ -13,13 +13,6 @@
       "description": "국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인",
       "url": "/overseas-procurement-100/",
       "meta": "조달·건축"
-    },
-    {
-      "id": "construction",
-      "title": "KOICA 건축사업 사례 데이터",
-      "description": "2016–2025년 현지입찰 공고에 기반한 건축조사·사업비 교차검증 자료",
-      "url": "https://github.com/amnotyoung/koica-construction-tender",
-      "meta": "과거 공사비·GitHub"
     }
   ],
   "repositories": [
@@ -74,18 +67,6 @@
       ],
       "meta": "개발협력",
       "note": "",
-      "secondary": []
-    },
-    {
-      "id": "koica-construction-tender",
-      "title": "KOICA Construction Tender",
-      "description": "KOICA 건축사업의 유사사례·관련 공고·비용 근거 검색",
-      "url": "https://github.com/amnotyoung/koica-construction-tender",
-      "filters": [
-        "development"
-      ],
-      "meta": "개발협력",
-      "note": "과거 사례 단가는 미래 사업비의 직접 산정값이 아닙니다. 현지 QS·BOQ·시공사 견적과 물가·환율·세금·사업범위를 함께 검토해야 합니다.",
       "secondary": []
     },
     {

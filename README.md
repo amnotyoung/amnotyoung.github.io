@@ -27,7 +27,7 @@ node scripts/validate-view-counts.mjs
 ## 카테고리
 
 - AI·데이터 교육: <https://amnotyoung.github.io/courses/>
-- 개발협력·해외조달: 사업 위치 지도, 국가별 조달·건축 제도와 사례 데이터 <https://amnotyoung.github.io/development-cooperation/>
+- 개발협력·해외조달: 사업 위치 지도와 국가별 조달·건축 제도 <https://amnotyoung.github.io/development-cooperation/>
 
 ## 방문·조회 카운트
 
