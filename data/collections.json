@@ -2,6 +2,7 @@
   "projects": [
     {
       "id": "map",
+      "repository": "https://github.com/amnotyoung/oda-map-lab",
       "title": "개발협력 위치정보 지도",
       "description": "해외사무소·대사관·사업·봉사단 위치 검색과 정보 보정",
       "url": "/oda-map-lab/",
@@ -9,6 +10,7 @@
     },
     {
       "id": "procurement",
+      "repository": "https://github.com/amnotyoung/overseas-procurement-100",
       "title": "그 나라, 조달하고 건축하려면?",
       "description": "국가별 입찰·사업형성·건축 제도를 공식 근거와 함께 확인",
       "url": "/overseas-procurement-100/",

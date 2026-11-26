@@ -10,6 +10,8 @@
 
 홈 목록은 `data/courses.json`, `data/collections.json`에서 생성합니다. 짧은 소개는 `data/home.json`의 `summaries`에서 관리하며, 항목이 없으면 원래 설명을 사용합니다. 공개 도구는 공개 저장소 목록과 같은 데이터에서 가져옵니다. 배포 시 목록을 자동 생성합니다.
 
+매 배포와 매시간 예약 실행에서 GitHub의 저장소 공개 상태를 확인합니다. 비공개로 전환되거나 삭제된 저장소의 항목은 배포 사본의 홈·분야별 목록·검색 데이터에서 제외하고, 다시 공개되면 다음 배포에서 복원합니다. GitHub 주소와 보조 링크의 원본 저장소를 자동으로 확인하며, 별도 서비스 주소로 소개하는 프로젝트는 `repository`에 GitHub 원본 주소를 지정합니다. GitHub API의 일시적인 오류가 발생하면 현재 배포를 유지합니다.
+
 ```sh
 python3 scripts/refresh-course-updates.py
 node scripts/build-home.mjs

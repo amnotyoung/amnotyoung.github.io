@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const routes = ['/', '/courses/', '/development-cooperation/', '/open-source/'];
+const courses = JSON.parse(readFileSync(resolve(root, 'data/courses.json'), 'utf8'));
+const { projects, repositories } = JSON.parse(readFileSync(resolve(root, 'data/collections.json'), 'utf8'));
+const counts = { '/': courses.length + repositories.length, '/courses/': courses.length, '/development-cooperation/': projects.length, '/open-source/': repositories.length };
 for (const route of routes) {
   const html = readFileSync(resolve(root, `.${route}index.html`), 'utf8');
   for (const required of ['/home.css?v=any-v4','/home.js?v=any-v3','/assets/any/any-logo-mono-reference.jpg','aria-controls="main-nav"','href="/"','content="#ffffff"']) {
@@ -17,7 +20,7 @@ for (const route of routes) {
   if (/href="[^"\n]*(?:hub\.css|styles\.css)/.test(html)) throw new Error(`Legacy theme still loaded: ${route}`);
   if (html.includes('name="robots" content="noindex')) throw new Error(`Public page excluded from indexing: ${route}`);
   const resources = [...html.matchAll(/<article class="resource"[^>]*>([\s\S]*?)<\/article>/g)];
-  if (!resources.length) throw new Error(`No static resources: ${route}`);
+  if (resources.length !== counts[route]) throw new Error(`Unexpected resource count: ${route}`);
   for (const [,resource] of resources) {
     const urls = [...resource.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
     if (urls.length !== new Set(urls).size) throw new Error(`Duplicate destination within a resource on ${route}`);

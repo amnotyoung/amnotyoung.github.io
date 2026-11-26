@@ -33,21 +33,27 @@ jobs:
         with:
           node-version: 24
 
-      - name: Refresh public view counts on schedule
-        if: github.event_name == 'schedule'
-        run: node scripts/build-view-counts.mjs
+      - name: Prepare public Pages catalog
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/test-public-catalog.mjs
+          git worktree add --quiet --detach "$RUNNER_TEMP/public-site" HEAD
+          node scripts/filter-public-catalog.mjs "$RUNNER_TEMP/public-site"
 
-      - name: Refresh public view counts for content deployment
-        if: github.event_name != 'schedule'
+      - name: Refresh public view counts
+        working-directory: ${{ runner.temp }}/public-site
         run: node scripts/build-view-counts.mjs --allow-stale
 
       - name: Build homepage catalog
+        working-directory: ${{ runner.temp }}/public-site
         run: |
           python3 scripts/refresh-course-updates.py
           node scripts/build-home.mjs
           node scripts/build-collections.mjs
 
       - name: Validate site
+        working-directory: ${{ runner.temp }}/public-site
         run: |
           node scripts/build-home.mjs --check
           node scripts/build-collections.mjs --check
@@ -60,7 +66,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: ${{ runner.temp }}/public-site
 
       - name: Deploy
         id: deployment
