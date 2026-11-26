@@ -1,6 +1,6 @@
 # amnotyoung Open Archive
 
-공개 강의, 개발협력·조달·건축 프로젝트와 기술·사회 주간 칼럼을 목적별로 연결하는 사이트 대문입니다.
+공개 강의, 개발협력·조달·건축 프로젝트를 목적별로 연결하는 사이트 대문입니다.
 
 사이트: <https://amnotyoung.github.io/>
 
@@ -8,21 +8,18 @@
 
 [ANY 웹사이트 디자인 명세 초안](docs/design-web.md)은 브랜드 시각 원칙을 웹의 탐색·읽기·반응형 화면에 맞게 확장한 제안입니다. 공통 규칙과 사이트 적용안을 구분합니다. 홈에 v0.2의 색상·서체·간명성 원칙을 적용했습니다.
 
-홈 목록은 `data/courses.json`, `data/columns.json`, `data/collections.json`에서 생성합니다. 짧은 소개는 `data/home.json`의 `summaries`에서 관리하며, 항목이 없으면 원래 설명을 사용합니다. 공개 도구는 공개 저장소 목록과 같은 데이터에서 가져옵니다. 배포 시 목록을 자동 생성합니다.
+홈 목록은 `data/courses.json`, `data/collections.json`에서 생성합니다. 짧은 소개는 `data/home.json`의 `summaries`에서 관리하며, 항목이 없으면 원래 설명을 사용합니다. 공개 도구는 공개 저장소 목록과 같은 데이터에서 가져옵니다. 배포 시 목록을 자동 생성합니다.
 
 ```sh
 node scripts/build-home.mjs
 node scripts/build-collections.mjs
-node scripts/build-column-layouts.mjs
 node scripts/build-home.mjs --check
 node scripts/build-collections.mjs --check
-node scripts/build-column-layouts.mjs --check
 node scripts/validate-branding.mjs
-node scripts/validate-columns.mjs
 node scripts/validate-view-counts.mjs
 ```
 
-홈과 교육·개발협력·칼럼·공개 저장소 목록은 `home.css`, `home.js`의 공통 디자인·검색·메뉴를 사용합니다. 목록 전용 배치는 `collections.css`, 브랜드 자산은 `assets/any/`에 있습니다. 목록 데이터는 배포 시 `scripts/build-collections.mjs`로 갱신하며, 프로젝트·저장소 정보는 `data/collections.json`에서 관리합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
+홈과 교육·개발협력·공개 저장소 목록은 `home.css`, `home.js`의 공통 디자인·검색·메뉴를 사용합니다. 목록 전용 배치는 `collections.css`, 브랜드 자산은 `assets/any/`에 있습니다. 목록 데이터는 배포 시 `scripts/build-collections.mjs`로 갱신하며, 프로젝트·저장소 정보는 `data/collections.json`에서 관리합니다. `/design-preview/`는 검색 제외·카운터 없는 초기 시안입니다.
 
 교육 과정과 장·모듈 문서는 기존 학습 레이아웃 위에 `courses/learning-brand.css`와 `courses/learning-brand.js`를 로드합니다. 공통 헤더·모바일 메뉴·색상·서체·푸터는 이 두 파일에서 관리하고, KOICA·ODA 통계의 장 목차와 완료 상태는 각 과정 스크립트에서 유지합니다. 공통 자산은 상대경로로 참조해 개별 HTML 파일을 직접 열어도 표시되며, 이때 디렉터리 링크는 `index.html`로 연결됩니다.
 
@@ -30,19 +27,11 @@ node scripts/validate-view-counts.mjs
 
 - AI·데이터 교육: <https://amnotyoung.github.io/courses/>
 - 개발협력·해외조달: 사업 위치 지도, 국가별 조달·건축 제도와 사례 데이터 <https://amnotyoung.github.io/development-cooperation/>
-- 주간 칼럼: <https://amnotyoung.github.io/columns/>
-
-## 주간 칼럼 추가하기
-
-각 글은 `columns/YYYY-Www/index.html`의 `<article class="column-body">` 안에 작성하고 `data/columns.json`에 등록합니다. 배포 시 `scripts/build-column-layouts.mjs`가 과거·신규 칼럼 모두에 공통 헤더·읽기 스타일·목차·푸터를 적용합니다. 본문과 출처는 보존하며, 필요한 본문 구조가 없으면 배포가 실패합니다. 칼럼 목록과 홈은 메타데이터에서 자동 생성됩니다. 본문 스타일은 `columns/reader.css`, 모바일 목차는 `columns/reader.js`에서 공통 관리합니다. 기술과 사회, 조직, 국제개발협력을 한 주의 뉴스와 독서 관점으로
-연결하는 장문 원고를 싣습니다.
 
 ## 방문·조회 카운트
 
 모든 공개 페이지는 개인정보를 저장하지 않는 Hits 카운터로 사이트 누적 방문을 기록합니다.
-칼럼 글은 별도 경로로 조회를 기록하며, 칼럼 목록은 `data/pageviews.json`의 읽기 전용
-집계값만 표시해 목록 방문이 글 조회수에 포함되지 않도록 했습니다. GitHub Pages 예약 배포가
-매시간 공개 집계값을 갱신합니다. 표시 숫자는 고유 사용자 수가 아니라 누적 페이지 방문 횟수입니다.
+GitHub Pages 예약 배포가 매시간 사이트 누적 방문 횟수를 갱신합니다.
 
 ## AI·데이터 교육 과정 추가하기
 
@@ -60,5 +49,3 @@ node scripts/validate-view-counts.mjs
 - AI로 하는 사업 실행관리·보고 실무
 
 각 강의에는 웹에서 읽는 과정 페이지와 필요한 경우 기존 슬라이드·PDF로 이동하는 선택지가 함께 제공됩니다. KOICA 과정은 9개 장, ODA 통계 과정은 5개 모듈을 독립된 학습 문서로 제공하며, AI 협업 과정은 9개 모듈을 한 페이지에서 검색하고 골라 읽을 수 있습니다. 각 문서에는 개념 설명, 실제 데이터와 코드, 해석, 실습, 검증 체크리스트가 포함됩니다.
-
-칼럼 공유 썸네일은 `assets/any/columns-og-v2.png`를 사용합니다. 기존 `assets/columns-og.png` 경로에도 같은 이미지를 제공하며, 과거·신규 칼럼의 공유 메타데이터는 공통 레이아웃 빌드에서 현재 버전으로 통일합니다.

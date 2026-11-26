@@ -45,7 +45,6 @@ function hasCounterScript(html, pagePath) {
   return false;
 }
 
-const columns = JSON.parse(readText("data/columns.json"));
 const pageviews = JSON.parse(readText("data/pageviews.json"));
 
 for (const path of listHtmlFiles()) {
@@ -66,32 +65,8 @@ if (!readText("index.html").includes('data-view-count="site"')) {
   fail("Site visit count is absent from the home page.");
 }
 
-const archive = readText("columns/index.html");
-const expectedColumnIds = columns.map((column) => column.id).sort();
-const actualColumnIds = Object.keys(pageviews.columns ?? {}).sort();
-
-if (
-  pageviews.provider !== "hits.sh" ||
-  !Number.isSafeInteger(pageviews.site?.total) ||
-  pageviews.site.total < 0 ||
-  JSON.stringify(expectedColumnIds) !== JSON.stringify(actualColumnIds)
-) {
-  fail("Pageview metadata does not match the column catalog.");
+if (pageviews.provider !== "hits.sh" || !Number.isSafeInteger(pageviews.site?.total) || pageviews.site.total < 0) {
+  fail("Invalid site pageview metadata.");
 }
 
-for (const column of columns) {
-  const marker = `data-view-count="${column.id}"`;
-  if (!archive.includes(marker)) {
-    fail(`Archive view count is absent: ${column.id}`);
-  }
-  if (!readText(`columns/${column.id}/index.html`).includes(marker)) {
-    fail(`Article view count is absent: ${column.id}`);
-  }
-  if (!Number.isSafeInteger(pageviews.columns[column.id]?.total) || pageviews.columns[column.id].total < 0) {
-    fail(`Invalid pageview total: ${column.id}`);
-  }
-}
-
-process.stdout.write(
-  `${JSON.stringify({ status: "ok", html: listHtmlFiles().length, columns: columns.length })}\n`,
-);
+process.stdout.write(`${JSON.stringify({ status: "ok", html: listHtmlFiles().length })}\n`);

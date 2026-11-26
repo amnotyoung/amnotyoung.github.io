@@ -33,7 +33,7 @@ nav a:hover,.footer-links a:hover{text-decoration:underline}
 .button.primary:hover{background:#293b2d}
 .section-heading{margin-bottom:20px}
 .section-heading h2{font-size:24px}
-.entrance-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--forest);border-bottom:1px solid var(--line);padding-block:24px}
+.entrance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--forest);border-bottom:1px solid var(--line);padding-block:24px}
 .entrance{display:flex;flex-direction:column;padding:8px 28px;text-decoration:none}
 .entrance:first-child{padding-left:0}
 .entrance:last-child{padding-right:0}

@@ -9,14 +9,12 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;',
 const { summaries } = read('data/home.json');
 const { projects, repositories } = read('data/collections.json');
 const courses = read('data/courses.json');
-const columns = read('data/columns.json');
 const courseMeta = course => {
   const stat = ['weeks', 'chapters', 'modules', 'slides'].map(unit => course.stats?.find(stat => stat.label === unit)).find(Boolean);
   return stat ? `${stat.value}${{weeks:'주 과정',chapters:'개 장',modules:'개 모듈',slides:'개 슬라이드'}[stat.label]}` : course.type;
 };
 const catalogs = {
   courses: courses.map(course => ({...course, type:'course', meta:courseMeta(course), secondary:[{url:course.repository,label:'소스'}]})),
-  columns: columns.map(column => ({...column, type:'column', meta:column.published.replaceAll('-', '.')})),
   'development-cooperation': projects.map(project => ({...project,type:'project'})),
   'open-source': repositories.map(repository => ({...repository,type:'repository'})),
 };
@@ -32,13 +30,10 @@ for (const [slug, records] of Object.entries(catalogs)) {
     ids.add(id);
     const description = summaries[record.id] ?? record.description;
     const search = [record.title,description,record.description,record.audience ?? '',record.meta,...(record.tags ?? []),...(record.keywords ?? [])].join(' ').toLocaleLowerCase('ko');
-    const meta = record.type === 'column'
-      ? `<time datetime="${record.published}">${record.meta}</time><span>조회 <b data-view-count="${record.id}">—</b></span>`
-      : `<span>${escape(record.meta)}</span>`;
     const note = record.note ? `\n          <p class="resource-note">${escape(record.note)}</p>` : '';
     const secondary = record.secondary?.length ? `\n          <div class="resource-secondary">${record.secondary.map(item => link(item.url,item.label)).join(' ')}</div>` : '';
     return `        <article class="resource" data-resource-id="${escape(id)}" data-type="${record.type}" data-filters="${escape((record.filters ?? []).join(' '))}" data-search="${escape(search)}">
-          <div class="resource-meta">${meta}</div>
+          <div class="resource-meta"><span>${escape(record.meta)}</span></div>
           <h2>${link(record.url,record.title)}</h2>
           <p>${escape(description)}</p>${note}${secondary}
         </article>`;

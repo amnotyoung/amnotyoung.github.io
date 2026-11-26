@@ -6,7 +6,6 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const courses = read('data/courses.json');
-const columns = read('data/columns.json');
 const { repositories } = read('data/collections.json');
 const { summaries } = read('data/home.json');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -17,7 +16,6 @@ const courseMeta = course => {
 };
 const records = [
   ...courses.map(course => ({...course, type:'course', label:'교육', meta:courseMeta(course)})),
-  ...columns.map(column => ({...column, type:'column', label:'칼럼', meta:column.published.replaceAll('-', '.')})),
   ...repositories.map(repository => ({...repository, type:'tool', label:'공개 도구'})),
 ];
 const ids = new Set();
@@ -50,4 +48,4 @@ if (process.argv.includes('--check')) {
 } else if (after !== before) {
   writeFileSync(path, after);
 }
-console.log(JSON.stringify({status:'ok', resources:records.length, courses:courses.length, columns:columns.length}));
+console.log(JSON.stringify({status:'ok', resources:records.length, courses:courses.length}));
